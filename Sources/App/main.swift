@@ -19,11 +19,12 @@ drop.preparations.append(Pivot<Trip, User>.self)
 // MARK: Welcome
 
 drop.get { req in
-    let trips = try Trip.query().all()
-    return try drop.view.make("welcome", [
-    	"message": "Welcome!",
-        "trips": trips.makeNode()
-    ])
+    var newTrip = Trip(name: "", info: "")
+    try newTrip.save()
+    return try drop.view.make("trip", [
+        "message": "Welcome!",
+        "trip": newTrip.makeNode()
+        ])
 }
 
 // MARK: Trip Html
@@ -35,16 +36,10 @@ drop.get("id", String.self) { req, uid in
     let trips = try Trip.query().all()
     return try drop.view.make("trip", [
         "message": "Welcome!",
-        "trips": trips.makeNode(),
         "trip": trip.makeNode()
         ])
-}
-
-drop.get("trip/add") { req in
-    var newTrip = Trip(name: "", info: "")
-    let trips = try Trip.query().all()
-    try newTrip.save()
-    return Response(redirect: "/id/\(newTrip.uid)")
+    
+    //     return Response(redirect: "/id/\(newTrip.uid)")
 }
 
 // MARK: Trip API
