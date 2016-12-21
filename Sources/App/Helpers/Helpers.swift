@@ -40,12 +40,12 @@ public func genUid(len: Int = 6) -> String {
 // 62^16 = 4.76 e+28
 public func randomStringWithLength(len: Int) -> String {
     
-    let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     
-    let randomString : NSMutableString = NSMutableString(capacity: len)
+    var randomString = ""
     
     for _ in  0..<len {
-        let max = letters.length
+        let max = letters.count
         var idx = 0
         // Currently linux doesn't support arc4random https://bugs.swift.org/browse/SR-685
         #if os(Linux)
@@ -53,9 +53,10 @@ public func randomStringWithLength(len: Int) -> String {
         #else
             idx = Int(arc4random_uniform(UInt32(max)))
         #endif
-        randomString.appendFormat("%C", letters.character(at: idx))
+        let index = letters.index(letters.startIndex, offsetBy: idx)
+        randomString += String(letters[index])
     }
     
-    return randomString as String
+    return randomString
 }
 
