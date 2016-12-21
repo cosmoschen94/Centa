@@ -47,6 +47,7 @@ public func randomStringWithLength(len: Int) -> String {
     for _ in  0..<len {
         let max = letters.length
         var idx = 0
+        // Currently linux doesn't support arc4random https://bugs.swift.org/browse/SR-685
         #if os(Linux)
             idx = Int(random() % (max + 1))
         #else
