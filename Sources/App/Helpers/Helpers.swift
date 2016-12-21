@@ -45,9 +45,14 @@ public func randomStringWithLength(len: Int) -> String {
     let randomString : NSMutableString = NSMutableString(capacity: len)
     
     for _ in  0..<len {
-        let length = UInt32 (letters.length)
-        let rand = arc4random_uniform(length)
-        randomString.appendFormat("%C", letters.character(at: Int(rand)))
+        let max = UInt32(letters.length)
+        var idx = 0
+        #if os(Linux)
+            idx = Int(random() % (max + 1))
+        #else
+            idx = Int(arc4random_uniform(UInt32(max)))
+        #endif
+        randomString.appendFormat("%C", letters.character(at: idx))
     }
     
     return randomString as String
