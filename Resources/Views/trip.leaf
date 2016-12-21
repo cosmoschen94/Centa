@@ -1,0 +1,21 @@
+#extend("base")
+
+#export("head") {
+<title>#(name)</title>
+}
+
+#export("body") {
+<div class="body">
+    <div id="main"></div>
+    <script src="/elm/main.js"></script>
+    <script>
+       var node = document.getElementById('main');
+       var app = Elm.Main.embed(node, {
+                                 uid: '#(trip.uid)',
+                                 name: '#(trip.name)',
+                                 info: '#(trip.info)'
+                                 });
+    </script>
+</div>
+}
+

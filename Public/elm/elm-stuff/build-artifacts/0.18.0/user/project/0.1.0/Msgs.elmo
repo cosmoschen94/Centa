@@ -1,0 +1,14 @@
+var _user$project$Msgs$UpdateTrip = function (a) {
+	return {ctor: 'UpdateTrip', _0: a};
+};
+var _user$project$Msgs$FetchTrip = function (a) {
+	return {ctor: 'FetchTrip', _0: a};
+};
+var _user$project$Msgs$Save = {ctor: 'Save'};
+var _user$project$Msgs$Reset = {ctor: 'Reset'};
+var _user$project$Msgs$Info = function (a) {
+	return {ctor: 'Info', _0: a};
+};
+var _user$project$Msgs$Name = function (a) {
+	return {ctor: 'Name', _0: a};
+};

@@ -1,0 +1,5 @@
+module CLibreSSL {
+    umbrella header "/Users/shawngong/gdrive/dev/web/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/CLibreSSL.h"
+    link "CLibreSSL"
+    export *
+}
