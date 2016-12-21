@@ -19,11 +19,9 @@ drop.preparations.append(Pivot<Trip, User>.self)
 // MARK: Welcome
 
 drop.get { req in
-    var newTrip = Trip(name: "", info: "")
-    try newTrip.save()
     return try drop.view.make("trip", [
         "message": "Welcome!",
-        "trip": newTrip.makeNode()
+        "trip": Trip(name: "", info: "").makeNode()
         ])
 }
 
