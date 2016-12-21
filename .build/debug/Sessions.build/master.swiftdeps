@@ -1,0 +1,10 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "90d9c590dbae75e5ef038a66df05af0f"
+build_time: [535618005, 965507000]
+inputs:
+  "/Users/shawngong/Centa/Packages/Vapor-1.3.1/Sources/Sessions/CacheSessions.swift": [535617933, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.3.1/Sources/Sessions/MemorySessions.swift": [535617933, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.3.1/Sources/Sessions/Request+Session.swift": [535617933, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.3.1/Sources/Sessions/Session.swift": [535617933, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.3.1/Sources/Sessions/SessionsMiddleware.swift": [535617933, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.3.1/Sources/Sessions/SessionsProtocol.swift": [535617933, 0]

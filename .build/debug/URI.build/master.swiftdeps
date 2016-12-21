@@ -1,0 +1,14 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "f18de50c3e8bbd7e147c3c66b12b0614"
+build_time: [535617998, 253288000]
+inputs:
+  "/Users/shawngong/Centa/Packages/Engine-1.3.4/Sources/URI/PercentDecoding.swift": [535617953, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.4/Sources/URI/Model/URI+Byte.swift": [535617953, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.4/Sources/URI/Model/URI+Modification.swift": [535617953, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.4/Sources/URI/Model/URI+Ports.swift": [535617953, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.4/Sources/URI/Model/URI+String.swift": [535617953, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.4/Sources/URI/Model/URI.swift": [535617953, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.4/Sources/URI/Parser/Parser+Components.swift": [535617953, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.4/Sources/URI/Parser/Parser+Public.swift": [535617953, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.4/Sources/URI/Parser/Parser+SubComponents.swift": [535617953, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.4/Sources/URI/Parser/Parser.swift": [535617953, 0]

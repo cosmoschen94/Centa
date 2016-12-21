@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/libc.build/master.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/Core-1.0.0/Sources/libc/libc.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/libc.build/libc.d",
+    "object": "/Users/shawngong/Centa/.build/debug/libc.build/libc.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/libc.build/libc~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/libc.build/libc.swiftdeps"
+  }
+}

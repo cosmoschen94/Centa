@@ -1,0 +1,12 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "3523ddc9cd15b701f05346e713af8c0c"
+build_time: [535617995, 454245000]
+inputs:
+  "/Users/shawngong/Centa/Packages/Fluent-1.2.0/Sources/FluentTester/Atom.swift": [535617946, 0]
+  "/Users/shawngong/Centa/Packages/Fluent-1.2.0/Sources/FluentTester/Compound.swift": [535617946, 0]
+  "/Users/shawngong/Centa/Packages/Fluent-1.2.0/Sources/FluentTester/Student.swift": [535617946, 0]
+  "/Users/shawngong/Centa/Packages/Fluent-1.2.0/Sources/FluentTester/Tester+InsertAndFind.swift": [535617946, 0]
+  "/Users/shawngong/Centa/Packages/Fluent-1.2.0/Sources/FluentTester/Tester+PivotsAndRelations.swift": [535617946, 0]
+  "/Users/shawngong/Centa/Packages/Fluent-1.2.0/Sources/FluentTester/Tester+Schema.swift": [535617946, 0]
+  "/Users/shawngong/Centa/Packages/Fluent-1.2.0/Sources/FluentTester/Tester+Utilities.swift": [535617946, 0]
+  "/Users/shawngong/Centa/Packages/Fluent-1.2.0/Sources/FluentTester/Tester.swift": [535617946, 0]

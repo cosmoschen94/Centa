@@ -1,0 +1,17 @@
+{
+  "": {
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/FluentPostgreSQL.build/master.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/FluentPostgreSQL-1.0.4/Sources/FluentPostgreSQL/PostgreSQLDriver.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/FluentPostgreSQL.build/PostgreSQLDriver.d",
+    "object": "/Users/shawngong/Centa/.build/debug/FluentPostgreSQL.build/PostgreSQLDriver.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/FluentPostgreSQL.build/PostgreSQLDriver~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/FluentPostgreSQL.build/PostgreSQLDriver.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/FluentPostgreSQL-1.0.4/Sources/FluentPostgreSQL/PostgreSQLSerializer.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/FluentPostgreSQL.build/PostgreSQLSerializer.d",
+    "object": "/Users/shawngong/Centa/.build/debug/FluentPostgreSQL.build/PostgreSQLSerializer.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/FluentPostgreSQL.build/PostgreSQLSerializer~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/FluentPostgreSQL.build/PostgreSQLSerializer.swiftdeps"
+  }
+}

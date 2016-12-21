@@ -1,0 +1,12 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "9d593f659ee682b7392687f9fc98dc2a"
+build_time: [535617993, 807294000]
+inputs:
+  "/Users/shawngong/Centa/Packages/JSON-1.0.2/Sources/JSON/JSON+Bytes.swift": [535617962, 0]
+  "/Users/shawngong/Centa/Packages/JSON-1.0.2/Sources/JSON/JSON+Equatable.swift": [535617962, 0]
+  "/Users/shawngong/Centa/Packages/JSON-1.0.2/Sources/JSON/JSON+Node.swift": [535617962, 0]
+  "/Users/shawngong/Centa/Packages/JSON-1.0.2/Sources/JSON/JSON+Parse.swift": [535617962, 0]
+  "/Users/shawngong/Centa/Packages/JSON-1.0.2/Sources/JSON/JSON+Serialize.swift": [535617962, 0]
+  "/Users/shawngong/Centa/Packages/JSON-1.0.2/Sources/JSON/JSON.swift": [535617962, 0]
+  "/Users/shawngong/Centa/Packages/JSON-1.0.2/Sources/JSON/JSONRepresentable.swift": [535617962, 0]
+  "/Users/shawngong/Centa/Packages/JSON-1.0.2/Sources/JSON/Sequence+Convertible.swift": [535617962, 0]

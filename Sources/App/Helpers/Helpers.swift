@@ -45,7 +45,7 @@ public func randomStringWithLength(len: Int) -> String {
     let randomString : NSMutableString = NSMutableString(capacity: len)
     
     for _ in  0..<len {
-        let max = UInt32(letters.length)
+        let max = letters.length
         var idx = 0
         #if os(Linux)
             idx = Int(random() % (max + 1))
