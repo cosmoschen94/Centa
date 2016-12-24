@@ -30,6 +30,11 @@ final class Trip: Model {
             "info": info
             ])
     }
+    
+    func merge(from trip: Trip) {
+        name = trip.name
+        info = trip.info
+    }
 }
 
 extension Trip {

@@ -73,12 +73,20 @@ drop.get("api", "trip", String.self) { req, uid in
 drop.post("api", "trip") { req in
     print("post path:\(req.uri.path)")
     
+    // Validate json input
     guard let tripJson = req.json else {
         assertionFailure("trip no json:\(req.body)")
         throw Abort.badRequest
     }
     var trip = try Trip(node: tripJson)
     print("trip:\(trip)")
+    
+    // Check existing trip to update
+    if let existingTrip = try Trip.query().filter("uid", trip.uid).first() {
+        print("existing - update")
+        existingTrip.merge(from: trip)
+        trip = existingTrip
+    }
     
     try trip.save()
     
