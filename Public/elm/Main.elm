@@ -188,7 +188,7 @@ update msg model =
                     | uid = uid
                     , name = t.name
                     , info = t.info
-                    , isNew = False
+                    , isNew = String.isEmpty t.name
                 }
                     ! []
 
@@ -220,7 +220,7 @@ update msg model =
                 | trips =
                     case List.head (List.filter (\t -> t.uid == model.uid) model.trips) of
                         Nothing ->
-                            model.trips ++ [ newTrip model.uid model.name model.info ]
+                            [ newTrip model.uid model.name model.info ] ++ model.trips
                             
                         Just val ->
                             model.trips
@@ -265,7 +265,7 @@ update msg model =
         NewUid newUid ->
             { model 
                 | uid = newUid
-                , trips = model.trips ++ [ newTrip newUid model.name model.info ]
+                , trips = [ newTrip newUid model.name model.info ] ++ model.trips
             } 
                 ! []
 
@@ -273,26 +273,34 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ section [ class "trip-info" ]
-            [ label [] [ text ("Trip ID:" ++ model.uid ++ " isNew:" ++ (if model.isNew then "true" else "false")) ]
-            , input [ placeholder "Enter Name...", value (model.name), onInput Name, nameStyle ] []
-            , br [] []
-            , br [] []
-            , textarea [ cols 40, rows 10, placeholder "Info...", value (model.info), onInput Info, infoStyle ] []
-            , button [ onClick Reset ] [ text "Reset" ]
-            , button [ onClick Save, disabled (String.isEmpty model.name) ] [ text "Save" ]
+    div [ class "m-x-auto" ]
+        [ div [ class "container" ]
+            [ div [ class "row" ]
+                [ div [ class "col-sm-8" ]
+                    [ section [ class "trip-info" ]
+                        [ label [] [ text ("Share URL: id/" ++ model.uid ++ " isNew:" ++ (if model.isNew then "true" else "false")) ]
+                        , input [ placeholder "Enter Name...", value (model.name), onInput Name, nameStyle ] []
+                        , br [] []
+                        , br [] []
+                        , textarea [ cols 40, rows 10, placeholder "Info...", value (model.info), onInput Info, infoStyle ] []
+                        , div [ class "btn-group" ]
+                            [ button [ onClick Reset, class "btn btn-secondary ml-3 mr-1", disabled model.isNew ] [ text "Reset" ]
+                            , button [ onClick Save, class "btn btn-primary ml-1 mr-3", disabled (String.isEmpty model.name) ] [ text "Save" ]
+                            ]
+                        ]
+                    ]
+                , div [ class "col-sm-4" ]
+                    [ section [ class "all-tirps" ]
+                        [ label [] [ text "Upcoming Trips" ]
+                        , br [] []
+                        , button [ onClick Add, class "btn-block btn btn-success", disabled model.isNew ] [ text "Add New" ]
+                        , br [] []
+                        , lazy viewTrips model.trips 
+                        ]
+                    ]
+                ]
+            , infoFooter
             ]
-        , br [] []
-        , section [ class "all-tirps" ]
-            [ label [] [ text "Upcoming Trips" ]
-            , span [] [ text " " ]
-            , button [ onClick Add, disabled model.isNew ] [ text "Add New" ]
-            , br [] []
-            , br [] []
-            , lazy viewTrips model.trips 
-            ]
-        , infoFooter
         ]
 
 -- VIEW TRIPS
@@ -312,14 +320,24 @@ viewKeyedTrip trip =
 
 viewTrip : Trip -> Html Msg
 viewTrip trip =
-    let title = 
-        if String.isEmpty trip.name then
-            "Unsaved"
-        else
-            trip.name
+    let 
+        nameEmpty = String.isEmpty trip.name
+
+        title = 
+            if nameEmpty then
+                "Unsaved New Trip"
+            else
+                trip.name
 
     in
-        button [ onClick (Edit trip.uid) ]
+        button 
+            [ onClick (Edit trip.uid)
+            , classList
+                [ ("btn-block", True)
+                , ("btn btn-outline-danger", nameEmpty)
+                , ("btn btn-outline-info", not nameEmpty)
+                ]
+            ]
             [ text (title) ]
 
 -- VIEW MISC
