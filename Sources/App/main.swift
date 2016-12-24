@@ -16,51 +16,60 @@ drop.preparations.append(Trip.self)
 drop.preparations.append(User.self)
 drop.preparations.append(Pivot<Trip, User>.self)
 
-// MARK: Welcome
+// MARK: Http
+
+var redirectToTrip: Trip?
 
 drop.get { req in
+    let trip: Trip
+    if let targetTrip = redirectToTrip {
+        trip = targetTrip
+        redirectToTrip = nil
+    } else {
+        trip = Trip(name: "", info: "")
+    }
     return try drop.view.make("trip", [
         "message": "Welcome!",
-        "trip": Trip(name: "", info: "").makeNode()
+        "trip": trip.makeNode()
         ])
 }
-
-// MARK: Trip Html
 
 drop.get("id", String.self) { req, uid in
     guard let trip = try Trip.query().filter("uid", uid).first() else {
         throw Abort.notFound
     }
-    let trips = try Trip.query().all()
-    return try drop.view.make("trip", [
-        "message": "Welcome!",
-        "trip": trip.makeNode()
-        ])
-    
-    //     return Response(redirect: "/id/\(newTrip.uid)")
+    redirectToTrip = trip
+    return Response(redirect: "/")
 }
 
-// MARK: Trip API
+// MARK: API
 
 drop.get("api", "trips") { req in
     print("path:\(req.uri.path)")
    
     let trips = try Trip.query().all()
     
+    print("trips count:\(trips.count)")
+    
     return try trips.makeNode().converted(to: JSON.self)
 }
 
 drop.get("api", "trip", String.self) { req, uid in
+    print("path:\(req.uri.path)")
+    
     guard let trip = try Trip.query().filter("uid", uid).first() else {
         throw Abort.notFound
     }
+    
+    print("trip:\(trip)")
     
     return try trip.makeNode().converted(to: JSON.self)
 }
 
 // Upsert trip
 drop.post("api", "trip") { req in
-    print("post api trip req:\(req)")
+    print("post path:\(req.uri.path)")
+    
     guard let tripJson = req.json else {
         assertionFailure("trip no json:\(req.body)")
         throw Abort.badRequest

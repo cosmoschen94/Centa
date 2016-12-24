@@ -146,6 +146,7 @@ type Msg
     | Save
 
     | FetchTrips (Result Http.Error (List Trip))
+    | AddCurTripIfNeeded 
 
     | FetchTrip (Result Http.Error Trip)
     | UpdateTrip (Result Http.Error Trip)
@@ -201,12 +202,27 @@ update msg model =
         FetchTrips (Ok trips) ->
             let _ = Debug.log "FetchTrips ok" trips
             in
-                { model | trips = trips } ! []
+                { model | trips = trips }
+                |> update AddCurTripIfNeeded
+                    --! []
+                    --! [ AddCurTripIfNeeded ]
 
         FetchTrips (Err err) ->
             let _ = Debug.log "FetchTrips err" err
             in 
             (model, Cmd.none)
+
+        AddCurTripIfNeeded ->
+            { model
+                | trips =
+                    case List.head (List.filter (\t -> t.uid == model.uid) model.trips) of
+                        Nothing ->
+                            model.trips ++ [ newTrip model.uid model.name model.info ]
+                            
+                        Just val ->
+                            model.trips
+            }
+                ! []
 
         FetchTrip (Ok trip) ->
             let _ = Debug.log "FetchTrip ok" trip
@@ -293,8 +309,15 @@ viewKeyedTrip trip =
 
 viewTrip : Trip -> Html Msg
 viewTrip trip =
-    button [ onClick (Edit trip.uid) ]
-        [ text (trip.name) ]
+    let title = 
+        if String.isEmpty trip.name then
+            "Unsaved"
+        else
+            trip.name
+
+    in
+        button [ onClick (Edit trip.uid) ]
+            [ text (title) ]
 
 -- VIEW MISC
 

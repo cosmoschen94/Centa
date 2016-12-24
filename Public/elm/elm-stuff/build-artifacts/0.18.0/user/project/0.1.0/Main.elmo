@@ -178,155 +178,189 @@ var _user$project$Main$fetchTrip = function (uid) {
 		A2(_elm_lang$core$Basics_ops['++'], 'fetchTrip uid:', uid));
 	return A2(_elm_lang$http$Http$send, _user$project$Main$FetchTrip, request);
 };
+var _user$project$Main$AddCurTripIfNeeded = {ctor: 'AddCurTripIfNeeded'};
 var _user$project$Main$update = F2(
 	function (msg, model) {
-		var _p4 = msg;
-		switch (_p4.ctor) {
-			case 'NoOp':
-				return A2(
-					_elm_lang$core$Platform_Cmd_ops['!'],
-					model,
-					{ctor: '[]'});
-			case 'Add':
-				return A2(
-					_elm_lang$core$Platform_Cmd_ops['!'],
-					_elm_lang$core$Native_Utils.update(
+		update:
+		while (true) {
+			var _p4 = msg;
+			switch (_p4.ctor) {
+				case 'NoOp':
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
 						model,
-						{uid: '', name: '', info: '', trips: model.trips}),
-					{
-						ctor: '::',
-						_0: A2(
-							_elm_lang$core$Random$generate,
-							_user$project$Main$NewUid,
-							A2(_elm_community$random_extra$Random_String$string, 6, _elm_community$random_extra$Random_Char$english)),
-						_1: {ctor: '[]'}
-					});
-			case 'Delete':
-				return A2(
-					_elm_lang$core$Platform_Cmd_ops['!'],
-					_elm_lang$core$Native_Utils.update(
-						model,
+						{ctor: '[]'});
+				case 'Add':
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_elm_lang$core$Native_Utils.update(
+							model,
+							{uid: '', name: '', info: '', trips: model.trips}),
 						{
-							trips: A2(
-								_elm_lang$core$List$filter,
-								function (t) {
-									return !_elm_lang$core$Native_Utils.eq(t.uid, _p4._0);
-								},
-								model.trips)
-						}),
-					{ctor: '[]'});
-			case 'Edit':
-				var _p5 = _p4._0;
-				var t = A2(
-					_elm_lang$core$Maybe$withDefault,
-					{uid: 'efg', name: '', info: ''},
-					_elm_lang$core$List$head(
-						A2(
-							_elm_lang$core$List$filter,
-							function (t) {
-								return _elm_lang$core$Native_Utils.eq(t.uid, _p5);
-							},
-							model.trips)));
-				return A2(
-					_elm_lang$core$Platform_Cmd_ops['!'],
-					_elm_lang$core$Native_Utils.update(
-						model,
-						{uid: _p5, name: t.name, info: t.info}),
-					{ctor: '[]'});
-			case 'Name':
-				return A2(
-					_elm_lang$core$Platform_Cmd_ops['!'],
-					_elm_lang$core$Native_Utils.update(
-						model,
-						{name: _p4._0}),
-					{ctor: '[]'});
-			case 'Info':
-				return A2(
-					_elm_lang$core$Platform_Cmd_ops['!'],
-					_elm_lang$core$Native_Utils.update(
-						model,
-						{info: _p4._0}),
-					{ctor: '[]'});
-			case 'Reset':
-				return {
-					ctor: '_Tuple2',
-					_0: model,
-					_1: _user$project$Main$fetchTrip(model.uid)
-				};
-			case 'Save':
-				return {
-					ctor: '_Tuple2',
-					_0: model,
-					_1: _user$project$Main$updateTrip(
-						A3(_user$project$Main$Trip, model.uid, model.name, model.info))
-				};
-			case 'FetchTrips':
-				if (_p4._0.ctor === 'Ok') {
-					var _p7 = _p4._0._0;
-					var _p6 = A2(_elm_lang$core$Debug$log, 'FetchTrips ok', _p7);
-					return A2(
-						_elm_lang$core$Platform_Cmd_ops['!'],
-						_elm_lang$core$Native_Utils.update(
-							model,
-							{trips: _p7}),
-						{ctor: '[]'});
-				} else {
-					var _p8 = A2(_elm_lang$core$Debug$log, 'FetchTrips err', _p4._0._0);
-					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-				}
-			case 'FetchTrip':
-				if (_p4._0.ctor === 'Ok') {
-					var _p10 = _p4._0._0;
-					var _p9 = A2(_elm_lang$core$Debug$log, 'FetchTrip ok', _p10);
-					return A2(
-						_elm_lang$core$Platform_Cmd_ops['!'],
-						_elm_lang$core$Native_Utils.update(
-							model,
-							{uid: _p10.uid, name: _p10.name, info: _p10.info}),
-						{ctor: '[]'});
-				} else {
-					var _p11 = A2(_elm_lang$core$Debug$log, 'FetchTrip err', _p4._0._0);
-					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-				}
-			case 'UpdateTrip':
-				if (_p4._0.ctor === 'Ok') {
-					var _p13 = _p4._0._0;
-					var updateTrip = function (t) {
-						return _elm_lang$core$Native_Utils.eq(t.uid, _p13.uid) ? _elm_lang$core$Native_Utils.update(
-							t,
-							{name: _p13.name, info: _p13.info}) : t;
-					};
-					var _p12 = A2(_elm_lang$core$Debug$log, 'UpdateTrip ok', _p13);
+							ctor: '::',
+							_0: A2(
+								_elm_lang$core$Random$generate,
+								_user$project$Main$NewUid,
+								A2(_elm_community$random_extra$Random_String$string, 6, _elm_community$random_extra$Random_Char$english)),
+							_1: {ctor: '[]'}
+						});
+				case 'Delete':
 					return A2(
 						_elm_lang$core$Platform_Cmd_ops['!'],
 						_elm_lang$core$Native_Utils.update(
 							model,
 							{
-								trips: A2(_elm_lang$core$List$map, updateTrip, model.trips)
+								trips: A2(
+									_elm_lang$core$List$filter,
+									function (t) {
+										return !_elm_lang$core$Native_Utils.eq(t.uid, _p4._0);
+									},
+									model.trips)
 							}),
 						{ctor: '[]'});
-				} else {
-					var _p14 = A2(_elm_lang$core$Debug$log, 'UpdateTrip err', _p4._0._0);
-					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-				}
-			default:
-				var _p15 = _p4._0;
-				return A2(
-					_elm_lang$core$Platform_Cmd_ops['!'],
-					_elm_lang$core$Native_Utils.update(
-						model,
-						{
-							uid: _p15,
-							trips: A2(
-								_elm_lang$core$Basics_ops['++'],
-								model.trips,
+				case 'Edit':
+					var _p5 = _p4._0;
+					var t = A2(
+						_elm_lang$core$Maybe$withDefault,
+						{uid: 'efg', name: '', info: ''},
+						_elm_lang$core$List$head(
+							A2(
+								_elm_lang$core$List$filter,
+								function (t) {
+									return _elm_lang$core$Native_Utils.eq(t.uid, _p5);
+								},
+								model.trips)));
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_elm_lang$core$Native_Utils.update(
+							model,
+							{uid: _p5, name: t.name, info: t.info}),
+						{ctor: '[]'});
+				case 'Name':
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_elm_lang$core$Native_Utils.update(
+							model,
+							{name: _p4._0}),
+						{ctor: '[]'});
+				case 'Info':
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_elm_lang$core$Native_Utils.update(
+							model,
+							{info: _p4._0}),
+						{ctor: '[]'});
+				case 'Reset':
+					return {
+						ctor: '_Tuple2',
+						_0: model,
+						_1: _user$project$Main$fetchTrip(model.uid)
+					};
+				case 'Save':
+					return {
+						ctor: '_Tuple2',
+						_0: model,
+						_1: _user$project$Main$updateTrip(
+							A3(_user$project$Main$Trip, model.uid, model.name, model.info))
+					};
+				case 'FetchTrips':
+					if (_p4._0.ctor === 'Ok') {
+						var _p7 = _p4._0._0;
+						var _p6 = A2(_elm_lang$core$Debug$log, 'FetchTrips ok', _p7);
+						var _v1 = _user$project$Main$AddCurTripIfNeeded,
+							_v2 = _elm_lang$core$Native_Utils.update(
+							model,
+							{trips: _p7});
+						msg = _v1;
+						model = _v2;
+						continue update;
+					} else {
+						var _p8 = A2(_elm_lang$core$Debug$log, 'FetchTrips err', _p4._0._0);
+						return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+					}
+				case 'AddCurTripIfNeeded':
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_elm_lang$core$Native_Utils.update(
+							model,
+							{
+								trips: function () {
+									var _p9 = _elm_lang$core$List$head(
+										A2(
+											_elm_lang$core$List$filter,
+											function (t) {
+												return _elm_lang$core$Native_Utils.eq(t.uid, model.uid);
+											},
+											model.trips));
+									if (_p9.ctor === 'Nothing') {
+										return A2(
+											_elm_lang$core$Basics_ops['++'],
+											model.trips,
+											{
+												ctor: '::',
+												_0: A3(_user$project$Main$newTrip, model.uid, model.name, model.info),
+												_1: {ctor: '[]'}
+											});
+									} else {
+										return model.trips;
+									}
+								}()
+							}),
+						{ctor: '[]'});
+				case 'FetchTrip':
+					if (_p4._0.ctor === 'Ok') {
+						var _p11 = _p4._0._0;
+						var _p10 = A2(_elm_lang$core$Debug$log, 'FetchTrip ok', _p11);
+						return A2(
+							_elm_lang$core$Platform_Cmd_ops['!'],
+							_elm_lang$core$Native_Utils.update(
+								model,
+								{uid: _p11.uid, name: _p11.name, info: _p11.info}),
+							{ctor: '[]'});
+					} else {
+						var _p12 = A2(_elm_lang$core$Debug$log, 'FetchTrip err', _p4._0._0);
+						return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+					}
+				case 'UpdateTrip':
+					if (_p4._0.ctor === 'Ok') {
+						var _p14 = _p4._0._0;
+						var updateTrip = function (t) {
+							return _elm_lang$core$Native_Utils.eq(t.uid, _p14.uid) ? _elm_lang$core$Native_Utils.update(
+								t,
+								{name: _p14.name, info: _p14.info}) : t;
+						};
+						var _p13 = A2(_elm_lang$core$Debug$log, 'UpdateTrip ok', _p14);
+						return A2(
+							_elm_lang$core$Platform_Cmd_ops['!'],
+							_elm_lang$core$Native_Utils.update(
+								model,
 								{
-									ctor: '::',
-									_0: A3(_user$project$Main$newTrip, _p15, model.name, model.info),
-									_1: {ctor: '[]'}
-								})
-						}),
-					{ctor: '[]'});
+									trips: A2(_elm_lang$core$List$map, updateTrip, model.trips)
+								}),
+							{ctor: '[]'});
+					} else {
+						var _p15 = A2(_elm_lang$core$Debug$log, 'UpdateTrip err', _p4._0._0);
+						return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+					}
+				default:
+					var _p16 = _p4._0;
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_elm_lang$core$Native_Utils.update(
+							model,
+							{
+								uid: _p16,
+								trips: A2(
+									_elm_lang$core$Basics_ops['++'],
+									model.trips,
+									{
+										ctor: '::',
+										_0: A3(_user$project$Main$newTrip, _p16, model.name, model.info),
+										_1: {ctor: '[]'}
+									})
+							}),
+						{ctor: '[]'});
+			}
 		}
 	});
 var _user$project$Main$FetchTrips = function (a) {
@@ -334,7 +368,7 @@ var _user$project$Main$FetchTrips = function (a) {
 };
 var _user$project$Main$fetchTrips = function () {
 	var request = A2(_elm_lang$http$Http$get, _user$project$Main$apiTrips, _user$project$Main$tripsDecoder);
-	var _p16 = _elm_lang$core$Debug$log('fetchTrips');
+	var _p17 = _elm_lang$core$Debug$log('fetchTrips');
 	return A2(_elm_lang$http$Http$send, _user$project$Main$FetchTrips, request);
 }();
 var _user$project$Main$init = function (flags) {
@@ -361,6 +395,7 @@ var _user$project$Main$Edit = function (a) {
 	return {ctor: 'Edit', _0: a};
 };
 var _user$project$Main$viewTrip = function (trip) {
+	var title = _elm_lang$core$String$isEmpty(trip.name) ? 'Unsaved' : trip.name;
 	return A2(
 		_elm_lang$html$Html$button,
 		{
@@ -371,7 +406,7 @@ var _user$project$Main$viewTrip = function (trip) {
 		},
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html$text(trip.name),
+			_0: _elm_lang$html$Html$text(title),
 			_1: {ctor: '[]'}
 		});
 };
@@ -383,7 +418,7 @@ var _user$project$Main$viewKeyedTrip = function (trip) {
 	};
 };
 var _user$project$Main$viewTrips = function (trips) {
-	var _p17 = A2(_elm_lang$core$Debug$log, 'ViewTrips ', trips);
+	var _p18 = A2(_elm_lang$core$Debug$log, 'ViewTrips ', trips);
 	return A2(
 		_elm_lang$html$Html$section,
 		{ctor: '[]'},
