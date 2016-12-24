@@ -113,15 +113,16 @@ var _user$project$Main$emptyModel = {
 	uid: '',
 	name: '',
 	info: '',
+	isNew: true,
 	trips: {ctor: '[]'}
 };
-var _user$project$Main$Flags = F3(
-	function (a, b, c) {
-		return {uid: a, name: b, info: c};
-	});
-var _user$project$Main$Model = F4(
+var _user$project$Main$Flags = F4(
 	function (a, b, c, d) {
-		return {uid: a, name: b, info: c, trips: d};
+		return {uid: a, name: b, info: c, isNew: d};
+	});
+var _user$project$Main$Model = F5(
+	function (a, b, c, d, e) {
+		return {uid: a, name: b, info: c, isNew: d, trips: e};
 	});
 var _user$project$Main$Trip = F3(
 	function (a, b, c) {
@@ -195,7 +196,7 @@ var _user$project$Main$update = F2(
 						_elm_lang$core$Platform_Cmd_ops['!'],
 						_elm_lang$core$Native_Utils.update(
 							model,
-							{uid: '', name: '', info: '', trips: model.trips}),
+							{uid: '', name: '', info: '', isNew: true, trips: model.trips}),
 						{
 							ctor: '::',
 							_0: A2(
@@ -234,7 +235,7 @@ var _user$project$Main$update = F2(
 						_elm_lang$core$Platform_Cmd_ops['!'],
 						_elm_lang$core$Native_Utils.update(
 							model,
-							{uid: _p5, name: t.name, info: t.info}),
+							{uid: _p5, name: t.name, info: t.info, isNew: false}),
 						{ctor: '[]'});
 				case 'Name':
 					return A2(
@@ -335,6 +336,7 @@ var _user$project$Main$update = F2(
 							_elm_lang$core$Native_Utils.update(
 								model,
 								{
+									isNew: false,
 									trips: A2(_elm_lang$core$List$map, updateTrip, model.trips)
 								}),
 							{ctor: '[]'});
@@ -374,11 +376,12 @@ var _user$project$Main$fetchTrips = function () {
 var _user$project$Main$init = function (flags) {
 	return {
 		ctor: '_Tuple2',
-		_0: A4(
+		_0: A5(
 			_user$project$Main$Model,
 			flags.uid,
 			flags.name,
 			flags.info,
+			flags.isNew,
 			{ctor: '[]'}),
 		_1: _user$project$Main$fetchTrips
 	};
@@ -456,7 +459,16 @@ var _user$project$Main$view = function (model) {
 						{
 							ctor: '::',
 							_0: _elm_lang$html$Html$text(
-								A2(_elm_lang$core$Basics_ops['++'], 'Trip ID:', model.uid)),
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									'Trip ID:',
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										model.uid,
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											' isNew:',
+											model.isNew ? 'true' : 'false')))),
 							_1: {ctor: '[]'}
 						}),
 					_1: {
@@ -544,7 +556,12 @@ var _user$project$Main$view = function (model) {
 												{
 													ctor: '::',
 													_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Save),
-													_1: {ctor: '[]'}
+													_1: {
+														ctor: '::',
+														_0: _elm_lang$html$Html_Attributes$disabled(
+															_elm_lang$core$String$isEmpty(model.name)),
+														_1: {ctor: '[]'}
+													}
 												},
 												{
 													ctor: '::',
@@ -601,7 +618,11 @@ var _user$project$Main$view = function (model) {
 										{
 											ctor: '::',
 											_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Add),
-											_1: {ctor: '[]'}
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$disabled(model.isNew),
+												_1: {ctor: '[]'}
+											}
 										},
 										{
 											ctor: '::',
@@ -646,16 +667,21 @@ var _user$project$Main$main = _elm_lang$html$Html$programWithFlags(
 		function (info) {
 			return A2(
 				_elm_lang$core$Json_Decode$andThen,
-				function (name) {
+				function (isNew) {
 					return A2(
 						_elm_lang$core$Json_Decode$andThen,
-						function (uid) {
-							return _elm_lang$core$Json_Decode$succeed(
-								{info: info, name: name, uid: uid});
+						function (name) {
+							return A2(
+								_elm_lang$core$Json_Decode$andThen,
+								function (uid) {
+									return _elm_lang$core$Json_Decode$succeed(
+										{info: info, isNew: isNew, name: name, uid: uid});
+								},
+								A2(_elm_lang$core$Json_Decode$field, 'uid', _elm_lang$core$Json_Decode$string));
 						},
-						A2(_elm_lang$core$Json_Decode$field, 'uid', _elm_lang$core$Json_Decode$string));
+						A2(_elm_lang$core$Json_Decode$field, 'name', _elm_lang$core$Json_Decode$string));
 				},
-				A2(_elm_lang$core$Json_Decode$field, 'name', _elm_lang$core$Json_Decode$string));
+				A2(_elm_lang$core$Json_Decode$field, 'isNew', _elm_lang$core$Json_Decode$bool));
 		},
 		A2(_elm_lang$core$Json_Decode$field, 'info', _elm_lang$core$Json_Decode$string)));
 var _user$project$Main$NoOp = {ctor: 'NoOp'};

@@ -21,16 +21,19 @@ drop.preparations.append(Pivot<Trip, User>.self)
 var redirectToTrip: Trip?
 
 drop.get { req in
+    var isNew = false
     let trip: Trip
     if let targetTrip = redirectToTrip {
         trip = targetTrip
         redirectToTrip = nil
     } else {
         trip = Trip(name: "", info: "")
+        isNew = true
     }
     return try drop.view.make("trip", [
         "message": "Welcome!",
-        "trip": trip.makeNode()
+        "trip": trip.makeNode(),
+        "isNew": isNew
         ])
 }
 

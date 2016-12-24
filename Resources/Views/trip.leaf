@@ -13,7 +13,8 @@
         var app = Elm.Main.embed(node, {
                                  uid: '#(trip.uid)',
                                  name: '#(trip.name)',
-                                 info: '#(trip.info)'
+                                 info: '#(trip.info)',
+                                 isNew: #(isNew)
                                  });
     </script>
 </div>

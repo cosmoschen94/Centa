@@ -27,6 +27,7 @@ type alias Flags =
   { uid : Id
   , name : String
   , info : String
+  , isNew : Bool
   }
 
 main =
@@ -39,7 +40,7 @@ main =
 
 init : Flags -> ( Model, Cmd Msg )
 init flags =
-    ( Model flags.uid flags.name flags.info []
+    ( Model flags.uid flags.name flags.info flags.isNew []
     , fetchTrips
     )
 
@@ -49,6 +50,7 @@ type alias Model =
     { uid : Id
     , name : String
     , info : String
+    , isNew : Bool
     , trips : List Trip
     }
 
@@ -63,6 +65,7 @@ emptyModel =
     { uid = ""
     , name = ""
     , info = "" 
+    , isNew = True
     , trips = []
     }
  
@@ -164,6 +167,7 @@ update msg model =
                 | uid = ""
                 , name = ""
                 , info = ""
+                , isNew = True
                 , trips = model.trips
             }
                 ! [ Random.generate NewUid (Random.String.string 6 Random.Char.english) ]
@@ -184,6 +188,7 @@ update msg model =
                     | uid = uid
                     , name = t.name
                     , info = t.info
+                    , isNew = False
                 }
                     ! []
 
@@ -204,8 +209,6 @@ update msg model =
             in
                 { model | trips = trips }
                 |> update AddCurTripIfNeeded
-                    --! []
-                    --! [ AddCurTripIfNeeded ]
 
         FetchTrips (Err err) ->
             let _ = Debug.log "FetchTrips err" err
@@ -251,7 +254,7 @@ update msg model =
                     else 
                         t
             in 
-                { model | trips = List.map updateTrip model.trips }
+                { model | isNew = False, trips = List.map updateTrip model.trips }
                     ! []
 
         UpdateTrip (Err err) ->
@@ -272,19 +275,19 @@ view : Model -> Html Msg
 view model =
     div []
         [ section [ class "trip-info" ]
-            [ label [] [ text ("Trip ID:" ++ model.uid) ]
+            [ label [] [ text ("Trip ID:" ++ model.uid ++ " isNew:" ++ (if model.isNew then "true" else "false")) ]
             , input [ placeholder "Enter Name...", value (model.name), onInput Name, nameStyle ] []
             , br [] []
             , br [] []
             , textarea [ cols 40, rows 10, placeholder "Info...", value (model.info), onInput Info, infoStyle ] []
             , button [ onClick Reset ] [ text "Reset" ]
-            , button [ onClick Save ] [ text "Save" ]
+            , button [ onClick Save, disabled (String.isEmpty model.name) ] [ text "Save" ]
             ]
         , br [] []
         , section [ class "all-tirps" ]
             [ label [] [ text "Upcoming Trips" ]
             , span [] [ text " " ]
-            , button [ onClick Add ] [ text "Add New" ]
+            , button [ onClick Add, disabled model.isNew ] [ text "Add New" ]
             , br [] []
             , br [] []
             , lazy viewTrips model.trips 
