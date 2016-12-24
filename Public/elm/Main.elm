@@ -337,6 +337,7 @@ viewTrip trip =
                 , ("btn btn-outline-danger", nameEmpty)
                 , ("btn btn-outline-info", not nameEmpty)
                 ]
+            , style [ ("font-size", "1.3vw") ]
             ]
             [ text (title) ]
 
