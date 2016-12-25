@@ -7,7 +7,7 @@ var _user$project$Main$infoStyle = _elm_lang$html$Html_Attributes$style(
 		_0: {ctor: '_Tuple2', _0: 'width', _1: '100%'},
 		_1: {
 			ctor: '::',
-			_0: {ctor: '_Tuple2', _0: 'height', _1: '150px'},
+			_0: {ctor: '_Tuple2', _0: 'height', _1: '200px'},
 			_1: {
 				ctor: '::',
 				_0: {ctor: '_Tuple2', _0: 'padding', _1: '10px 0'},
@@ -109,20 +109,13 @@ var _user$project$Main$newTrip = F3(
 	function (uid, name, info) {
 		return {uid: uid, name: name, info: info};
 	});
-var _user$project$Main$emptyModel = {
-	uid: '',
-	name: '',
-	info: '',
-	isNew: true,
-	trips: {ctor: '[]'}
-};
 var _user$project$Main$Flags = F4(
 	function (a, b, c, d) {
 		return {uid: a, name: b, info: c, isNew: d};
 	});
-var _user$project$Main$Model = F5(
-	function (a, b, c, d, e) {
-		return {uid: a, name: b, info: c, isNew: d, trips: e};
+var _user$project$Main$Model = F8(
+	function (a, b, c, d, e, f, g, h) {
+		return {uid: a, name: b, info: c, date: d, datePicker: e, isNew: f, hasEdited: g, trips: h};
 	});
 var _user$project$Main$Trip = F3(
 	function (a, b, c) {
@@ -147,13 +140,16 @@ var _user$project$Main$tripsDecoder = function () {
 		A2(_elm_lang$core$Json_Decode$field, 'body', _elm_lang$core$Json_Decode$string));
 	return _elm_lang$core$Json_Decode$list(_user$project$Main$tripDecoder);
 }();
+var _user$project$Main$ToDatePicker = function (a) {
+	return {ctor: 'ToDatePicker', _0: a};
+};
 var _user$project$Main$NewUid = function (a) {
 	return {ctor: 'NewUid', _0: a};
 };
-var _user$project$Main$UpdateTrip = function (a) {
-	return {ctor: 'UpdateTrip', _0: a};
+var _user$project$Main$UpsertTrip = function (a) {
+	return {ctor: 'UpsertTrip', _0: a};
 };
-var _user$project$Main$updateTrip = function (trip) {
+var _user$project$Main$upsertTrip = function (trip) {
 	var request = A3(
 		_elm_lang$http$Http$post,
 		_user$project$Main$apiTrip,
@@ -161,8 +157,8 @@ var _user$project$Main$updateTrip = function (trip) {
 			_user$project$Main$tripEncoder(trip)),
 		_user$project$Main$tripDecoder);
 	var _p2 = _elm_lang$core$Debug$log(
-		A2(_elm_lang$core$Basics_ops['++'], 'updateTrip uid:', trip.uid));
-	return A2(_elm_lang$http$Http$send, _user$project$Main$UpdateTrip, request);
+		A2(_elm_lang$core$Basics_ops['++'], 'upsertTrip uid:', trip.uid));
+	return A2(_elm_lang$http$Http$send, _user$project$Main$UpsertTrip, request);
 };
 var _user$project$Main$FetchTrip = function (a) {
 	return {ctor: 'FetchTrip', _0: a};
@@ -196,7 +192,7 @@ var _user$project$Main$update = F2(
 						_elm_lang$core$Platform_Cmd_ops['!'],
 						_elm_lang$core$Native_Utils.update(
 							model,
-							{uid: '', name: '', info: '', isNew: true, trips: model.trips}),
+							{uid: '', name: '', info: '', isNew: true, hasEdited: false, trips: model.trips}),
 						{
 							ctor: '::',
 							_0: A2(
@@ -239,7 +235,8 @@ var _user$project$Main$update = F2(
 								uid: _p5,
 								name: t.name,
 								info: t.info,
-								isNew: _elm_lang$core$String$isEmpty(t.name)
+								isNew: _elm_lang$core$String$isEmpty(t.name),
+								hasEdited: false
 							}),
 						{ctor: '[]'});
 				case 'Name':
@@ -247,14 +244,14 @@ var _user$project$Main$update = F2(
 						_elm_lang$core$Platform_Cmd_ops['!'],
 						_elm_lang$core$Native_Utils.update(
 							model,
-							{name: _p4._0}),
+							{name: _p4._0, hasEdited: true}),
 						{ctor: '[]'});
 				case 'Info':
 					return A2(
 						_elm_lang$core$Platform_Cmd_ops['!'],
 						_elm_lang$core$Native_Utils.update(
 							model,
-							{info: _p4._0}),
+							{info: _p4._0, hasEdited: true}),
 						{ctor: '[]'});
 				case 'Reset':
 					return {
@@ -266,7 +263,7 @@ var _user$project$Main$update = F2(
 					return {
 						ctor: '_Tuple2',
 						_0: model,
-						_1: _user$project$Main$updateTrip(
+						_1: _user$project$Main$upsertTrip(
 							A3(_user$project$Main$Trip, model.uid, model.name, model.info))
 					};
 				case 'FetchTrips':
@@ -321,13 +318,13 @@ var _user$project$Main$update = F2(
 							_elm_lang$core$Platform_Cmd_ops['!'],
 							_elm_lang$core$Native_Utils.update(
 								model,
-								{uid: _p11.uid, name: _p11.name, info: _p11.info}),
+								{uid: _p11.uid, name: _p11.name, info: _p11.info, isNew: false, hasEdited: false}),
 							{ctor: '[]'});
 					} else {
 						var _p12 = A2(_elm_lang$core$Debug$log, 'FetchTrip err', _p4._0._0);
 						return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 					}
-				case 'UpdateTrip':
+				case 'UpsertTrip':
 					if (_p4._0.ctor === 'Ok') {
 						var _p14 = _p4._0._0;
 						var updateTrip = function (t) {
@@ -335,21 +332,22 @@ var _user$project$Main$update = F2(
 								t,
 								{name: _p14.name, info: _p14.info}) : t;
 						};
-						var _p13 = A2(_elm_lang$core$Debug$log, 'UpdateTrip ok', _p14);
+						var _p13 = A2(_elm_lang$core$Debug$log, 'UpsertTrip ok', _p14);
 						return A2(
 							_elm_lang$core$Platform_Cmd_ops['!'],
 							_elm_lang$core$Native_Utils.update(
 								model,
 								{
 									isNew: false,
+									hasEdited: false,
 									trips: A2(_elm_lang$core$List$map, updateTrip, model.trips)
 								}),
 							{ctor: '[]'});
 					} else {
-						var _p15 = A2(_elm_lang$core$Debug$log, 'UpdateTrip err', _p4._0._0);
+						var _p15 = A2(_elm_lang$core$Debug$log, 'UpsertTrip err', _p4._0._0);
 						return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 					}
-				default:
+				case 'NewUid':
 					var _p16 = _p4._0;
 					return A2(
 						_elm_lang$core$Platform_Cmd_ops['!'],
@@ -367,6 +365,29 @@ var _user$project$Main$update = F2(
 									model.trips)
 							}),
 						{ctor: '[]'});
+				default:
+					var _p17 = A2(_Bogdanp$elm_datepicker$DatePicker$update, _p4._0, model.datePicker);
+					var newDatePicker = _p17._0;
+					var datePickerFx = _p17._1;
+					var mDate = _p17._2;
+					var date = function () {
+						var _p18 = mDate;
+						if (_p18.ctor === 'Nothing') {
+							return model.date;
+						} else {
+							return _p18;
+						}
+					}();
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_elm_lang$core$Native_Utils.update(
+							model,
+							{date: date, datePicker: newDatePicker}),
+						{
+							ctor: '::',
+							_0: A2(_elm_lang$core$Platform_Cmd$map, _user$project$Main$ToDatePicker, datePickerFx),
+							_1: {ctor: '[]'}
+						});
 			}
 		}
 	});
@@ -375,18 +396,30 @@ var _user$project$Main$FetchTrips = function (a) {
 };
 var _user$project$Main$fetchTrips = function () {
 	var request = A2(_elm_lang$http$Http$get, _user$project$Main$apiTrips, _user$project$Main$tripsDecoder);
-	var _p17 = _elm_lang$core$Debug$log('fetchTrips');
+	var _p19 = _elm_lang$core$Debug$log('fetchTrips');
 	return A2(_elm_lang$http$Http$send, _user$project$Main$FetchTrips, request);
 }();
 var _user$project$Main$init = function (flags) {
+	var isDisabled = function (date) {
+		return false;
+	};
+	var _p20 = _Bogdanp$elm_datepicker$DatePicker$init(
+		_elm_lang$core$Native_Utils.update(
+			_Bogdanp$elm_datepicker$DatePicker$defaultSettings,
+			{placeholder: 'Pick a date...', isDisabled: isDisabled}));
+	var datePicker = _p20._0;
+	var datePickerFx = _p20._1;
 	return {
 		ctor: '_Tuple2',
-		_0: A5(
+		_0: A8(
 			_user$project$Main$Model,
 			flags.uid,
 			flags.name,
 			flags.info,
+			_elm_lang$core$Maybe$Nothing,
+			datePicker,
 			flags.isNew,
+			false,
 			{ctor: '[]'}),
 		_1: _user$project$Main$fetchTrips
 	};
@@ -453,7 +486,7 @@ var _user$project$Main$viewKeyedTrip = function (trip) {
 	};
 };
 var _user$project$Main$viewTrips = function (trips) {
-	var _p18 = A2(_elm_lang$core$Debug$log, 'ViewTrips ', trips);
+	var _p21 = A2(_elm_lang$core$Debug$log, 'ViewTrips ', trips);
 	return A2(
 		_elm_lang$html$Html$section,
 		{ctor: '[]'},
@@ -524,14 +557,20 @@ var _user$project$Main$view = function (model) {
 													_0: _elm_lang$html$Html$text(
 														A2(
 															_elm_lang$core$Basics_ops['++'],
-															'Share URL: id/',
+															'Share URL: /id/',
 															A2(
 																_elm_lang$core$Basics_ops['++'],
 																model.uid,
 																A2(
 																	_elm_lang$core$Basics_ops['++'],
 																	' isNew:',
-																	model.isNew ? 'true' : 'false')))),
+																	A2(
+																		_elm_lang$core$Basics_ops['++'],
+																		model.isNew ? 'true' : 'false',
+																		A2(
+																			_elm_lang$core$Basics_ops['++'],
+																			' hasEdited:',
+																			model.hasEdited ? 'true' : 'false')))))),
 													_1: {ctor: '[]'}
 												}),
 											_1: {
@@ -571,91 +610,116 @@ var _user$project$Main$view = function (model) {
 														_1: {
 															ctor: '::',
 															_0: A2(
-																_elm_lang$html$Html$textarea,
+																_elm_lang$html$Html$div,
 																{
 																	ctor: '::',
-																	_0: _elm_lang$html$Html_Attributes$cols(40),
-																	_1: {
-																		ctor: '::',
-																		_0: _elm_lang$html$Html_Attributes$rows(10),
-																		_1: {
-																			ctor: '::',
-																			_0: _elm_lang$html$Html_Attributes$placeholder('Info...'),
-																			_1: {
-																				ctor: '::',
-																				_0: _elm_lang$html$Html_Attributes$value(model.info),
-																				_1: {
-																					ctor: '::',
-																					_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$Info),
-																					_1: {
-																						ctor: '::',
-																						_0: _user$project$Main$infoStyle,
-																						_1: {ctor: '[]'}
-																					}
-																				}
-																			}
-																		}
-																	}
+																	_0: _elm_lang$html$Html_Attributes$class('form-group'),
+																	_1: {ctor: '[]'}
 																},
-																{ctor: '[]'}),
+																{
+																	ctor: '::',
+																	_0: A2(
+																		_elm_lang$html$Html$map,
+																		_user$project$Main$ToDatePicker,
+																		_Bogdanp$elm_datepicker$DatePicker$view(model.datePicker)),
+																	_1: {ctor: '[]'}
+																}),
 															_1: {
 																ctor: '::',
 																_0: A2(
-																	_elm_lang$html$Html$div,
-																	{
-																		ctor: '::',
-																		_0: _elm_lang$html$Html_Attributes$class('btn-group'),
-																		_1: {ctor: '[]'}
-																	},
-																	{
-																		ctor: '::',
-																		_0: A2(
-																			_elm_lang$html$Html$button,
-																			{
+																	_elm_lang$html$Html$br,
+																	{ctor: '[]'},
+																	{ctor: '[]'}),
+																_1: {
+																	ctor: '::',
+																	_0: A2(
+																		_elm_lang$html$Html$textarea,
+																		{
+																			ctor: '::',
+																			_0: _elm_lang$html$Html_Attributes$cols(40),
+																			_1: {
 																				ctor: '::',
-																				_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Reset),
+																				_0: _elm_lang$html$Html_Attributes$rows(16),
 																				_1: {
 																					ctor: '::',
-																					_0: _elm_lang$html$Html_Attributes$class('btn btn-secondary ml-3 mr-1'),
+																					_0: _elm_lang$html$Html_Attributes$placeholder('Info...'),
 																					_1: {
 																						ctor: '::',
-																						_0: _elm_lang$html$Html_Attributes$disabled(model.isNew),
-																						_1: {ctor: '[]'}
+																						_0: _elm_lang$html$Html_Attributes$value(model.info),
+																						_1: {
+																							ctor: '::',
+																							_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$Info),
+																							_1: {
+																								ctor: '::',
+																								_0: _user$project$Main$infoStyle,
+																								_1: {ctor: '[]'}
+																							}
+																						}
 																					}
 																				}
+																			}
+																		},
+																		{ctor: '[]'}),
+																	_1: {
+																		ctor: '::',
+																		_0: A2(
+																			_elm_lang$html$Html$div,
+																			{
+																				ctor: '::',
+																				_0: _elm_lang$html$Html_Attributes$class('btn-group'),
+																				_1: {ctor: '[]'}
 																			},
 																			{
 																				ctor: '::',
-																				_0: _elm_lang$html$Html$text('Reset'),
-																				_1: {ctor: '[]'}
-																			}),
-																		_1: {
-																			ctor: '::',
-																			_0: A2(
-																				_elm_lang$html$Html$button,
-																				{
-																					ctor: '::',
-																					_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Save),
-																					_1: {
+																				_0: A2(
+																					_elm_lang$html$Html$button,
+																					{
 																						ctor: '::',
-																						_0: _elm_lang$html$Html_Attributes$class('btn btn-primary ml-1 mr-3'),
+																						_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Reset),
 																						_1: {
 																							ctor: '::',
-																							_0: _elm_lang$html$Html_Attributes$disabled(
-																								_elm_lang$core$String$isEmpty(model.name)),
-																							_1: {ctor: '[]'}
+																							_0: _elm_lang$html$Html_Attributes$class('btn btn-secondary ml-3 mr-1'),
+																							_1: {
+																								ctor: '::',
+																								_0: _elm_lang$html$Html_Attributes$disabled(model.isNew || (!model.hasEdited)),
+																								_1: {ctor: '[]'}
+																							}
 																						}
-																					}
-																				},
-																				{
+																					},
+																					{
+																						ctor: '::',
+																						_0: _elm_lang$html$Html$text('Reset'),
+																						_1: {ctor: '[]'}
+																					}),
+																				_1: {
 																					ctor: '::',
-																					_0: _elm_lang$html$Html$text('Save'),
+																					_0: A2(
+																						_elm_lang$html$Html$button,
+																						{
+																							ctor: '::',
+																							_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Save),
+																							_1: {
+																								ctor: '::',
+																								_0: _elm_lang$html$Html_Attributes$class('btn btn-primary ml-1 mr-3'),
+																								_1: {
+																									ctor: '::',
+																									_0: _elm_lang$html$Html_Attributes$disabled(
+																										_elm_lang$core$String$isEmpty(model.name) || (!model.hasEdited)),
+																									_1: {ctor: '[]'}
+																								}
+																							}
+																						},
+																						{
+																							ctor: '::',
+																							_0: _elm_lang$html$Html$text('Save'),
+																							_1: {ctor: '[]'}
+																						}),
 																					_1: {ctor: '[]'}
-																				}),
-																			_1: {ctor: '[]'}
-																		}
-																	}),
-																_1: {ctor: '[]'}
+																				}
+																			}),
+																		_1: {ctor: '[]'}
+																	}
+																}
 															}
 														}
 													}

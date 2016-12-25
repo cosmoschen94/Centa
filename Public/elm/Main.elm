@@ -40,33 +40,47 @@ main =
 
 init : Flags -> ( Model, Cmd Msg )
 init flags =
-    ( Model flags.uid flags.name flags.info flags.isNew []
-    , fetchTrips
-    )
+    let 
+        isDisabled date = False
+
+        ( datePicker, datePickerFx ) =
+            DatePicker.init
+                { defaultSettings
+                    | placeholder = "Pick a date..."
+                    , isDisabled = isDisabled
+                } 
+    in 
+        --                                      date                           hasEdited trips
+        ( Model flags.uid flags.name flags.info Nothing datePicker flags.isNew False []
+        , fetchTrips
+        )
 
 -- MODEL
 
 type alias Model =
-    { uid : Id
+    { 
+    -- Trip
+      uid : Id
     , name : String
     , info : String
+    , date : Maybe Date
+    , datePicker : DatePicker.DatePicker
+
+    -- Trip Meta
     , isNew : Bool
+    , hasEdited : Bool
+
+    -- Trip List
     , trips : List Trip
+
+    -- App State
+    --, urlLocation Navigation.Location
     }
 
 type alias Trip =
     { uid : Id
     , name : String
     , info : String
-    }
-
-emptyModel : Model
-emptyModel =
-    { uid = ""
-    , name = ""
-    , info = "" 
-    , isNew = True
-    , trips = []
     }
  
 newTrip : String -> String -> String -> Trip
@@ -124,14 +138,14 @@ fetchTrip uid =
     in
         Http.send FetchTrip request
 
-updateTrip : Trip -> Cmd Msg
-updateTrip trip =
+upsertTrip : Trip -> Cmd Msg
+upsertTrip trip =
     let
-        _ = Debug.log ("updateTrip uid:" ++ trip.uid)
+        _ = Debug.log ("upsertTrip uid:" ++ trip.uid)
         request = 
             Http.post apiTrip (Http.jsonBody (tripEncoder trip)) tripDecoder 
     in
-        Http.send UpdateTrip request
+        Http.send UpsertTrip request
 
 -- UPDATE
 
@@ -152,9 +166,10 @@ type Msg
     | AddCurTripIfNeeded 
 
     | FetchTrip (Result Http.Error Trip)
-    | UpdateTrip (Result Http.Error Trip)
+    | UpsertTrip (Result Http.Error Trip)
 
     | NewUid String
+    | ToDatePicker DatePicker.Msg
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
@@ -168,6 +183,7 @@ update msg model =
                 , name = ""
                 , info = ""
                 , isNew = True
+                , hasEdited = False
                 , trips = model.trips
             }
                 ! [ Random.generate NewUid (Random.String.string 6 Random.Char.english) ]
@@ -189,20 +205,21 @@ update msg model =
                     , name = t.name
                     , info = t.info
                     , isNew = String.isEmpty t.name
+                    , hasEdited = False
                 }
                     ! []
 
         Name name ->
-            { model | name = name} ! []
+            { model | name = name, hasEdited = True } ! []
 
         Info info ->
-            { model | info = info} ! []
+            { model | info = info, hasEdited = True } ! []
 
         Reset ->
             (model, fetchTrip model.uid)
 
         Save ->
-            (model, updateTrip (Trip model.uid model.name model.info))
+            (model, upsertTrip (Trip model.uid model.name model.info))
 
         FetchTrips (Ok trips) ->
             let _ = Debug.log "FetchTrips ok" trips
@@ -234,6 +251,8 @@ update msg model =
                     | uid = trip.uid
                     , name = trip.name
                     , info = trip.info
+                    , isNew = False 
+                    , hasEdited = False 
                 } 
                     ! []
 
@@ -242,8 +261,8 @@ update msg model =
             in 
             (model, Cmd.none)
 
-        UpdateTrip (Ok trip) ->
-            let _ = Debug.log "UpdateTrip ok" trip
+        UpsertTrip (Ok trip) ->
+            let _ = Debug.log "UpsertTrip ok" trip
 
                 updateTrip t =
                     if t.uid == trip.uid then
@@ -254,11 +273,15 @@ update msg model =
                     else 
                         t
             in 
-                { model | isNew = False, trips = List.map updateTrip model.trips }
+                { model 
+                    | isNew = False
+                    , hasEdited = False
+                    , trips = List.map updateTrip model.trips 
+                }
                     ! []
 
-        UpdateTrip (Err err) ->
-            let _ = Debug.log "UpdateTrip err" err
+        UpsertTrip (Err err) ->
+            let _ = Debug.log "UpsertTrip err" err
             in 
             (model, Cmd.none)
 
@@ -269,6 +292,25 @@ update msg model =
             } 
                 ! []
 
+        ToDatePicker msg ->
+            let
+                ( newDatePicker, datePickerFx, mDate ) =
+                    DatePicker.update msg model.datePicker
+
+                date =
+                    case mDate of
+                        Nothing ->
+                            model.date
+
+                        date ->
+                            date
+            in
+                { model
+                    | date = date
+                    , datePicker = newDatePicker
+                }
+                    ! [ Cmd.map ToDatePicker datePickerFx ]
+
 -- VIEW
 
 view : Model -> Html Msg
@@ -278,14 +320,23 @@ view model =
             [ div [ class "row" ]
                 [ div [ class "col-sm-8" ]
                     [ section [ class "trip-info" ]
-                        [ label [] [ text ("Share URL: id/" ++ model.uid ++ " isNew:" ++ (if model.isNew then "true" else "false")) ]
+                        [ label [] 
+                            [ text ("Share URL: /id/" ++ model.uid 
+                            ++ " isNew:" ++ (if model.isNew then "true" else "false") 
+                            ++ " hasEdited:" ++ (if model.hasEdited then "true" else "false")) 
+                            ]
                         , input [ placeholder "Enter Name...", value (model.name), onInput Name, nameStyle ] []
                         , br [] []
                         , br [] []
-                        , textarea [ cols 40, rows 10, placeholder "Info...", value (model.info), onInput Info, infoStyle ] []
+                        , div [ class "form-group" ]
+                            [ DatePicker.view model.datePicker
+                                |> Html.map ToDatePicker
+                            ]
+                        , br [] []
+                        , textarea [ cols 40, rows 16, placeholder "Info...", value (model.info), onInput Info, infoStyle ] []
                         , div [ class "btn-group" ]
-                            [ button [ onClick Reset, class "btn btn-secondary ml-3 mr-1", disabled model.isNew ] [ text "Reset" ]
-                            , button [ onClick Save, class "btn btn-primary ml-1 mr-3", disabled (String.isEmpty model.name) ] [ text "Save" ]
+                            [ button [ onClick Reset, class "btn btn-secondary ml-3 mr-1", disabled (model.isNew || not model.hasEdited) ] [ text "Reset" ]
+                            , button [ onClick Save, class "btn btn-primary ml-1 mr-3", disabled (String.isEmpty model.name || not model.hasEdited) ] [ text "Save" ]
                             ]
                         ]
                     ]
@@ -364,7 +415,7 @@ nameStyle =
 infoStyle =
     style
         [ ( "width", "100%" )
-        , ( "height", "150px" )
+        , ( "height", "200px" )
         , ( "padding", "10px 0" )
         , ( "font-size", "2em" )
         , ( "text-align", "center" )
