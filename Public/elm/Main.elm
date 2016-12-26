@@ -26,6 +26,8 @@ type alias Id = String
 type alias Flags =
   { uid : Id
   , name : String
+  , date : String
+  , address : String
   , info : String
   , isNew : Bool
   }
@@ -50,8 +52,8 @@ init flags =
                     , isDisabled = isDisabled
                 } 
     in 
-        --                                      date                           hasEdited trips
-        ( Model flags.uid flags.name flags.info Nothing datePicker flags.isNew False []
+        --                                                                                 hasEdited trips
+        ( Model flags.uid flags.name flags.info flags.date flags.address datePicker flags.isNew False []
         , fetchTrips
         )
 
@@ -62,8 +64,10 @@ type alias Model =
     -- Trip
       uid : Id
     , name : String
+    , date : String -- yyyy-mm-dd: 2016-12-24
+    , address : String
     , info : String
-    , date : Maybe Date
+
     , datePicker : DatePicker.DatePicker
 
     -- Trip Meta
@@ -80,17 +84,21 @@ type alias Model =
 type alias Trip =
     { uid : Id
     , name : String
+    , date : String
+    , address : String
     , info : String
     }
  
-newTrip : String -> String -> String -> Trip
-newTrip uid name info =
+newTrip : String -> String -> String -> String -> String -> Trip
+newTrip uid name date address info =
     { uid = uid
     , name = name
+    , date = date
+    , address = address
     , info = info
     }
 
--- JSON
+-- JSON 
 
 tripsDecoder : Decode.Decoder (List Trip)
 tripsDecoder = 
@@ -102,9 +110,11 @@ tripDecoder : Decode.Decoder Trip
 tripDecoder = 
     let _ = Debug.log "tripDecoder fields" (Decode.field "body" Decode.string)
     in 
-    Decode.map3 Trip
+    Decode.map5 Trip
         (Decode.field "uid" Decode.string)
         (Decode.field "name" Decode.string)
+        (Decode.field "date" Decode.string)
+        (Decode.field "address" Decode.string)
         (Decode.field "info" Decode.string)       
  
 tripEncoder : Trip -> Encode.Value
@@ -112,6 +122,8 @@ tripEncoder trip =
     Encode.object
         [ ("uid", Encode.string trip.uid)
         , ("name", Encode.string trip.name)
+        , ("date", Encode.string trip.date)
+        , ("address", Encode.string trip.address)
         , ("info", Encode.string trip.info)
         ]
 
@@ -157,6 +169,7 @@ type Msg
 
     | Edit Id
     | Name String
+    | Address String
     | Info String
 
     | Reset
@@ -181,6 +194,8 @@ update msg model =
             { model
                 | uid = ""
                 , name = ""
+                , date = ""
+                , address = ""
                 , info = ""
                 , isNew = True
                 , hasEdited = False
@@ -194,8 +209,10 @@ update msg model =
 
         Edit uid ->
             let t = Maybe.withDefault 
-                        { uid = "efg"
+                        { uid = ""
                         , name = ""
+                        , date = ""
+                        , address = ""
                         , info = ""
                         }
                         (List.head (List.filter (\t -> t.uid == uid) model.trips))
@@ -203,6 +220,8 @@ update msg model =
                 { model
                     | uid = uid
                     , name = t.name
+                    , date = t.date
+                    , address = t.address
                     , info = t.info
                     , isNew = String.isEmpty t.name
                     , hasEdited = False
@@ -212,6 +231,9 @@ update msg model =
         Name name ->
             { model | name = name, hasEdited = True } ! []
 
+        Address address ->
+            { model | address = address, hasEdited = True } ! []
+
         Info info ->
             { model | info = info, hasEdited = True } ! []
 
@@ -219,7 +241,7 @@ update msg model =
             (model, fetchTrip model.uid)
 
         Save ->
-            (model, upsertTrip (Trip model.uid model.name model.info))
+            (model, upsertTrip (Trip model.uid model.name model.date model.address model.info))
 
         FetchTrips (Ok trips) ->
             let _ = Debug.log "FetchTrips ok" trips
@@ -237,7 +259,7 @@ update msg model =
                 | trips =
                     case List.head (List.filter (\t -> t.uid == model.uid) model.trips) of
                         Nothing ->
-                            [ newTrip model.uid model.name model.info ] ++ model.trips
+                            [ newTrip model.uid model.name model.date model.address model.info ] ++ model.trips
                             
                         Just val ->
                             model.trips
@@ -250,6 +272,8 @@ update msg model =
                 { model
                     | uid = trip.uid
                     , name = trip.name
+                    , date = trip.date
+                    , address = trip.address
                     , info = trip.info
                     , isNew = False 
                     , hasEdited = False 
@@ -268,6 +292,8 @@ update msg model =
                     if t.uid == trip.uid then
                         { t 
                             | name = trip.name
+                            , date = trip.date
+                            , address = trip.address
                             , info = trip.info
                         }
                     else 
@@ -288,7 +314,7 @@ update msg model =
         NewUid newUid ->
             { model 
                 | uid = newUid
-                , trips = [ newTrip newUid model.name model.info ] ++ model.trips
+                , trips = [ newTrip newUid model.name model.date model.address model.info ] ++ model.trips
             } 
                 ! []
 
@@ -302,8 +328,8 @@ update msg model =
                         Nothing ->
                             model.date
 
-                        date ->
-                            date
+                        date -> "2016-12-24"
+                            --date
             in
                 { model
                     | date = date
@@ -332,12 +358,14 @@ view model =
                             [ DatePicker.view model.datePicker
                                 |> Html.map ToDatePicker
                             ]
+                        , input [ placeholder "Enter Address...", value (model.address), onInput Address, nameStyle ] []
+                        , br [] []
                         , br [] []
                         , textarea [ cols 40, rows 16, placeholder "Info...", value (model.info), onInput Info, infoStyle ] []
-                        , div [ class "btn-group" ]
+                        , div [ class "btn-group mx-3" ]
                             [ button [ onClick Reset, class "btn btn-secondary ml-3 mr-1", disabled (model.isNew || not model.hasEdited) ] [ text "Reset" ]
                             , button [ onClick Save, class "btn btn-primary ml-1 mr-3", disabled (String.isEmpty model.name || not model.hasEdited) ] [ text "Save" ]
-                            ]
+                            ] 
                         ]
                     ]
                 , div [ class "col-sm-4" ]

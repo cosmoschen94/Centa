@@ -27,7 +27,7 @@ drop.get { req in
         trip = targetTrip
         redirectToTrip = nil
     } else {
-        trip = Trip(name: "", info: "")
+        trip = Trip()
         isNew = true
     }
     return try drop.view.make("trip", [
