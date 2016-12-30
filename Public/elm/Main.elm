@@ -14,7 +14,9 @@ import Http
 import Json.Decode as Decode
 import Json.Encode as Encode
 
-import Date exposing (Date, Day(..), day, dayOfWeek, month, year)
+import Date exposing (Date, Month(..), Day(..), day, dayOfWeek, month, year)
+import Date.Extra as Date
+
 import DatePicker exposing (defaultSettings)
  
 import Random exposing (..)
@@ -31,31 +33,6 @@ type alias Flags =
   , info : String
   , isNew : Bool
   }
-
-main =
-    Html.programWithFlags
-        { init = init
-        , view = view
-        , update = update
-        , subscriptions = subscriptions
-        }
-
-init : Flags -> ( Model, Cmd Msg )
-init flags =
-    let 
-        isDisabled date = False
-
-        ( datePicker, datePickerFx ) =
-            DatePicker.init
-                { defaultSettings
-                    | placeholder = "Pick a date..."
-                    , isDisabled = isDisabled
-                } 
-    in 
-        --                                                                                 hasEdited trips
-        ( Model flags.uid flags.name flags.info flags.date flags.address datePicker flags.isNew False []
-        , fetchTrips
-        )
 
 -- MODEL
 
@@ -89,6 +66,37 @@ type alias Trip =
     , info : String
     }
  
+-- FUNCTIONS
+
+main =
+    Html.programWithFlags
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = subscriptions
+        }
+
+init : Flags -> ( Model, Cmd Msg )
+init flags =
+    let 
+        pickedDate = Date.fromIsoString flags.date
+
+        ( datePicker, datePickerFx ) =
+            DatePicker.init
+                { defaultSettings
+                    | placeholder = "Pick a date..."
+                    , pickedDate = pickedDate
+                } 
+    --                                                                                 hasEdited trips
+        model = Model flags.uid flags.name flags.info flags.date flags.address datePicker flags.isNew False []
+
+    in
+        ( model,  Cmd.batch [ fetchTrips, Cmd.map ToDatePicker datePickerFx])
+
+--updateDatePicker : Cmd Msg
+--updateDatePicker =
+
+
 newTrip : String -> String -> String -> String -> String -> Trip
 newTrip uid name date address info =
     { uid = uid
@@ -144,7 +152,7 @@ fetchTrips =
 fetchTrip : Id -> Cmd Msg
 fetchTrip uid =
     let
-        _ = Debug.log ("fetchTrip uid:" ++ uid)
+        _ = Debug.log "fetchTrip uid:" NewUid
         request =
             Http.get (apiTrip ++ "/" ++ uid) tripDecoder
     in
@@ -153,7 +161,7 @@ fetchTrip uid =
 upsertTrip : Trip -> Cmd Msg
 upsertTrip trip =
     let
-        _ = Debug.log ("upsertTrip uid:" ++ trip.uid)
+        _ = Debug.log "upsertTrip uid:" trip.uid
         request = 
             Http.post apiTrip (Http.jsonBody (tripEncoder trip)) tripDecoder 
     in
@@ -182,6 +190,8 @@ type Msg
     | UpsertTrip (Result Http.Error Trip)
 
     | NewUid String
+
+    | UpdateDatePicker 
     | ToDatePicker DatePicker.Msg
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -226,7 +236,7 @@ update msg model =
                     , isNew = String.isEmpty t.name
                     , hasEdited = False
                 }
-                    ! []
+                    |> update UpdateDatePicker
 
         Name name ->
             { model | name = name, hasEdited = True } ! []
@@ -278,7 +288,7 @@ update msg model =
                     , isNew = False 
                     , hasEdited = False 
                 } 
-                    ! []
+                    |> update UpdateDatePicker
 
         FetchTrip (Err err) ->
             let _ = Debug.log "FetchTrip err" err
@@ -318,24 +328,45 @@ update msg model =
             } 
                 ! []
 
+        UpdateDatePicker ->
+            let 
+                _ = Debug.log "UpdateDatePicker"
+                pickedDate = Date.fromIsoString model.date
+
+                ( datePicker, datePickerFx ) =
+                    DatePicker.init
+                        { defaultSettings
+                            | placeholder = "Pick a date..."
+                            , pickedDate = pickedDate
+                        } 
+            in 
+                ( { model | datePicker = datePicker },  Cmd.map ToDatePicker datePickerFx )
+
         ToDatePicker msg ->
             let
-                ( newDatePicker, datePickerFx, mDate ) =
+                ( newDatePicker, datePickerFx, maybeDate ) =
                     DatePicker.update msg model.datePicker
 
-                date =
-                    case mDate of
-                        Nothing ->
-                            model.date
+                _ = Debug.log "ToDatePicker maybeDate:" maybeDate
+                _ = Debug.log "ToDatePicker datePickerFx:" datePickerFx
 
-                        date -> "2016-12-24"
-                            --date
+                dateStr =
+                    case maybeDate of
+                        Nothing -> model.date
+                        Just date -> Date.toFormattedString "yyyy-MM-dd" date
+
+                hasEdited =
+                    case maybeDate of
+                        Nothing -> model.hasEdited
+                        Just date -> True
             in
                 { model
-                    | date = date
+                    | date = dateStr
                     , datePicker = newDatePicker
+                    , hasEdited = hasEdited
                 }
                     ! [ Cmd.map ToDatePicker datePickerFx ]
+
 
 -- VIEW
 
@@ -358,12 +389,13 @@ view model =
                             [ DatePicker.view model.datePicker
                                 |> Html.map ToDatePicker
                             ]
-                        , input [ placeholder "Enter Address...", value (model.address), onInput Address, nameStyle ] []
+                        , a [ href ("http://baidu.com/s?wd=" ++ model.address), target "_blank", hidden (String.isEmpty model.address), class "mr-1" ] [ text "Map" ]
+                        , input [ placeholder "Enter Address...", value (model.address), onInput Address, addressStyle ] []
                         , br [] []
                         , br [] []
                         , textarea [ cols 40, rows 16, placeholder "Info...", value (model.info), onInput Info, infoStyle ] []
-                        , div [ class "btn-group mx-3" ]
-                            [ button [ onClick Reset, class "btn btn-secondary ml-3 mr-1", disabled (model.isNew || not model.hasEdited) ] [ text "Reset" ]
+                        , div [ class "btn-group" ]
+                            [ button [ onClick Reset, class "btn btn-secondary mr-1", disabled (model.isNew || not model.hasEdited) ] [ text "Reset" ]
                             , button [ onClick Save, class "btn btn-primary ml-1 mr-3", disabled (String.isEmpty model.name || not model.hasEdited) ] [ text "Save" ]
                             ] 
                         ]
@@ -436,6 +468,15 @@ nameStyle =
         [ ( "width", "100%" )
         , ( "height", "40px" )
         , ( "padding", "10px 0" )
+        , ( "font-size", "2em" )
+        , ( "text-align", "center" )
+        ] 
+
+addressStyle =
+    style
+        [ ( "width", "90%" )
+        , ( "height", "40px" )
+        , ( "padding", "20px 20px" )
         , ( "font-size", "2em" )
         , ( "text-align", "center" )
         ] 

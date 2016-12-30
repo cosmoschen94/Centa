@@ -6,7 +6,7 @@ final class Trip: Model {
     var id: Node?
     var uid: String // TODO: Make it unique
     var name: String
-    // yyyy-mm-dd: 2016-12-24 can also do string compare correctly
+    // yyyy-MM-dd'T'HH:mm'Z': 2016-12-24T17:09Z - conforms to ISO 8601
     var date: String
     var address: String
     var info: String

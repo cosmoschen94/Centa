@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C83628D51E16562B0026EB51 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83628D41E16562B0026EB51 /* DateExtension.swift */; };
 		OBJ_1420 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Array.swift */; };
 		OBJ_1421 /* Bool+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Bool+String.swift */; };
 		OBJ_1422 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Box.swift */; };
@@ -5002,6 +5003,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C83628D41E16562B0026EB51 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		OBJ_10 /* Bool+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+String.swift"; sourceTree = "<group>"; };
 		OBJ_100 /* bio_lib.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = bio_lib.c; sourceTree = "<group>"; };
 		OBJ_1000 /* FrameSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameSerializer.swift; sourceTree = "<group>"; };
@@ -7919,6 +7921,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_1359 /* RequestExtension.swift */,
+				C83628D41E16562B0026EB51 /* DateExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -8652,7 +8655,7 @@
 			path = "Packages/CLibreSSL-1.0.0/Sources/CLibreSSL";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -8665,7 +8668,6 @@
 				OBJ_1371 /* Resources */,
 				OBJ_1372 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_657 /* include */ = {
@@ -10760,7 +10762,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_1372 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -10843,6 +10845,7 @@
 				OBJ_1432 /* Result.swift in Sources */,
 				OBJ_1433 /* RFC1123.swift in Sources */,
 				OBJ_1434 /* Semaphore.swift in Sources */,
+				C83628D51E16562B0026EB51 /* DateExtension.swift in Sources */,
 				OBJ_1435 /* Sequence.swift in Sources */,
 				OBJ_1436 /* StaticDataBuffer.swift in Sources */,
 				OBJ_1437 /* Strand.swift in Sources */,
