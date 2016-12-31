@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/styles/bootstrap.css">
         <link rel="stylesheet" href="/styles/app.css">
         <link rel="stylesheet" href="/styles/elm-datepicker.css">
+        <link rel="stylesheet" href="/styles/trip.css">
             
         #import("head")
     </head>

@@ -373,64 +373,87 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div [ class "m-x-auto" ]
-        [ div [ class "container" ]
-            [ div [ class "row" ]
-                [ div [ class "col-sm-8" ]
-                    [ section [ class "trip-info" ]
-                        [ label [] 
-                            [ text ("Share URL: /id/" ++ model.uid 
-                            ++ " isNew:" ++ (if model.isNew then "true" else "false") 
-                            ++ " hasEdited:" ++ (if model.hasEdited then "true" else "false")) 
-                            ]
-                        , input [ placeholder "Enter Name...", value (model.name), onInput Name, nameStyle ] []
-                        , br [] []
-                        , br [] []
-                        , div [ class "form-group" ]
-                            [ DatePicker.view model.datePicker
-                                |> Html.map ToDatePicker
-                            ]
-                        , a [ href ("http://baidu.com/s?wd=" ++ model.address), target "_blank", hidden (String.isEmpty model.address), class "mr-1" ] [ text "Map" ]
-                        , input [ placeholder "Enter Address...", value (model.address), onInput Address, addressStyle ] []
-                        , br [] []
-                        , br [] []
-                        , textarea [ cols 40, rows 16, placeholder "Info...", value (model.info), onInput Info, infoStyle ] []
-                        , div [ class "btn-group" ]
-                            [ button [ onClick Reset, class "btn btn-secondary mr-1", disabled (model.isNew || not model.hasEdited) ] [ text "Reset" ]
-                            , button [ onClick Save, class "btn btn-primary ml-1 mr-3", disabled (String.isEmpty model.name || not model.hasEdited) ] [ text "Save" ]
-                            ] 
-                        ]
-                    ]
-                , div [ class "col-sm-4" ]
-                    [ section [ class "all-tirps" ]
-                        [ label [] [ text "Upcoming Trips" ]
-                        , br [] []
-                        , button [ onClick Add, class "btn-block btn btn-success", disabled model.isNew ] [ text "Add New" ]
-                        , br [] []
-                        , lazy viewTrips model.trips 
-                        ]
-                    ]
-                ]
-            , infoFooter
+        [ div [ class "row" ] 
+            [ div [ class "col-sm-8" ] [ lazy viewTrip model ]
+            , div [ class "col-sm-4" ] [ lazy viewTrips model ]
             ]
+        , infoFooter
+        , section [ class "debug-info" ]
+            [ label [] 
+                [ text ("Debug Info:  •••  Share URL: /id/" ++ model.uid 
+                ++ "  •••  isNew: " ++ (if model.isNew then "True" else "False") 
+                ++ "  •••  hasEdited: " ++ (if model.hasEdited then "True" else "False")) 
+                ]
+            ] 
         ]
 
--- VIEW TRIPS
+-- View Trip
 
-viewTrips : List Trip -> Html Msg
-viewTrips trips =
+viewTrip : Model -> Html Msg
+viewTrip model =
+    section [ class "trip-content" ]
+        -- Name
+        [ input [ placeholder "Enter Name...", value (model.name), onInput Name, class "trip-name" ] []
+        , br [] []
+        , br [] []
+        
+        -- Date
+        , div [ class "form-group" ]
+            [ DatePicker.view model.datePicker
+                |> Html.map ToDatePicker
+            ]
+
+        -- Address
+        , div [ class "group" ]
+            [ a [ href ("http://baidu.com/s?wd=" ++ model.address)
+                , target "_blank"
+                , hidden (String.isEmpty model.address)
+                , class "mr-1" 
+                ] 
+                [ text "Map" ]
+
+            , input [ placeholder "Enter Address...", value (model.address), onInput Address, class "trip-address" ] []
+            ]
+        , br [] []
+        , br [] []
+
+        -- Info
+        , textarea [ cols 40, rows 16, placeholder "Info...", value (model.info), onInput Info, class "trip-info" ] []
+
+        -- Reset & Save
+        , div [ class "btn-group" ]
+            [ button [ onClick Reset, class "btn btn-secondary mr-1", disabled (model.isNew || not model.hasEdited) ] [ text "Reset" ]
+            , button [ onClick Save, class "btn btn-primary ml-1 mr-3", disabled (String.isEmpty model.name || not model.hasEdited) ] [ text "Save" ]
+            ] 
+        ]
+
+-- View Trip Entries
+
+viewTrips : Model -> Html Msg
+viewTrips model =
+    section [ class "trip-entries" ]
+        [ label [] [ text "Upcoming Trips" ]
+        , br [] []
+        , button [ onClick Add, class "btn-block btn btn-success", disabled model.isNew ] [ text "Add New" ]
+        , br [] []
+        , lazy viewTripEntries model.trips 
+        ]
+
+viewTripEntries : List Trip -> Html Msg
+viewTripEntries trips =
     let _ = Debug.log "ViewTrips " trips
     in 
         section []
             [ Keyed.ol [] <|
-                List.map viewKeyedTrip trips
+                List.map viewKeyedTripEntry trips
             ]
 
-viewKeyedTrip : Trip -> (String, Html Msg)
-viewKeyedTrip trip = 
-    ( trip.uid, lazy viewTrip trip) 
+viewKeyedTripEntry : Trip -> (String, Html Msg)
+viewKeyedTripEntry trip = 
+    ( trip.uid, lazy viewTripEntry trip) 
 
-viewTrip : Trip -> Html Msg
-viewTrip trip =
+viewTripEntry : Trip -> Html Msg
+viewTripEntry trip =
     let 
         nameEmpty = String.isEmpty trip.name
 
@@ -460,35 +483,6 @@ infoFooter =
         [ p [] [ text "Making it happen" ]
         , p [] [ text "By hyouuu & Jackson" ]
         ]
-
--- Style
-
-nameStyle =
-    style
-        [ ( "width", "100%" )
-        , ( "height", "40px" )
-        , ( "padding", "10px 0" )
-        , ( "font-size", "2em" )
-        , ( "text-align", "center" )
-        ] 
-
-addressStyle =
-    style
-        [ ( "width", "90%" )
-        , ( "height", "40px" )
-        , ( "padding", "20px 20px" )
-        , ( "font-size", "2em" )
-        , ( "text-align", "center" )
-        ] 
-
-infoStyle =
-    style
-        [ ( "width", "100%" )
-        , ( "height", "200px" )
-        , ( "padding", "10px 0" )
-        , ( "font-size", "2em" )
-        , ( "text-align", "center" )
-        ] 
 
 -- SUBSCRIPTIONS
 
