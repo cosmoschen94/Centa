@@ -245,14 +245,12 @@ extension User {
         guard !token.isEmpty else { return false }
         // Validate our current access token
         let receivedJWT = try JWT(token: token)
-        if try receivedJWT.verifySignatureWith(
+        try receivedJWT.verifySignature(using:
             HS256(key: User.accessTokenSigningKey))
-        {
-            if receivedJWT.verifyClaims([ExpirationTimeClaim()]) {
-                return true
-            } else {
-                //try self.generateToken()
-            }
+        if receivedJWT.verifyClaims([ExpirationTimeClaim()]) {
+            return true
+        } else {
+            //try self.generateToken()
         }
         return false
     }
