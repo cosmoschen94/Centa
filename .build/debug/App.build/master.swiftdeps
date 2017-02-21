@@ -1,0 +1,16 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "7277ead1b7bf359df5b32146387ad7e1"
+build_time: [540975208, 534754000]
+inputs:
+  "/Users/shawngong/Centa/Sources/App/main.swift": !dirty [540902955, 0]
+  "/Users/shawngong/Centa/Sources/App/Controllers/TripController.swift": !dirty [539999222, 0]
+  "/Users/shawngong/Centa/Sources/App/Controllers/UserController.swift": !dirty [540900378, 0]
+  "/Users/shawngong/Centa/Sources/App/Extensions/DateExtension.swift": !dirty [536404385, 0]
+  "/Users/shawngong/Centa/Sources/App/Extensions/RequestExtension.swift": !dirty [538028124, 0]
+  "/Users/shawngong/Centa/Sources/App/Helpers/Helpers.swift": !dirty [540896369, 0]
+  "/Users/shawngong/Centa/Sources/App/Middleware/BearerAuthMiddleware.swift": !dirty [539573903, 0]
+  "/Users/shawngong/Centa/Sources/App/Middleware/CorsMiddleware.swift": !dirty [532914570, 0]
+  "/Users/shawngong/Centa/Sources/App/Models/Prop.swift": !dirty [540896369, 0]
+  "/Users/shawngong/Centa/Sources/App/Models/Trip.swift": !dirty [540957163, 0]
+  "/Users/shawngong/Centa/Sources/App/Models/TripUser.swift": !dirty [540902631, 0]
+  "/Users/shawngong/Centa/Sources/App/Models/User.swift": !dirty [540957162, 0]

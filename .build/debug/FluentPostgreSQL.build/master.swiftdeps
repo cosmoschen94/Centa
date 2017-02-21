@@ -1,0 +1,6 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "e0977bfa13c22a8941ff3fe2be8c1b0f"
+build_time: [540975189, 738469000]
+inputs:
+  "/Users/shawngong/Centa/Packages/FluentPostgreSQL-1.0.5/Sources/FluentPostgreSQL/PostgreSQLDriver.swift": [540975160, 0]
+  "/Users/shawngong/Centa/Packages/FluentPostgreSQL-1.0.5/Sources/FluentPostgreSQL/PostgreSQLSerializer.swift": [540975160, 0]

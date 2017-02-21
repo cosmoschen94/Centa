@@ -1,0 +1,17 @@
+{
+  "": {
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/Essentials.build/master.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/Crypto-1.0.1/Sources/Essentials/ByteStream.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/Essentials.build/ByteStream.d",
+    "object": "/Users/shawngong/Centa/.build/debug/Essentials.build/ByteStream.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/Essentials.build/ByteStream~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/Essentials.build/ByteStream.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/Crypto-1.0.1/Sources/Essentials/Helpers.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/Essentials.build/Helpers.d",
+    "object": "/Users/shawngong/Centa/.build/debug/Essentials.build/Helpers.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/Essentials.build/Helpers~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/Essentials.build/Helpers.swiftdeps"
+  }
+}

@@ -1,0 +1,5 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "eebfbe1d021382a64e276fa488e6add4"
+build_time: [540975177, 389165000]
+inputs:
+  "/Users/shawngong/Centa/Packages/Core-1.1.1/Sources/libc/libc.swift": [540975126, 0]

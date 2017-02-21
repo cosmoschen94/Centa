@@ -1,0 +1,29 @@
+{
+  "": {
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/FormData.build/master.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/Multipart-1.0.1/Sources/FormData/ContentDispositionParser.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/FormData.build/ContentDispositionParser.d",
+    "object": "/Users/shawngong/Centa/.build/debug/FormData.build/ContentDispositionParser.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/FormData.build/ContentDispositionParser~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/FormData.build/ContentDispositionParser.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/Multipart-1.0.1/Sources/FormData/Field.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/FormData.build/Field.d",
+    "object": "/Users/shawngong/Centa/.build/debug/FormData.build/Field.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/FormData.build/Field~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/FormData.build/Field.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/Multipart-1.0.1/Sources/FormData/Parser.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/FormData.build/Parser.d",
+    "object": "/Users/shawngong/Centa/.build/debug/FormData.build/Parser.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/FormData.build/Parser~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/FormData.build/Parser.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/Multipart-1.0.1/Sources/FormData/Serializer.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/FormData.build/Serializer.d",
+    "object": "/Users/shawngong/Centa/.build/debug/FormData.build/Serializer.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/FormData.build/Serializer~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/FormData.build/Serializer.swiftdeps"
+  }
+}

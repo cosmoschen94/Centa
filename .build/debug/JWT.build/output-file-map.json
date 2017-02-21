@@ -1,0 +1,167 @@
+{
+  "": {
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/master.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/ClaimsVerifiable.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/ClaimsVerifiable.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/ClaimsVerifiable.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/ClaimsVerifiable~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/ClaimsVerifiable.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/JWT.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/JWT.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/JWT.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/JWT~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/JWT.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/JWTError.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/JWTError.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/JWTError.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/JWTError~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/JWTError.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/NodeFailableInitializable.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/NodeFailableInitializable.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/NodeFailableInitializable.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/NodeFailableInitializable~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/NodeFailableInitializable.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/SignatureVerifiable.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/SignatureVerifiable.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/SignatureVerifiable.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/SignatureVerifiable~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/SignatureVerifiable.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Storable.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/Storable.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Storable.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/Storable~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/Storable.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Claims/AudienceClaim.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/AudienceClaim.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Claims/AudienceClaim.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/AudienceClaim~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/AudienceClaim.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Claims/Claim.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/Claim.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Claims/Claim.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/Claim~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/Claim.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Claims/EqualityClaim.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/EqualityClaim.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Claims/EqualityClaim.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/EqualityClaim~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/EqualityClaim.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Claims/ExpirationTimeClaim.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/ExpirationTimeClaim.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Claims/ExpirationTimeClaim.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/ExpirationTimeClaim~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/ExpirationTimeClaim.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Claims/IssuedAtClaim.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/IssuedAtClaim.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Claims/IssuedAtClaim.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/IssuedAtClaim~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/IssuedAtClaim.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Claims/IssuerClaim.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/IssuerClaim.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Claims/IssuerClaim.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/IssuerClaim~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/IssuerClaim.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Claims/JWTIDClaim.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/JWTIDClaim.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Claims/JWTIDClaim.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/JWTIDClaim~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/JWTIDClaim.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Claims/NotBeforeClaim.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/NotBeforeClaim.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Claims/NotBeforeClaim.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/NotBeforeClaim~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/NotBeforeClaim.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Claims/SecondsWithLeewayClaim.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/SecondsWithLeewayClaim.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Claims/SecondsWithLeewayClaim.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/SecondsWithLeewayClaim~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/SecondsWithLeewayClaim.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Claims/SubjectClaim.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/SubjectClaim.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Claims/SubjectClaim.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/SubjectClaim~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/SubjectClaim.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Encodings/Base64Encoding.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/Base64Encoding.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Encodings/Base64Encoding.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/Base64Encoding~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/Base64Encoding.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Encodings/Base64URLEncoding.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/Base64URLEncoding.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Encodings/Base64URLEncoding.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/Base64URLEncoding~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/Base64URLEncoding.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Encodings/Encoding.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/Encoding.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Encodings/Encoding.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/Encoding~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/Encoding.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Headers/AlgorithmHeader.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/AlgorithmHeader.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Headers/AlgorithmHeader.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/AlgorithmHeader~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/AlgorithmHeader.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Headers/Header.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/Header.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Headers/Header.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/Header~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/Header.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Headers/TypeHeader.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/TypeHeader.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Headers/TypeHeader.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/TypeHeader~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/TypeHeader.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Signers/ECDSASigner.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/ECDSASigner.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Signers/ECDSASigner.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/ECDSASigner~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/ECDSASigner.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Signers/HMACSigner.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/HMACSigner.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Signers/HMACSigner.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/HMACSigner~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/HMACSigner.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Signers/RSASigner.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/RSASigner.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Signers/RSASigner.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/RSASigner~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/RSASigner.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Signers/Signer.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/Signer.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Signers/Signer.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/Signer~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/Signer.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/JWT-0.8.0/Sources/JWT/Signers/Unsigned.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/Unsigned.d",
+    "object": "/Users/shawngong/Centa/.build/debug/JWT.build/Signers/Unsigned.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/JWT.build/Unsigned~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/JWT.build/Unsigned.swiftdeps"
+  }
+}

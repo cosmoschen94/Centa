@@ -1,0 +1,6 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "c5b9fe8a27befc366cd15e7c1a99dd62"
+build_time: [540975177, 317516000]
+inputs:
+  "/Users/shawngong/Centa/Packages/PathIndexable-1.0.0/Sources/PathIndexable/PathIndexable+Subscripting.swift": [540975137, 0]
+  "/Users/shawngong/Centa/Packages/PathIndexable-1.0.0/Sources/PathIndexable/PathIndexable.swift": [540975138, 0]

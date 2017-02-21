@@ -1,0 +1,7 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "bedbb11c75a0f91766de0459fe50193f"
+build_time: [540975187, 622853000]
+inputs:
+  "/Users/shawngong/Centa/Packages/Crypto-1.0.1/Sources/Hash/Hash.swift": [540975124, 0]
+  "/Users/shawngong/Centa/Packages/Crypto-1.0.1/Sources/Hash/Method.swift": [540975124, 0]
+  "/Users/shawngong/Centa/Packages/Crypto-1.0.1/Sources/Hash/Random.swift": [540975124, 0]

@@ -1,0 +1,18 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "a7f4fdb6cf96ae7620e08a40d2ba4658"
+build_time: [540975194, 783920000]
+inputs:
+  "/Users/shawngong/Centa/Packages/Engine-1.3.11/Sources/WebSockets/Request+WebSockets.swift": [540975140, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.11/Sources/WebSockets/WebSocketFormatErrors.swift": [540975140, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.11/Sources/WebSockets/Client/WebSocket+Client.swift": [540975143, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.11/Sources/WebSockets/Communication/WebSocket+ControlFrames.swift": [540975140, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.11/Sources/WebSockets/Communication/WebSocket+Send.swift": [540975143, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.11/Sources/WebSockets/Connection/Headers+WebSockets.swift": [540975140, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.11/Sources/WebSockets/Connection/WebSockets+Hash.swift": [540975143, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.11/Sources/WebSockets/Model/Fragmentation.swift": [540975140, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.11/Sources/WebSockets/Model/Frame.swift": [540975143, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.11/Sources/WebSockets/Model/WebSocket+Error.swift": [540975140, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.11/Sources/WebSockets/Model/WebSocket.swift": [540975143, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.11/Sources/WebSockets/Serialization/FrameDeserializer.swift": [540975143, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.11/Sources/WebSockets/Serialization/FrameSerializer.swift": [540975143, 0]
+  "/Users/shawngong/Centa/Packages/Engine-1.3.11/Sources/WebSockets/Serialization/WebSockets+Flags.swift": [540975140, 0]

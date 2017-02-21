@@ -1,0 +1,8 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "bc41e9883f027d7e70fea4b128335710"
+build_time: [540975196, 391298000]
+inputs:
+  "/Users/shawngong/Centa/Packages/Multipart-1.0.1/Sources/FormData/ContentDispositionParser.swift": [540975158, 0]
+  "/Users/shawngong/Centa/Packages/Multipart-1.0.1/Sources/FormData/Field.swift": [540975157, 0]
+  "/Users/shawngong/Centa/Packages/Multipart-1.0.1/Sources/FormData/Parser.swift": [540975158, 0]
+  "/Users/shawngong/Centa/Packages/Multipart-1.0.1/Sources/FormData/Serializer.swift": [540975158, 0]

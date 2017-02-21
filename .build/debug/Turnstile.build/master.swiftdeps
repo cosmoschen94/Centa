@@ -1,0 +1,17 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "18a4e3b968d3657d275cd8598e48b1c4"
+build_time: [540975187, 225747000]
+inputs:
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/Turnstile/TurnstileError.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/Turnstile/Core/Subject.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/Turnstile/Core/Turnstile.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/Turnstile/Credentials/APIKey.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/Turnstile/Credentials/Credentials.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/Turnstile/Credentials/CredentialsError.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/Turnstile/Credentials/Token.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/Turnstile/Credentials/UsernamePassword.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/Turnstile/Realm/Account.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/Turnstile/Realm/MemoryRealm.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/Turnstile/Realm/Realm.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/Turnstile/SessionManager/MemorySessionManager.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/Turnstile/SessionManager/SessionManager.swift": [540975153, 0]

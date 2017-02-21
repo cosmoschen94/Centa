@@ -1,0 +1,16 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "4aa7e7cee464468080ba07d572e7b6b3"
+build_time: [540975188, 477810000]
+inputs:
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/TurnstileWeb/URLSession+Turnstile.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/TurnstileWeb/WebMemoryRealm.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/TurnstileWeb/LoginProviders/Digits.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/TurnstileWeb/LoginProviders/Facebook.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/TurnstileWeb/LoginProviders/Google.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/TurnstileWeb/Protocols/OAuth/OAuthDelegator.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/TurnstileWeb/Protocols/OAuth/OAuthEcho.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/TurnstileWeb/Protocols/OAuth/OAuthParameters.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/TurnstileWeb/Protocols/OAuth2/AuthorizationCode.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/TurnstileWeb/Protocols/OAuth2/OAuth2.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/TurnstileWeb/Protocols/OAuth2/OAuth2Error.swift": [540975153, 0]
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/TurnstileWeb/Protocols/OAuth2/OAuth2Token.swift": [540975153, 0]

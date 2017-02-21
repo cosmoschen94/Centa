@@ -1,0 +1,256 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SecondsWithLeewayClaim"
+provides-nominal:
+- "P3JWT22SecondsWithLeewayClaim"
+provides-member:
+- ["P3JWT22SecondsWithLeewayClaim", ""]
+- ["P3JWT22SecondsWithLeewayClaim", "init"]
+- ["P3JWT22SecondsWithLeewayClaim", "init"]
+- ["P3JWT22SecondsWithLeewayClaim", "verify"]
+provides-dynamic-lookup:
+depends-top-level:
+- "Node"
+- "Date"
+- "Claim"
+- "Seconds"
+- !private "BooleanLiteralType"
+- "SecondsBacked"
+- "Bool"
+- "SecondsWithLeewayClaim"
+depends-member:
+- !private ["Ps17BitwiseOperations", "init"]
+- ["Sb", "deinit"]
+- !private ["Ps7CVarArg", "init"]
+- ["P3JWT5Claim", "Bool"]
+- ["P3JWT5Claim", "Date"]
+- ["P3JWT5Claim", "Node"]
+- ["P3JWT5Claim", "Seconds"]
+- !private ["P3JWT5Claim", "Self"]
+- ["P3JWT5Claim", "init"]
+- ["P3JWT5Claim", "leeway"]
+- !private ["P3JWT5Claim", "value"]
+- ["P3JWT5Claim", "verify"]
+- ["P3JWT5Claim", ""]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps10Comparable", "timeIntervalSince1970"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "timeIntervalSince1970"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "timeIntervalSince1970"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "timeIntervalSince1970"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "timeIntervalSince1970"]
+- ["V10Foundation4Date", "deinit"]
+- !private ["V10Foundation4Date", "init"]
+- !private ["V10Foundation4Date", "timeIntervalSince1970"]
+- ["Sd", "deinit"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "timeIntervalSince1970"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "init"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "timeIntervalSince1970"]
+- ["Si", "deinit"]
+- !private ["Si", "init"]
+- !private ["Ps7Integer", "init"]
+- !private ["Ps17IntegerArithmetic", "init"]
+- !private ["Ps10MirrorPath", "init"]
+- ["O4Node4Node", "deinit"]
+- !private ["P4Node15NodeConvertible", "init"]
+- ["P3JWT25NodeFailableInitializable", "Bool"]
+- ["P3JWT25NodeFailableInitializable", "Date"]
+- ["P3JWT25NodeFailableInitializable", "Node"]
+- ["P3JWT25NodeFailableInitializable", "Seconds"]
+- !private ["P3JWT25NodeFailableInitializable", "Self"]
+- ["P3JWT25NodeFailableInitializable", "init"]
+- ["P3JWT25NodeFailableInitializable", "leeway"]
+- !private ["P3JWT25NodeFailableInitializable", "value"]
+- ["P3JWT25NodeFailableInitializable", "verify"]
+- ["P3JWT25NodeFailableInitializable", ""]
+- !private ["P4Node17NodeInitializable", "init"]
+- !private ["P4Node17NodeRepresentable", "init"]
+- ["Sq", "deinit"]
+- !private ["P13PathIndexable9PathIndex", "init"]
+- !private ["P10Foundation20ReferenceConvertible", "init"]
+- !private ["P10Foundation20ReferenceConvertible", "timeIntervalSince1970"]
+- ["P3JWT13SecondsBacked", "Bool"]
+- ["P3JWT13SecondsBacked", "Date"]
+- ["P3JWT13SecondsBacked", "Node"]
+- ["P3JWT13SecondsBacked", "Seconds"]
+- !private ["P3JWT13SecondsBacked", "Self"]
+- !private ["P3JWT13SecondsBacked", "deinit"]
+- ["P3JWT13SecondsBacked", "init"]
+- ["P3JWT13SecondsBacked", "leeway"]
+- !private ["P3JWT13SecondsBacked", "value"]
+- ["P3JWT13SecondsBacked", "verify"]
+- ["P3JWT13SecondsBacked", ""]
+- ["P3JWT22SecondsWithLeewayClaim", "Bool"]
+- ["P3JWT22SecondsWithLeewayClaim", "Date"]
+- ["P3JWT22SecondsWithLeewayClaim", "Node"]
+- ["P3JWT22SecondsWithLeewayClaim", "Seconds"]
+- !private ["P3JWT22SecondsWithLeewayClaim", "Self"]
+- ["P3JWT22SecondsWithLeewayClaim", "init"]
+- ["P3JWT22SecondsWithLeewayClaim", "leeway"]
+- !private ["P3JWT22SecondsWithLeewayClaim", "value"]
+- ["P3JWT22SecondsWithLeewayClaim", "verify"]
+- ["P3JWT22SecondsWithLeewayClaim", ""]
+- !private ["Ps13SignedInteger", "init"]
+- !private ["Ps12SignedNumber", "init"]
+- ["P3JWT8Storable", "Bool"]
+- ["P3JWT8Storable", "Date"]
+- ["P3JWT8Storable", "Node"]
+- ["P3JWT8Storable", "Seconds"]
+- !private ["P3JWT8Storable", "Self"]
+- ["P3JWT8Storable", "init"]
+- ["P3JWT8Storable", "leeway"]
+- !private ["P3JWT8Storable", "value"]
+- ["P3JWT8Storable", "verify"]
+- ["P3JWT8Storable", ""]
+- !private ["Ps10Strideable", "init"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "timeIntervalSince1970"]
+- !private ["Ps14_Incrementable", "init"]
+- !private ["Ps8_Integer", "init"]
+- !private ["Ps18_IntegerArithmetic", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "timeIntervalSince1970"]
+- !private ["Ps14_SignedInteger", "init"]
+- !private ["Ps11_Strideable", "init"]
+depends-nominal:
+- !private "Ps17BitwiseOperations"
+- "Sb"
+- !private "Ps7CVarArg"
+- "P3JWT5Claim"
+- !private "Ps10Comparable"
+- !private "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- !private "Ps23CustomStringConvertible"
+- "V10Foundation4Date"
+- "Sd"
+- !private "Ps9Equatable"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- !private "Ps8Hashable"
+- "Si"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
+- !private "Ps10MirrorPath"
+- "O4Node4Node"
+- !private "P4Node15NodeConvertible"
+- "P3JWT25NodeFailableInitializable"
+- !private "P4Node17NodeInitializable"
+- !private "P4Node17NodeRepresentable"
+- "Sq"
+- !private "P13PathIndexable9PathIndex"
+- !private "P10Foundation20ReferenceConvertible"
+- "P3JWT13SecondsBacked"
+- "P3JWT22SecondsWithLeewayClaim"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
+- "P3JWT8Storable"
+- !private "Ps10Strideable"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- !private "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/JSON.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Core.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/CLibreSSL.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/libc.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Jay.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Node.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/PathIndexable.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Polymorphic.swiftmodule"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/whrlpool.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ui_compat.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/txt_db.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/x509v3.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/x509.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ts.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/tls.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ripemd.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/rc4.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/rc2.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/rand.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/poly1305.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/pkcs12.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/safestack.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/opensslfeatures.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/opensslconf.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ossl_typ.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ocsp.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/modes.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/md5.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/md4.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/krb5_asn.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/idea.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/gost.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/lhash.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/err.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ui.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/rsa.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/engine.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ssl3.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ssl.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/srtp.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ssl23.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/tls1.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/evp.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ssl2.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/pem2.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/pkcs7.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/x509_vfy.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/sha.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ec.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ecdh.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ecdsa.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/stack.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/pem.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/hmac.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/dtls1.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/dso.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/dsa.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/dh.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/des.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/conf_api.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/conf.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/crypto.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/comp.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/cms.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/obj_mac.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/objects.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/cmac.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/chacha.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/cast.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/camellia.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/buffer.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/blowfish.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/asn1t.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/asn1_mac.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/bio.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/bn.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/opensslv.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/asn1.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/aes.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/CLibreSSL.h"
+- "/Users/shawngong/Centa/.build/debug/Hash.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Essentials.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Random.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/HMAC.swiftmodule"
+interface-hash: "0ac50ff4e4e5fce26bc404e8dea9528d"

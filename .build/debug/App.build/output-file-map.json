@@ -1,0 +1,77 @@
+{
+  "": {
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/App.build/master.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Sources/App/main.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/App.build/main.d",
+    "object": "/Users/shawngong/Centa/.build/debug/App.build/main.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/App.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/App.build/main.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Sources/App/Controllers/TripController.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/App.build/TripController.d",
+    "object": "/Users/shawngong/Centa/.build/debug/App.build/Controllers/TripController.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/App.build/TripController~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/App.build/TripController.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Sources/App/Controllers/UserController.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/App.build/UserController.d",
+    "object": "/Users/shawngong/Centa/.build/debug/App.build/Controllers/UserController.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/App.build/UserController~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/App.build/UserController.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Sources/App/Extensions/DateExtension.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/App.build/DateExtension.d",
+    "object": "/Users/shawngong/Centa/.build/debug/App.build/Extensions/DateExtension.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/App.build/DateExtension~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/App.build/DateExtension.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Sources/App/Extensions/RequestExtension.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/App.build/RequestExtension.d",
+    "object": "/Users/shawngong/Centa/.build/debug/App.build/Extensions/RequestExtension.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/App.build/RequestExtension~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/App.build/RequestExtension.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Sources/App/Helpers/Helpers.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/App.build/Helpers.d",
+    "object": "/Users/shawngong/Centa/.build/debug/App.build/Helpers/Helpers.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/App.build/Helpers~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/App.build/Helpers.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Sources/App/Middleware/BearerAuthMiddleware.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/App.build/BearerAuthMiddleware.d",
+    "object": "/Users/shawngong/Centa/.build/debug/App.build/Middleware/BearerAuthMiddleware.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/App.build/BearerAuthMiddleware~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/App.build/BearerAuthMiddleware.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Sources/App/Middleware/CorsMiddleware.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/App.build/CorsMiddleware.d",
+    "object": "/Users/shawngong/Centa/.build/debug/App.build/Middleware/CorsMiddleware.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/App.build/CorsMiddleware~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/App.build/CorsMiddleware.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Sources/App/Models/Prop.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/App.build/Prop.d",
+    "object": "/Users/shawngong/Centa/.build/debug/App.build/Models/Prop.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/App.build/Prop~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/App.build/Prop.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Sources/App/Models/Trip.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/App.build/Trip.d",
+    "object": "/Users/shawngong/Centa/.build/debug/App.build/Models/Trip.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/App.build/Trip~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/App.build/Trip.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Sources/App/Models/TripUser.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/App.build/TripUser.d",
+    "object": "/Users/shawngong/Centa/.build/debug/App.build/Models/TripUser.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/App.build/TripUser~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/App.build/TripUser.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Sources/App/Models/User.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/App.build/User.d",
+    "object": "/Users/shawngong/Centa/.build/debug/App.build/Models/User.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/App.build/User~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/App.build/User.swiftdeps"
+  }
+}

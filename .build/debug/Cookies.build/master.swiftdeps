@@ -1,0 +1,15 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "ed66578d1f62244cc4dee2576b14143b"
+build_time: [540975199, 629553000]
+inputs:
+  "/Users/shawngong/Centa/Packages/Vapor-1.5.7/Sources/Cookies/Cookie+BytesConvertible.swift": [540975123, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.5.7/Sources/Cookies/Cookie+Parse.swift": [540975123, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.5.7/Sources/Cookies/Cookie+Serialize.swift": [540975123, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.5.7/Sources/Cookies/Cookie.swift": [540975123, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.5.7/Sources/Cookies/Cookies+BytesConvertible.swift": [540975123, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.5.7/Sources/Cookies/Cookies+Literal.swift": [540975123, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.5.7/Sources/Cookies/Cookies+Parse.swift": [540975123, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.5.7/Sources/Cookies/Cookies+Serialize.swift": [540975123, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.5.7/Sources/Cookies/Cookies.swift": [540975123, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.5.7/Sources/Cookies/Request+Cookies.swift": [540975123, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.5.7/Sources/Cookies/Response+Cookies.swift": [540975123, 0]

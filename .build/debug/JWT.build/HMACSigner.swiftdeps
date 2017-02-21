@@ -1,0 +1,290 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "HS256"
+- "HS384"
+- "HS512"
+- "HMACSigner"
+provides-nominal:
+- "C3JWT5HS256"
+- "C3JWT5HS384"
+- "C3JWT5HS512"
+- "P3JWT10HMACSigner"
+provides-member:
+- ["C3JWT5HS256", ""]
+- ["C3JWT5HS384", ""]
+- ["C3JWT5HS512", ""]
+- ["P3JWT10HMACSigner", ""]
+- ["P3JWT10HMACSigner", "init"]
+- ["P3JWT10HMACSigner", "makeBytes"]
+- ["P3JWT10HMACSigner", "sign"]
+- ["P3JWT10HMACSigner", "verify"]
+provides-dynamic-lookup:
+depends-top-level:
+- "Bytes"
+- !private "JWTError"
+- "HS384"
+- "HS512"
+- "HS256"
+- "HMAC"
+- "AssignmentPrecedence"
+- !private "=="
+- "HMACSigner"
+- "Signer"
+- "BytesConvertible"
+depends-member:
+- ["Ps9AnyObject", "HMAC"]
+- ["Ps9AnyObject", "Method"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "key"]
+- !private ["Ps9AnyObject", "make"]
+- ["Ps9AnyObject", "makeBytes"]
+- ["Ps9AnyObject", "method"]
+- ["Ps9AnyObject", "name"]
+- ["Ps9AnyObject", "sign"]
+- ["Ps9AnyObject", "verify"]
+- ["Ps9AnyObject", ""]
+- ["Sa", "deinit"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["Sb", "deinit"]
+- ["P4Core16BytesConvertible", "Bytes"]
+- ["P4Core16BytesConvertible", "HMAC"]
+- !private ["P4Core16BytesConvertible", "JWTError"]
+- ["P4Core16BytesConvertible", "init"]
+- ["P4Core16BytesConvertible", "key"]
+- ["P4Core16BytesConvertible", "makeBytes"]
+- ["P4Core16BytesConvertible", "method"]
+- ["P4Core16BytesConvertible", "name"]
+- ["P4Core16BytesConvertible", "sign"]
+- ["P4Core16BytesConvertible", "verify"]
+- ["P4Core16BytesConvertible", ""]
+- ["P4Core18BytesInitializable", "Bytes"]
+- ["P4Core18BytesInitializable", "HMAC"]
+- !private ["P4Core18BytesInitializable", "JWTError"]
+- ["P4Core18BytesInitializable", "init"]
+- ["P4Core18BytesInitializable", "key"]
+- ["P4Core18BytesInitializable", "makeBytes"]
+- ["P4Core18BytesInitializable", "method"]
+- ["P4Core18BytesInitializable", "name"]
+- ["P4Core18BytesInitializable", "sign"]
+- ["P4Core18BytesInitializable", "verify"]
+- ["P4Core18BytesInitializable", ""]
+- ["P4Core18BytesRepresentable", "Bytes"]
+- ["P4Core18BytesRepresentable", "HMAC"]
+- !private ["P4Core18BytesRepresentable", "JWTError"]
+- ["P4Core18BytesRepresentable", "init"]
+- ["P4Core18BytesRepresentable", "key"]
+- ["P4Core18BytesRepresentable", "makeBytes"]
+- ["P4Core18BytesRepresentable", "method"]
+- ["P4Core18BytesRepresentable", "name"]
+- ["P4Core18BytesRepresentable", "sign"]
+- ["P4Core18BytesRepresentable", "verify"]
+- ["P4Core18BytesRepresentable", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "verificationFailed"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- ["Ps9Equatable", "sha256"]
+- ["Ps9Equatable", "sha384"]
+- ["Ps9Equatable", "sha512"]
+- !private ["Ps5Error", "verificationFailed"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- ["C4HMAC4HMAC", "Method"]
+- !private ["C4HMAC4HMAC", "make"]
+- ["P3JWT10HMACSigner", "Bytes"]
+- ["P3JWT10HMACSigner", "HMAC"]
+- !private ["P3JWT10HMACSigner", "JWTError"]
+- !private ["P3JWT10HMACSigner", "deinit"]
+- ["P3JWT10HMACSigner", "init"]
+- ["P3JWT10HMACSigner", "key"]
+- ["P3JWT10HMACSigner", "makeBytes"]
+- ["P3JWT10HMACSigner", "method"]
+- ["P3JWT10HMACSigner", "name"]
+- ["P3JWT10HMACSigner", "sign"]
+- ["P3JWT10HMACSigner", "verify"]
+- ["P3JWT10HMACSigner", ""]
+- ["C3JWT5HS256", "Bytes"]
+- ["C3JWT5HS256", "HMAC"]
+- ["C3JWT5HS256", "deinit"]
+- ["C3JWT5HS256", "init"]
+- ["C3JWT5HS256", "key"]
+- ["C3JWT5HS256", "makeBytes"]
+- ["C3JWT5HS256", "method"]
+- ["C3JWT5HS256", "name"]
+- ["C3JWT5HS256", "sign"]
+- ["C3JWT5HS256", "verify"]
+- ["C3JWT5HS384", "Bytes"]
+- ["C3JWT5HS384", "HMAC"]
+- ["C3JWT5HS384", "deinit"]
+- ["C3JWT5HS384", "init"]
+- ["C3JWT5HS384", "key"]
+- ["C3JWT5HS384", "makeBytes"]
+- ["C3JWT5HS384", "method"]
+- ["C3JWT5HS384", "name"]
+- ["C3JWT5HS384", "sign"]
+- ["C3JWT5HS384", "verify"]
+- ["C3JWT5HS512", "Bytes"]
+- ["C3JWT5HS512", "HMAC"]
+- ["C3JWT5HS512", "deinit"]
+- ["C3JWT5HS512", "init"]
+- ["C3JWT5HS512", "key"]
+- ["C3JWT5HS512", "makeBytes"]
+- ["C3JWT5HS512", "method"]
+- ["C3JWT5HS512", "name"]
+- ["C3JWT5HS512", "sign"]
+- ["C3JWT5HS512", "verify"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- ["Ps8Hashable", "sha256"]
+- ["Ps8Hashable", "sha384"]
+- ["Ps8Hashable", "sha512"]
+- ["O3JWT8JWTError", "deinit"]
+- !private ["O3JWT8JWTError", "verificationFailed"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- ["OC4HMAC4HMAC6Method", "deinit"]
+- ["OC4HMAC4HMAC6Method", "sha256"]
+- ["OC4HMAC4HMAC6Method", "sha384"]
+- ["OC4HMAC4HMAC6Method", "sha512"]
+- !private ["P4Node15NodeConvertible", "_getBuiltinLogicValue"]
+- !private ["P4Node17NodeInitializable", "_getBuiltinLogicValue"]
+- !private ["P4Node17NodeRepresentable", "_getBuiltinLogicValue"]
+- ["P3JWT6Signer", "Bytes"]
+- ["P3JWT6Signer", "HMAC"]
+- !private ["P3JWT6Signer", "JWTError"]
+- ["P3JWT6Signer", "init"]
+- ["P3JWT6Signer", "key"]
+- ["P3JWT6Signer", "makeBytes"]
+- ["P3JWT6Signer", "method"]
+- ["P3JWT6Signer", "name"]
+- ["P3JWT6Signer", "sign"]
+- ["P3JWT6Signer", "verify"]
+- ["P3JWT6Signer", ""]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- ["Ps9_Hashable", "sha256"]
+- ["Ps9_Hashable", "sha384"]
+- ["Ps9_Hashable", "sha512"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+depends-nominal:
+- "Ps9AnyObject"
+- "Sa"
+- "Sb"
+- "P4Core16BytesConvertible"
+- "P4Core18BytesInitializable"
+- "P4Core18BytesRepresentable"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- !private "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps5Error"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- "C4HMAC4HMAC"
+- "P3JWT10HMACSigner"
+- "C3JWT5HS256"
+- "C3JWT5HS384"
+- "C3JWT5HS512"
+- "Ps8Hashable"
+- "O3JWT8JWTError"
+- !private "Ps25LosslessStringConvertible"
+- "OC4HMAC4HMAC6Method"
+- !private "P4Node15NodeConvertible"
+- !private "P4Node17NodeInitializable"
+- !private "P4Node17NodeRepresentable"
+- "P3JWT6Signer"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/JSON.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Core.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/CLibreSSL.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/libc.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Jay.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Node.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/PathIndexable.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Polymorphic.swiftmodule"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/whrlpool.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ui_compat.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/txt_db.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/x509v3.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/x509.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ts.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/tls.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ripemd.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/rc4.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/rc2.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/rand.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/poly1305.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/pkcs12.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/safestack.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/opensslfeatures.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/opensslconf.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ossl_typ.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ocsp.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/modes.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/md5.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/md4.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/krb5_asn.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/idea.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/gost.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/lhash.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/err.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ui.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/rsa.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/engine.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ssl3.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ssl.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/srtp.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ssl23.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/tls1.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/evp.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ssl2.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/pem2.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/pkcs7.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/x509_vfy.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/sha.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ec.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ecdh.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ecdsa.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/stack.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/pem.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/hmac.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/dtls1.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/dso.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/dsa.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/dh.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/des.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/conf_api.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/conf.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/crypto.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/comp.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/cms.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/obj_mac.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/objects.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/cmac.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/chacha.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/cast.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/camellia.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/buffer.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/blowfish.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/asn1t.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/asn1_mac.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/bio.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/bn.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/opensslv.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/asn1.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/aes.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/CLibreSSL.h"
+- "/Users/shawngong/Centa/.build/debug/Hash.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Essentials.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Random.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/HMAC.swiftmodule"
+interface-hash: "966c651d0bdd670055644207893c4de5"

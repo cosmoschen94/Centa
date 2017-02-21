@@ -1,0 +1,14 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "8760fc1bf4d7e21c4ff091c3ea49c408"
+build_time: [540975199, 629764000]
+inputs:
+  "/Users/shawngong/Centa/Packages/Vapor-1.5.7/Sources/Settings/Config+Arguments.swift": [540975120, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.5.7/Sources/Settings/Config+Directory.swift": [540975123, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.5.7/Sources/Settings/Config.swift": [540975123, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.5.7/Sources/Settings/KeyAccessible+Merge.swift": [540975120, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.5.7/Sources/Settings/KeyAccessible.swift": [540975120, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.5.7/Sources/Settings/Node+Merge.swift": [540975120, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.5.7/Sources/Settings/Source.swift": [540975120, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.5.7/Sources/Settings/Env/Env.swift": [540975120, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.5.7/Sources/Settings/Env/Node+Env.swift": [540975123, 0]
+  "/Users/shawngong/Centa/Packages/Vapor-1.5.7/Sources/Settings/Env/String+Env.swift": [540975123, 0]

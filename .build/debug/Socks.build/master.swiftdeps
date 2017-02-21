@@ -1,0 +1,9 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "4fbb49b01fbc1db5b7fea7c8bc0b8ccf"
+build_time: [540975179, 356852000]
+inputs:
+  "/Users/shawngong/Centa/Packages/Socks-1.2.6/Sources/Socks/Socks.swift": [540975146, 0]
+  "/Users/shawngong/Centa/Packages/Socks-1.2.6/Sources/Socks/SynchronousTCPServer.swift": [540975146, 0]
+  "/Users/shawngong/Centa/Packages/Socks-1.2.6/Sources/Socks/SynchronousUDPServer.swift": [540975146, 0]
+  "/Users/shawngong/Centa/Packages/Socks-1.2.6/Sources/Socks/TCPClient.swift": [540975146, 0]
+  "/Users/shawngong/Centa/Packages/Socks-1.2.6/Sources/Socks/UDPClient.swift": [540975146, 0]

@@ -1,0 +1,446 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+provides-member:
+- ["V10Foundation4Date", ""]
+- ["SS", ""]
+- ["V10Foundation4Date", "iso8601Formatter"]
+- ["V10Foundation4Date", "iso8601"]
+- ["SS", "dateFromISO8601"]
+provides-dynamic-lookup:
+depends-top-level:
+- "AssignmentPrecedence"
+- "Locale"
+- "String"
+- "DateFormatter"
+- "TimeZone"
+- "Date"
+- "Calendar"
+- "StringLiteralType"
+depends-member:
+- ["Ps9AnyObject", "calendar"]
+- !private ["Ps9AnyObject", "date"]
+- ["Ps9AnyObject", "dateFormat"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "locale"]
+- !private ["Ps9AnyObject", "string"]
+- ["Ps9AnyObject", "timeZone"]
+- !private ["P4HTTP17BodyRepresentable", "Date"]
+- ["P4HTTP17BodyRepresentable", "init"]
+- !private ["P4Core16BytesConvertible", "Date"]
+- ["P4Core16BytesConvertible", "init"]
+- !private ["P4Core18BytesInitializable", "Date"]
+- ["P4Core18BytesInitializable", "init"]
+- !private ["P4Core18BytesRepresentable", "Date"]
+- ["P4Core18BytesRepresentable", "init"]
+- !private ["Ps7CVarArg", "Date"]
+- ["Ps7CVarArg", "calendar"]
+- !private ["Ps7CVarArg", "date"]
+- ["Ps7CVarArg", "dateFormat"]
+- ["Ps7CVarArg", "init"]
+- ["Ps7CVarArg", "locale"]
+- !private ["Ps7CVarArg", "string"]
+- ["Ps7CVarArg", "timeZone"]
+- ["V10Foundation8Calendar", "deinit"]
+- ["V10Foundation8Calendar", "init"]
+- ["Ps10Comparable", "Calendar"]
+- !private ["Ps10Comparable", "Date"]
+- ["Ps10Comparable", "DateFormatter"]
+- ["Ps10Comparable", "Locale"]
+- ["Ps10Comparable", "TimeZone"]
+- ["Ps10Comparable", "init"]
+- !private ["Ps10Comparable", "iso8601Formatter"]
+- !private ["P5Vapor9Countable", "Date"]
+- ["P5Vapor9Countable", "init"]
+- ["Ps28CustomDebugStringConvertible", "Calendar"]
+- !private ["Ps28CustomDebugStringConvertible", "Date"]
+- ["Ps28CustomDebugStringConvertible", "DateFormatter"]
+- ["Ps28CustomDebugStringConvertible", "Locale"]
+- ["Ps28CustomDebugStringConvertible", "TimeZone"]
+- ["Ps28CustomDebugStringConvertible", "calendar"]
+- !private ["Ps28CustomDebugStringConvertible", "date"]
+- ["Ps28CustomDebugStringConvertible", "dateFormat"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "iso8601Formatter"]
+- ["Ps28CustomDebugStringConvertible", "locale"]
+- !private ["Ps28CustomDebugStringConvertible", "string"]
+- ["Ps28CustomDebugStringConvertible", "timeZone"]
+- ["Ps29CustomPlaygroundQuickLookable", "Calendar"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "Date"]
+- ["Ps29CustomPlaygroundQuickLookable", "DateFormatter"]
+- ["Ps29CustomPlaygroundQuickLookable", "Locale"]
+- ["Ps29CustomPlaygroundQuickLookable", "TimeZone"]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "iso8601Formatter"]
+- ["Ps17CustomReflectable", "Calendar"]
+- !private ["Ps17CustomReflectable", "Date"]
+- ["Ps17CustomReflectable", "DateFormatter"]
+- ["Ps17CustomReflectable", "Locale"]
+- ["Ps17CustomReflectable", "TimeZone"]
+- ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "iso8601Formatter"]
+- ["Ps23CustomStringConvertible", "Calendar"]
+- !private ["Ps23CustomStringConvertible", "Date"]
+- ["Ps23CustomStringConvertible", "DateFormatter"]
+- ["Ps23CustomStringConvertible", "Locale"]
+- ["Ps23CustomStringConvertible", "TimeZone"]
+- ["Ps23CustomStringConvertible", "calendar"]
+- !private ["Ps23CustomStringConvertible", "date"]
+- ["Ps23CustomStringConvertible", "dateFormat"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "iso8601Formatter"]
+- ["Ps23CustomStringConvertible", "locale"]
+- !private ["Ps23CustomStringConvertible", "string"]
+- ["Ps23CustomStringConvertible", "timeZone"]
+- ["V10Foundation4Date", "Calendar"]
+- !private ["V10Foundation4Date", "Date"]
+- ["V10Foundation4Date", "DateFormatter"]
+- ["V10Foundation4Date", "Locale"]
+- ["V10Foundation4Date", "String"]
+- ["V10Foundation4Date", "TimeZone"]
+- ["V10Foundation4Date", "deinit"]
+- ["V10Foundation4Date", "iso8601"]
+- ["V10Foundation4Date", "iso8601Formatter"]
+- ["CSo13DateFormatter", "calendar"]
+- !private ["CSo13DateFormatter", "date"]
+- ["CSo13DateFormatter", "dateFormat"]
+- ["CSo13DateFormatter", "deinit"]
+- ["CSo13DateFormatter", "init"]
+- ["CSo13DateFormatter", "locale"]
+- !private ["CSo13DateFormatter", "string"]
+- ["CSo13DateFormatter", "timeZone"]
+- ["Ps9Equatable", "Calendar"]
+- !private ["Ps9Equatable", "Date"]
+- ["Ps9Equatable", "DateFormatter"]
+- ["Ps9Equatable", "Locale"]
+- ["Ps9Equatable", "TimeZone"]
+- ["Ps9Equatable", "calendar"]
+- !private ["Ps9Equatable", "date"]
+- ["Ps9Equatable", "dateFormat"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "iso8601"]
+- !private ["Ps9Equatable", "iso8601Formatter"]
+- ["Ps9Equatable", "locale"]
+- !private ["Ps9Equatable", "string"]
+- ["Ps9Equatable", "timeZone"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "Date"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps32ExpressibleByStringInterpolation", "Date"]
+- ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "Date"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "Date"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- ["CSo9Formatter", "calendar"]
+- !private ["CSo9Formatter", "date"]
+- ["CSo9Formatter", "dateFormat"]
+- ["CSo9Formatter", "init"]
+- ["CSo9Formatter", "locale"]
+- !private ["CSo9Formatter", "string"]
+- ["CSo9Formatter", "timeZone"]
+- ["Ps8Hashable", "Calendar"]
+- !private ["Ps8Hashable", "Date"]
+- ["Ps8Hashable", "DateFormatter"]
+- ["Ps8Hashable", "Locale"]
+- ["Ps8Hashable", "TimeZone"]
+- ["Ps8Hashable", "calendar"]
+- !private ["Ps8Hashable", "date"]
+- ["Ps8Hashable", "dateFormat"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "iso8601"]
+- !private ["Ps8Hashable", "iso8601Formatter"]
+- ["Ps8Hashable", "locale"]
+- !private ["Ps8Hashable", "string"]
+- ["Ps8Hashable", "timeZone"]
+- ["OV10Foundation8Calendar10Identifier", "deinit"]
+- ["OV10Foundation8Calendar10Identifier", "iso8601"]
+- ["SQ", "deinit"]
+- ["Si", "deinit"]
+- ["V10Foundation6Locale", "deinit"]
+- ["V10Foundation6Locale", "init"]
+- !private ["Ps25LosslessStringConvertible", "Date"]
+- ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "Date"]
+- ["Ps10MirrorPath", "init"]
+- ["PSo8NSCoding", "calendar"]
+- !private ["PSo8NSCoding", "date"]
+- ["PSo8NSCoding", "dateFormat"]
+- ["PSo8NSCoding", "init"]
+- ["PSo8NSCoding", "locale"]
+- !private ["PSo8NSCoding", "string"]
+- ["PSo8NSCoding", "timeZone"]
+- ["PSo9NSCopying", "calendar"]
+- !private ["PSo9NSCopying", "date"]
+- ["PSo9NSCopying", "dateFormat"]
+- ["PSo9NSCopying", "init"]
+- ["PSo9NSCopying", "locale"]
+- !private ["PSo9NSCopying", "string"]
+- ["PSo9NSCopying", "timeZone"]
+- ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "calendar"]
+- !private ["CSo8NSObject", "date"]
+- ["CSo8NSObject", "dateFormat"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "locale"]
+- !private ["CSo8NSObject", "string"]
+- ["CSo8NSObject", "timeZone"]
+- ["PSo16NSObjectProtocol", "calendar"]
+- !private ["PSo16NSObjectProtocol", "date"]
+- ["PSo16NSObjectProtocol", "dateFormat"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "locale"]
+- !private ["PSo16NSObjectProtocol", "string"]
+- ["PSo16NSObjectProtocol", "timeZone"]
+- ["PSo14NSSecureCoding", "init"]
+- ["CSo8NSString", "init"]
+- !private ["P4Node15NodeConvertible", "Date"]
+- ["P4Node15NodeConvertible", "init"]
+- !private ["P4Node17NodeInitializable", "Date"]
+- ["P4Node17NodeInitializable", "init"]
+- !private ["P4Node17NodeRepresentable", "Date"]
+- ["P4Node17NodeRepresentable", "init"]
+- ["Sq", "deinit"]
+- !private ["P13PathIndexable9PathIndex", "Date"]
+- ["P13PathIndexable9PathIndex", "init"]
+- !private ["P11Polymorphic11Polymorphic", "Date"]
+- ["P11Polymorphic11Polymorphic", "init"]
+- !private ["P5Vapor24PolymorphicInitializable", "Date"]
+- ["P5Vapor24PolymorphicInitializable", "init"]
+- ["P10Foundation20ReferenceConvertible", "Calendar"]
+- !private ["P10Foundation20ReferenceConvertible", "Date"]
+- ["P10Foundation20ReferenceConvertible", "DateFormatter"]
+- ["P10Foundation20ReferenceConvertible", "Locale"]
+- ["P10Foundation20ReferenceConvertible", "TimeZone"]
+- ["P10Foundation20ReferenceConvertible", "init"]
+- !private ["P10Foundation20ReferenceConvertible", "iso8601Formatter"]
+- !private ["P5Vapor23RequestContentSubscript", "Date"]
+- ["P5Vapor23RequestContentSubscript", "init"]
+- !private ["P4HTTP21ResponseRepresentable", "Date"]
+- ["P4HTTP21ResponseRepresentable", "init"]
+- ["SS", "Date"]
+- ["SS", "dateFromISO8601"]
+- ["SS", "deinit"]
+- ["SS", "init"]
+- !private ["P15TypeSafeRouting19StringInitializable", "Date"]
+- ["P15TypeSafeRouting19StringInitializable", "init"]
+- !private ["Ps16TextOutputStream", "Date"]
+- ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "Date"]
+- ["Ps20TextOutputStreamable", "init"]
+- ["V10Foundation8TimeZone", "init"]
+- !private ["P5Vapor11Validatable", "Date"]
+- ["P5Vapor11Validatable", "init"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "Date"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "Date"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "Date"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "Date"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- ["Ps9_Hashable", "Calendar"]
+- !private ["Ps9_Hashable", "Date"]
+- ["Ps9_Hashable", "DateFormatter"]
+- ["Ps9_Hashable", "Locale"]
+- ["Ps9_Hashable", "TimeZone"]
+- ["Ps9_Hashable", "calendar"]
+- !private ["Ps9_Hashable", "date"]
+- ["Ps9_Hashable", "dateFormat"]
+- ["Ps9_Hashable", "init"]
+- ["Ps9_Hashable", "iso8601"]
+- !private ["Ps9_Hashable", "iso8601Formatter"]
+- ["Ps9_Hashable", "locale"]
+- !private ["Ps9_Hashable", "string"]
+- ["Ps9_Hashable", "timeZone"]
+- ["P10Foundation14_MutableBoxing", "init"]
+- ["Ps21_ObjectiveCBridgeable", "Calendar"]
+- !private ["Ps21_ObjectiveCBridgeable", "Date"]
+- ["Ps21_ObjectiveCBridgeable", "DateFormatter"]
+- ["Ps21_ObjectiveCBridgeable", "Locale"]
+- ["Ps21_ObjectiveCBridgeable", "TimeZone"]
+- ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "iso8601Formatter"]
+depends-nominal:
+- "Ps9AnyObject"
+- "P4HTTP17BodyRepresentable"
+- "P4Core16BytesConvertible"
+- "P4Core18BytesInitializable"
+- "P4Core18BytesRepresentable"
+- "Ps7CVarArg"
+- "V10Foundation8Calendar"
+- "Ps10Comparable"
+- "P5Vapor9Countable"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "V10Foundation4Date"
+- "CSo13DateFormatter"
+- "Ps9Equatable"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- "Ps32ExpressibleByStringInterpolation"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- "CSo9Formatter"
+- "Ps8Hashable"
+- "OV10Foundation8Calendar10Identifier"
+- "SQ"
+- "Si"
+- "V10Foundation6Locale"
+- "Ps25LosslessStringConvertible"
+- "Ps10MirrorPath"
+- "PSo8NSCoding"
+- "PSo9NSCopying"
+- "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "PSo14NSSecureCoding"
+- "CSo8NSString"
+- "P4Node15NodeConvertible"
+- "P4Node17NodeInitializable"
+- "P4Node17NodeRepresentable"
+- "Sq"
+- "P13PathIndexable9PathIndex"
+- "P11Polymorphic11Polymorphic"
+- "P5Vapor24PolymorphicInitializable"
+- "P10Foundation20ReferenceConvertible"
+- "P5Vapor23RequestContentSubscript"
+- "P4HTTP21ResponseRepresentable"
+- "SS"
+- "P15TypeSafeRouting19StringInitializable"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- "V10Foundation8TimeZone"
+- "P5Vapor11Validatable"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- "P10Foundation14_MutableBoxing"
+- "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Vapor.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Cache.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Fluent.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/CLibreSSL.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Node.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/PathIndexable.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Polymorphic.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Cipher.swiftmodule"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/whrlpool.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ui_compat.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/txt_db.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/x509v3.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/x509.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ts.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/tls.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ripemd.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/rc4.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/rc2.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/rand.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/poly1305.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/pkcs12.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/safestack.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/opensslfeatures.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/opensslconf.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ossl_typ.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ocsp.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/modes.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/md5.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/md4.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/krb5_asn.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/idea.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/gost.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/lhash.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/err.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ui.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/rsa.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/engine.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ssl3.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ssl.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/srtp.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ssl23.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/tls1.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/evp.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ssl2.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/pem2.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/pkcs7.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/x509_vfy.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/sha.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ec.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ecdh.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ecdsa.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/stack.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/pem.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/hmac.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/dtls1.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/dso.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/dsa.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/dh.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/des.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/conf_api.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/conf.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/crypto.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/comp.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/cms.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/obj_mac.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/objects.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/cmac.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/chacha.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/cast.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/camellia.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/buffer.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/blowfish.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/asn1t.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/asn1_mac.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/bio.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/bn.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/opensslv.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/asn1.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/aes.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/CLibreSSL.h"
+- "/Users/shawngong/Centa/.build/debug/Core.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/libc.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Essentials.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Console.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/FormData.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/HTTP.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Transport.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/SocksCore.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/TLS.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/URI.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Multipart.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/HMAC.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/HTTPRouting.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Routing.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Hash.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Random.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/JSON.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Jay.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Leaf.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Sessions.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Cookies.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Settings.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/TypeSafeRouting.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/WebSockets.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Socks.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Auth.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Turnstile.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/TurnstileCrypto.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/BCrypt.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/VaporPostgreSQL.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/FluentPostgreSQL.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/PostgreSQL.swiftmodule"
+interface-hash: "bd094fbd138a9e7ab3d846c8112719e0"

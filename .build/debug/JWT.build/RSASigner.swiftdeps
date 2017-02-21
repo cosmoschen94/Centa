@@ -1,0 +1,634 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "HashMethod"
+- "CRSAKey"
+- "RSAKey"
+- "RS256"
+- "RS384"
+- "RS512"
+- "RSASigner"
+- "=="
+provides-nominal:
+- "O3JWT10HashMethod"
+- "O3JWT6RSAKey"
+- "C3JWT5RS256"
+- "C3JWT5RS384"
+- "C3JWT5RS512"
+- "P3JWT9RSASigner"
+provides-member:
+- ["O3JWT10HashMethod", ""]
+- ["O3JWT6RSAKey", ""]
+- ["C3JWT5RS256", ""]
+- ["C3JWT5RS384", ""]
+- ["C3JWT5RS512", ""]
+- ["P3JWT9RSASigner", ""]
+- ["O3JWT10HashMethod", "type"]
+- ["O3JWT10HashMethod", "method"]
+- ["P3JWT9RSASigner", "init"]
+- ["P3JWT9RSASigner", "sign"]
+- ["P3JWT9RSASigner", "verify"]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "NID_sha256"
+- !private "UInt32"
+- !private "IntegerLiteralType"
+- !private "Int"
+- "BytesInitializable"
+- !private "FloatLiteralType"
+- "RS384"
+- "Bytes"
+- "RSASigner"
+- !private "RSA_sign"
+- "CRSAKey"
+- "RSA"
+- "=="
+- "UnsafeMutablePointer"
+- !private "NID_sha384"
+- "Int32"
+- !private "d2i_RSA_PUBKEY"
+- "Signer"
+- !private "d2i_RSAPrivateKey"
+- "RS256"
+- !private "NID_sha512"
+- "AssignmentPrecedence"
+- "HashMethod"
+- "RSAKey"
+- !private "RSA_size"
+- !private "JWTError"
+- !private "RSA_verify"
+- "Hash"
+- "RS512"
+depends-member:
+- ["Ps9AnyObject", "HashMethod"]
+- ["Ps9AnyObject", "Method"]
+- !private ["Ps9AnyObject", "RSAKey"]
+- !private ["Ps9AnyObject", "hash"]
+- ["Ps9AnyObject", "hashMethod"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "key"]
+- ["Ps9AnyObject", "name"]
+- ["Ps9AnyObject", "sign"]
+- ["Ps9AnyObject", "verify"]
+- ["Ps9AnyObject", ""]
+- !private ["Sa", "IndexDistance"]
+- !private ["Sa", "Iterator"]
+- !private ["Sa", "_Element"]
+- !private ["Sa", "count"]
+- ["Sa", "deinit"]
+- !private ["Sa", "init"]
+- !private ["Sa", "withUnsafeBufferPointer"]
+- !private ["Ps23BidirectionalCollection", "IndexDistance"]
+- !private ["Ps23BidirectionalCollection", "Iterator"]
+- !private ["Ps23BidirectionalCollection", "_Element"]
+- !private ["Ps23BidirectionalCollection", "baseAddress"]
+- !private ["Ps23BidirectionalCollection", "count"]
+- !private ["Ps23BidirectionalCollection", "init"]
+- !private ["Ps23BidirectionalCollection", "withUnsafeBufferPointer"]
+- !private ["Ps22BidirectionalIndexable", "IndexDistance"]
+- !private ["Ps22BidirectionalIndexable", "Iterator"]
+- !private ["Ps22BidirectionalIndexable", "_Element"]
+- !private ["Ps22BidirectionalIndexable", "baseAddress"]
+- !private ["Ps22BidirectionalIndexable", "count"]
+- !private ["Ps22BidirectionalIndexable", "init"]
+- !private ["Ps22BidirectionalIndexable", "withUnsafeBufferPointer"]
+- !private ["Ps17BitwiseOperations", "hashValue"]
+- !private ["Ps17BitwiseOperations", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["Sb", "deinit"]
+- ["P4Core18BytesInitializable", "Bytes"]
+- !private ["P4Core18BytesInitializable", "Hash"]
+- ["P4Core18BytesInitializable", "HashMethod"]
+- !private ["P4Core18BytesInitializable", "Int"]
+- !private ["P4Core18BytesInitializable", "JWTError"]
+- ["P4Core18BytesInitializable", "RSAKey"]
+- !private ["P4Core18BytesInitializable", "RSA_sign"]
+- !private ["P4Core18BytesInitializable", "RSA_size"]
+- !private ["P4Core18BytesInitializable", "RSA_verify"]
+- !private ["P4Core18BytesInitializable", "UInt32"]
+- ["P4Core18BytesInitializable", "hashMethod"]
+- ["P4Core18BytesInitializable", "init"]
+- ["P4Core18BytesInitializable", "key"]
+- ["P4Core18BytesInitializable", "name"]
+- ["P4Core18BytesInitializable", "sign"]
+- ["P4Core18BytesInitializable", "verify"]
+- ["P4Core18BytesInitializable", ""]
+- !private ["Ps7CVarArg", "IndexDistance"]
+- !private ["Ps7CVarArg", "Iterator"]
+- !private ["Ps7CVarArg", "_Element"]
+- !private ["Ps7CVarArg", "count"]
+- !private ["Ps7CVarArg", "hashValue"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "withUnsafeBufferPointer"]
+- !private ["Ps10Collection", "IndexDistance"]
+- !private ["Ps10Collection", "Iterator"]
+- !private ["Ps10Collection", "_Element"]
+- !private ["Ps10Collection", "baseAddress"]
+- !private ["Ps10Collection", "count"]
+- !private ["Ps10Collection", "init"]
+- !private ["Ps10Collection", "withUnsafeBufferPointer"]
+- !private ["Ps10Comparable", "hashValue"]
+- !private ["Ps10Comparable", "init"]
+- !private ["P4Node7Context", "IndexDistance"]
+- !private ["P4Node7Context", "Iterator"]
+- !private ["P4Node7Context", "_Element"]
+- !private ["P4Node7Context", "count"]
+- !private ["P4Node7Context", "init"]
+- !private ["P4Node7Context", "withUnsafeBufferPointer"]
+- !private ["Ps28CustomDebugStringConvertible", "IndexDistance"]
+- !private ["Ps28CustomDebugStringConvertible", "Iterator"]
+- !private ["Ps28CustomDebugStringConvertible", "_Element"]
+- !private ["Ps28CustomDebugStringConvertible", "baseAddress"]
+- !private ["Ps28CustomDebugStringConvertible", "count"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "private"]
+- !private ["Ps28CustomDebugStringConvertible", "public"]
+- !private ["Ps28CustomDebugStringConvertible", "withUnsafeBufferPointer"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "hashValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "IndexDistance"]
+- !private ["Ps17CustomReflectable", "Iterator"]
+- !private ["Ps17CustomReflectable", "_Element"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "count"]
+- !private ["Ps17CustomReflectable", "hashValue"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "private"]
+- !private ["Ps17CustomReflectable", "public"]
+- !private ["Ps17CustomReflectable", "withUnsafeBufferPointer"]
+- !private ["Ps23CustomStringConvertible", "IndexDistance"]
+- !private ["Ps23CustomStringConvertible", "Iterator"]
+- !private ["Ps23CustomStringConvertible", "_Element"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "count"]
+- !private ["Ps23CustomStringConvertible", "createKey"]
+- !private ["Ps23CustomStringConvertible", "hashValue"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "privateKeyRequired"]
+- !private ["Ps23CustomStringConvertible", "verificationFailed"]
+- !private ["Ps23CustomStringConvertible", "withUnsafeBufferPointer"]
+- !private ["Ps9Equatable", "NID_sha256"]
+- !private ["Ps9Equatable", "NID_sha384"]
+- !private ["Ps9Equatable", "NID_sha512"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- ["Ps9Equatable", "_toAnyHashable"]
+- ["Ps9Equatable", "hashValue"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "method"]
+- ["Ps9Equatable", "sha256"]
+- ["Ps9Equatable", "sha384"]
+- ["Ps9Equatable", "sha512"]
+- !private ["Ps9Equatable", "type"]
+- ["Ps9Equatable", ""]
+- !private ["Ps5Error", "createKey"]
+- !private ["Ps5Error", "privateKeyRequired"]
+- !private ["Ps5Error", "verificationFailed"]
+- !private ["Ps25ExpressibleByArrayLiteral", "IndexDistance"]
+- !private ["Ps25ExpressibleByArrayLiteral", "Iterator"]
+- !private ["Ps25ExpressibleByArrayLiteral", "_Element"]
+- !private ["Ps25ExpressibleByArrayLiteral", "count"]
+- !private ["Ps25ExpressibleByArrayLiteral", "init"]
+- !private ["Ps25ExpressibleByArrayLiteral", "withUnsafeBufferPointer"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "hashValue"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "init"]
+- !private ["Ps23ExpressibleByNilLiteral", "private"]
+- !private ["Ps23ExpressibleByNilLiteral", "public"]
+- !private ["P4Core11Extractable", "private"]
+- !private ["P4Core11Extractable", "public"]
+- ["C4Hash4Hash", "Method"]
+- ["C4Hash4Hash", "deinit"]
+- !private ["C4Hash4Hash", "hash"]
+- !private ["C4Hash4Hash", "init"]
+- ["O3JWT10HashMethod", "=="]
+- ["O3JWT10HashMethod", "Hash"]
+- ["O3JWT10HashMethod", "Int32"]
+- !private ["O3JWT10HashMethod", "NID_sha256"]
+- !private ["O3JWT10HashMethod", "NID_sha384"]
+- !private ["O3JWT10HashMethod", "NID_sha512"]
+- ["O3JWT10HashMethod", "_toAnyHashable"]
+- ["O3JWT10HashMethod", "deinit"]
+- ["O3JWT10HashMethod", "hashValue"]
+- ["O3JWT10HashMethod", "method"]
+- ["O3JWT10HashMethod", "sha256"]
+- ["O3JWT10HashMethod", "sha384"]
+- ["O3JWT10HashMethod", "sha512"]
+- ["O3JWT10HashMethod", "type"]
+- !private ["Ps8Hashable", "NID_sha256"]
+- !private ["Ps8Hashable", "NID_sha384"]
+- !private ["Ps8Hashable", "NID_sha512"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- ["Ps8Hashable", "_toAnyHashable"]
+- ["Ps8Hashable", "hashValue"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "method"]
+- ["Ps8Hashable", "sha256"]
+- ["Ps8Hashable", "sha384"]
+- ["Ps8Hashable", "sha512"]
+- !private ["Ps8Hashable", "type"]
+- ["Ps8Hashable", ""]
+- !private ["SQ", "deinit"]
+- !private ["Ps9Indexable", "IndexDistance"]
+- !private ["Ps9Indexable", "Iterator"]
+- !private ["Ps9Indexable", "_Element"]
+- !private ["Ps9Indexable", "baseAddress"]
+- !private ["Ps9Indexable", "count"]
+- !private ["Ps9Indexable", "init"]
+- !private ["Ps9Indexable", "withUnsafeBufferPointer"]
+- !private ["Ps13IndexableBase", "IndexDistance"]
+- !private ["Ps13IndexableBase", "Iterator"]
+- !private ["Ps13IndexableBase", "_Element"]
+- !private ["Ps13IndexableBase", "baseAddress"]
+- !private ["Ps13IndexableBase", "count"]
+- !private ["Ps13IndexableBase", "init"]
+- !private ["Ps13IndexableBase", "withUnsafeBufferPointer"]
+- !private ["Vs16IndexingIterator", "Element"]
+- ["Si", "deinit"]
+- !private ["Si", "hashValue"]
+- !private ["Si", "init"]
+- ["Vs5Int32", "deinit"]
+- !private ["Ps7Integer", "hashValue"]
+- !private ["Ps7Integer", "init"]
+- !private ["Ps17IntegerArithmetic", "hashValue"]
+- !private ["Ps17IntegerArithmetic", "init"]
+- !private ["Ps16IteratorProtocol", "Element"]
+- !private ["O3JWT8JWTError", "createKey"]
+- ["O3JWT8JWTError", "deinit"]
+- !private ["O3JWT8JWTError", "privateKeyRequired"]
+- !private ["O3JWT8JWTError", "verificationFailed"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- ["OC4Hash4Hash6Method", "deinit"]
+- !private ["OC4Hash4Hash6Method", "sha256"]
+- !private ["OC4Hash4Hash6Method", "sha384"]
+- !private ["OC4Hash4Hash6Method", "sha512"]
+- !private ["Ps10MirrorPath", "hashValue"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["Ps17MutableCollection", "IndexDistance"]
+- !private ["Ps17MutableCollection", "Iterator"]
+- !private ["Ps17MutableCollection", "_Element"]
+- !private ["Ps17MutableCollection", "count"]
+- !private ["Ps17MutableCollection", "init"]
+- !private ["Ps17MutableCollection", "withUnsafeBufferPointer"]
+- !private ["Ps16MutableIndexable", "IndexDistance"]
+- !private ["Ps16MutableIndexable", "Iterator"]
+- !private ["Ps16MutableIndexable", "_Element"]
+- !private ["Ps16MutableIndexable", "count"]
+- !private ["Ps16MutableIndexable", "init"]
+- !private ["Ps16MutableIndexable", "withUnsafeBufferPointer"]
+- !private ["P4Node15NodeConvertible", "_getBuiltinLogicValue"]
+- !private ["P4Node15NodeConvertible", "hashValue"]
+- !private ["P4Node15NodeConvertible", "init"]
+- !private ["P4Node17NodeInitializable", "_getBuiltinLogicValue"]
+- !private ["P4Node17NodeInitializable", "hashValue"]
+- !private ["P4Node17NodeInitializable", "init"]
+- !private ["P4Node17NodeRepresentable", "_getBuiltinLogicValue"]
+- !private ["P4Node17NodeRepresentable", "hashValue"]
+- !private ["P4Node17NodeRepresentable", "init"]
+- ["Sq", "deinit"]
+- !private ["Sq", "private"]
+- !private ["Sq", "public"]
+- !private ["P13PathIndexable9PathIndex", "hashValue"]
+- !private ["P13PathIndexable9PathIndex", "init"]
+- ["C3JWT5RS256", "Bytes"]
+- ["C3JWT5RS256", "HashMethod"]
+- ["C3JWT5RS256", "RSAKey"]
+- ["C3JWT5RS256", "deinit"]
+- ["C3JWT5RS256", "hashMethod"]
+- ["C3JWT5RS256", "init"]
+- ["C3JWT5RS256", "key"]
+- ["C3JWT5RS256", "name"]
+- ["C3JWT5RS256", "sign"]
+- ["C3JWT5RS256", "verify"]
+- ["C3JWT5RS384", "Bytes"]
+- ["C3JWT5RS384", "HashMethod"]
+- ["C3JWT5RS384", "RSAKey"]
+- ["C3JWT5RS384", "deinit"]
+- ["C3JWT5RS384", "hashMethod"]
+- ["C3JWT5RS384", "init"]
+- ["C3JWT5RS384", "key"]
+- ["C3JWT5RS384", "name"]
+- ["C3JWT5RS384", "sign"]
+- ["C3JWT5RS384", "verify"]
+- ["C3JWT5RS512", "Bytes"]
+- ["C3JWT5RS512", "HashMethod"]
+- ["C3JWT5RS512", "RSAKey"]
+- ["C3JWT5RS512", "deinit"]
+- ["C3JWT5RS512", "hashMethod"]
+- ["C3JWT5RS512", "init"]
+- ["C3JWT5RS512", "key"]
+- ["C3JWT5RS512", "name"]
+- ["C3JWT5RS512", "sign"]
+- ["C3JWT5RS512", "verify"]
+- ["O3JWT6RSAKey", "Bytes"]
+- ["O3JWT6RSAKey", "CRSAKey"]
+- !private ["O3JWT6RSAKey", "JWTError"]
+- !private ["O3JWT6RSAKey", "RSAKey"]
+- ["O3JWT6RSAKey", "cKey"]
+- !private ["O3JWT6RSAKey", "d2i_RSAPrivateKey"]
+- !private ["O3JWT6RSAKey", "d2i_RSA_PUBKEY"]
+- ["O3JWT6RSAKey", "deinit"]
+- ["O3JWT6RSAKey", "init"]
+- ["O3JWT6RSAKey", "private"]
+- ["O3JWT6RSAKey", "public"]
+- ["P3JWT9RSASigner", "Bytes"]
+- !private ["P3JWT9RSASigner", "Hash"]
+- ["P3JWT9RSASigner", "HashMethod"]
+- !private ["P3JWT9RSASigner", "Int"]
+- !private ["P3JWT9RSASigner", "JWTError"]
+- ["P3JWT9RSASigner", "RSAKey"]
+- !private ["P3JWT9RSASigner", "RSA_sign"]
+- !private ["P3JWT9RSASigner", "RSA_size"]
+- !private ["P3JWT9RSASigner", "RSA_verify"]
+- !private ["P3JWT9RSASigner", "UInt32"]
+- ["P3JWT9RSASigner", "hashMethod"]
+- ["P3JWT9RSASigner", "init"]
+- ["P3JWT9RSASigner", "key"]
+- ["P3JWT9RSASigner", "name"]
+- ["P3JWT9RSASigner", "sign"]
+- ["P3JWT9RSASigner", "verify"]
+- ["P3JWT9RSASigner", ""]
+- !private ["Ps22RandomAccessCollection", "IndexDistance"]
+- !private ["Ps22RandomAccessCollection", "Iterator"]
+- !private ["Ps22RandomAccessCollection", "_Element"]
+- !private ["Ps22RandomAccessCollection", "baseAddress"]
+- !private ["Ps22RandomAccessCollection", "count"]
+- !private ["Ps22RandomAccessCollection", "init"]
+- !private ["Ps22RandomAccessCollection", "withUnsafeBufferPointer"]
+- !private ["Ps21RandomAccessIndexable", "IndexDistance"]
+- !private ["Ps21RandomAccessIndexable", "Iterator"]
+- !private ["Ps21RandomAccessIndexable", "_Element"]
+- !private ["Ps21RandomAccessIndexable", "baseAddress"]
+- !private ["Ps21RandomAccessIndexable", "count"]
+- !private ["Ps21RandomAccessIndexable", "init"]
+- !private ["Ps21RandomAccessIndexable", "withUnsafeBufferPointer"]
+- !private ["Ps26RangeReplaceableCollection", "IndexDistance"]
+- !private ["Ps26RangeReplaceableCollection", "Iterator"]
+- !private ["Ps26RangeReplaceableCollection", "_Element"]
+- !private ["Ps26RangeReplaceableCollection", "count"]
+- !private ["Ps26RangeReplaceableCollection", "init"]
+- !private ["Ps26RangeReplaceableCollection", "withUnsafeBufferPointer"]
+- !private ["Ps25RangeReplaceableIndexable", "IndexDistance"]
+- !private ["Ps25RangeReplaceableIndexable", "Iterator"]
+- !private ["Ps25RangeReplaceableIndexable", "_Element"]
+- !private ["Ps25RangeReplaceableIndexable", "count"]
+- !private ["Ps25RangeReplaceableIndexable", "init"]
+- !private ["Ps25RangeReplaceableIndexable", "withUnsafeBufferPointer"]
+- !private ["Ps8Sequence", "Element"]
+- !private ["Ps8Sequence", "IndexDistance"]
+- !private ["Ps8Sequence", "Iterator"]
+- !private ["Ps8Sequence", "_Element"]
+- !private ["Ps8Sequence", "baseAddress"]
+- !private ["Ps8Sequence", "count"]
+- !private ["Ps8Sequence", "init"]
+- !private ["Ps8Sequence", "withUnsafeBufferPointer"]
+- !private ["Ps13SignedInteger", "hashValue"]
+- !private ["Ps13SignedInteger", "init"]
+- !private ["Ps12SignedNumber", "hashValue"]
+- !private ["Ps12SignedNumber", "init"]
+- ["P3JWT6Signer", "Bytes"]
+- !private ["P3JWT6Signer", "Hash"]
+- ["P3JWT6Signer", "HashMethod"]
+- !private ["P3JWT6Signer", "Int"]
+- !private ["P3JWT6Signer", "JWTError"]
+- ["P3JWT6Signer", "RSAKey"]
+- !private ["P3JWT6Signer", "RSA_sign"]
+- !private ["P3JWT6Signer", "RSA_size"]
+- !private ["P3JWT6Signer", "RSA_verify"]
+- !private ["P3JWT6Signer", "UInt32"]
+- ["P3JWT6Signer", "hashMethod"]
+- ["P3JWT6Signer", "init"]
+- ["P3JWT6Signer", "key"]
+- ["P3JWT6Signer", "name"]
+- ["P3JWT6Signer", "sign"]
+- ["P3JWT6Signer", "verify"]
+- ["P3JWT6Signer", ""]
+- !private ["Ps10Strideable", "hashValue"]
+- !private ["Ps10Strideable", "init"]
+- ["Vs6UInt32", "deinit"]
+- !private ["Vs6UInt32", "init"]
+- ["Vs5UInt8", "deinit"]
+- !private ["SR", "baseAddress"]
+- !private ["SR", "deinit"]
+- ["Sp", "deinit"]
+- !private ["Ps15UnsignedInteger", "init"]
+- !private ["Ps14_ArrayProtocol", "IndexDistance"]
+- !private ["Ps14_ArrayProtocol", "Iterator"]
+- !private ["Ps14_ArrayProtocol", "_Element"]
+- !private ["Ps14_ArrayProtocol", "count"]
+- !private ["Ps14_ArrayProtocol", "init"]
+- !private ["Ps14_ArrayProtocol", "withUnsafeBufferPointer"]
+- !private ["Ps24_DestructorSafeContainer", "IndexDistance"]
+- !private ["Ps24_DestructorSafeContainer", "Iterator"]
+- !private ["Ps24_DestructorSafeContainer", "_Element"]
+- !private ["Ps24_DestructorSafeContainer", "count"]
+- !private ["Ps24_DestructorSafeContainer", "init"]
+- !private ["Ps24_DestructorSafeContainer", "withUnsafeBufferPointer"]
+- !private ["Ps28_DisallowMixedSignArithmetic", "init"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "hashValue"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
+- !private ["Ps9_Hashable", "NID_sha256"]
+- !private ["Ps9_Hashable", "NID_sha384"]
+- !private ["Ps9_Hashable", "NID_sha512"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- ["Ps9_Hashable", "_toAnyHashable"]
+- ["Ps9_Hashable", "hashValue"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "method"]
+- ["Ps9_Hashable", "sha256"]
+- ["Ps9_Hashable", "sha384"]
+- ["Ps9_Hashable", "sha512"]
+- !private ["Ps9_Hashable", "type"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps14_Incrementable", "hashValue"]
+- !private ["Ps14_Incrementable", "init"]
+- !private ["Ps8_Integer", "hashValue"]
+- !private ["Ps8_Integer", "init"]
+- !private ["Ps18_IntegerArithmetic", "hashValue"]
+- !private ["Ps18_IntegerArithmetic", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "IndexDistance"]
+- !private ["Ps21_ObjectiveCBridgeable", "Iterator"]
+- !private ["Ps21_ObjectiveCBridgeable", "_Element"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "count"]
+- !private ["Ps21_ObjectiveCBridgeable", "hashValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "private"]
+- !private ["Ps21_ObjectiveCBridgeable", "public"]
+- !private ["Ps21_ObjectiveCBridgeable", "withUnsafeBufferPointer"]
+- !private ["Ps14_SignedInteger", "hashValue"]
+- !private ["Ps14_SignedInteger", "init"]
+- !private ["Ps11_Strideable", "hashValue"]
+- !private ["Ps11_Strideable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- "Sa"
+- !private "Ps23BidirectionalCollection"
+- !private "Ps22BidirectionalIndexable"
+- !private "Ps17BitwiseOperations"
+- "Sb"
+- "P4Core18BytesInitializable"
+- !private "Ps7CVarArg"
+- !private "Ps10Collection"
+- !private "Ps10Comparable"
+- !private "P4Node7Context"
+- !private "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- !private "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps5Error"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- !private "Ps23ExpressibleByNilLiteral"
+- !private "P4Core11Extractable"
+- "C4Hash4Hash"
+- "O3JWT10HashMethod"
+- "Ps8Hashable"
+- !private "SQ"
+- !private "Ps9Indexable"
+- !private "Ps13IndexableBase"
+- !private "Vs16IndexingIterator"
+- "Si"
+- "Vs5Int32"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
+- !private "Ps16IteratorProtocol"
+- "O3JWT8JWTError"
+- !private "Ps25LosslessStringConvertible"
+- "OC4Hash4Hash6Method"
+- !private "Ps10MirrorPath"
+- !private "Ps17MutableCollection"
+- !private "Ps16MutableIndexable"
+- !private "P4Node15NodeConvertible"
+- !private "P4Node17NodeInitializable"
+- !private "P4Node17NodeRepresentable"
+- "Sq"
+- !private "P13PathIndexable9PathIndex"
+- "C3JWT5RS256"
+- "C3JWT5RS384"
+- "C3JWT5RS512"
+- "O3JWT6RSAKey"
+- "P3JWT9RSASigner"
+- !private "Ps22RandomAccessCollection"
+- !private "Ps21RandomAccessIndexable"
+- !private "Ps26RangeReplaceableCollection"
+- !private "Ps25RangeReplaceableIndexable"
+- !private "Ps8Sequence"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
+- "P3JWT6Signer"
+- !private "Ps10Strideable"
+- "Vs6UInt32"
+- "Vs5UInt8"
+- !private "SR"
+- "Sp"
+- !private "Ps15UnsignedInteger"
+- !private "Ps14_ArrayProtocol"
+- !private "Ps24_DestructorSafeContainer"
+- !private "Ps28_DisallowMixedSignArithmetic"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/JSON.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Core.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/CLibreSSL.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/libc.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Jay.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Node.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/PathIndexable.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Polymorphic.swiftmodule"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/whrlpool.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ui_compat.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/txt_db.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/x509v3.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/x509.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ts.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/tls.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ripemd.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/rc4.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/rc2.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/rand.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/poly1305.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/pkcs12.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/safestack.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/opensslfeatures.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/opensslconf.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ossl_typ.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ocsp.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/modes.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/md5.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/md4.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/krb5_asn.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/idea.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/gost.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/lhash.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/err.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ui.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/rsa.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/engine.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ssl3.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ssl.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/srtp.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ssl23.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/tls1.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/evp.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ssl2.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/pem2.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/pkcs7.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/x509_vfy.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/sha.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ec.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ecdh.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/ecdsa.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/stack.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/pem.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/hmac.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/dtls1.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/dso.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/dsa.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/dh.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/des.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/conf_api.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/conf.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/crypto.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/comp.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/cms.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/obj_mac.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/objects.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/cmac.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/chacha.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/cast.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/camellia.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/buffer.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/blowfish.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/asn1t.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/asn1_mac.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/bio.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/bn.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/opensslv.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/asn1.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/aes.h"
+- "/Users/shawngong/Centa/Packages/CLibreSSL-1.0.0/Sources/CLibreSSL/include/CLibreSSL.h"
+- "/Users/shawngong/Centa/.build/debug/Hash.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Essentials.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/Random.swiftmodule"
+- "/Users/shawngong/Centa/.build/debug/HMAC.swiftmodule"
+interface-hash: "b0ad4034dcf11c3c9f1654904bf36076"

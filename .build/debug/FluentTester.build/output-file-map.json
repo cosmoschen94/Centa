@@ -1,0 +1,53 @@
+{
+  "": {
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/FluentTester.build/master.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/Fluent-1.4.0/Sources/FluentTester/Atom.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Atom.d",
+    "object": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Atom.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Atom~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Atom.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/Fluent-1.4.0/Sources/FluentTester/Compound.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Compound.d",
+    "object": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Compound.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Compound~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Compound.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/Fluent-1.4.0/Sources/FluentTester/Student.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Student.d",
+    "object": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Student.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Student~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Student.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/Fluent-1.4.0/Sources/FluentTester/Tester+InsertAndFind.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Tester+InsertAndFind.d",
+    "object": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Tester+InsertAndFind.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Tester+InsertAndFind~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Tester+InsertAndFind.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/Fluent-1.4.0/Sources/FluentTester/Tester+PivotsAndRelations.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Tester+PivotsAndRelations.d",
+    "object": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Tester+PivotsAndRelations.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Tester+PivotsAndRelations~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Tester+PivotsAndRelations.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/Fluent-1.4.0/Sources/FluentTester/Tester+Schema.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Tester+Schema.d",
+    "object": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Tester+Schema.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Tester+Schema~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Tester+Schema.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/Fluent-1.4.0/Sources/FluentTester/Tester+Utilities.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Tester+Utilities.d",
+    "object": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Tester+Utilities.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Tester+Utilities~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Tester+Utilities.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/Fluent-1.4.0/Sources/FluentTester/Tester.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Tester.d",
+    "object": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Tester.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Tester~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/FluentTester.build/Tester.swiftdeps"
+  }
+}

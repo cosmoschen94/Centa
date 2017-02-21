@@ -1,0 +1,11 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "8d867b193d8385460bfe9ef899924bb8"
+build_time: [540975183, 182415000]
+inputs:
+  "/Users/shawngong/Centa/Packages/TLS-1.1.1/Sources/TLS/Certificates.swift": [540975144, 0]
+  "/Users/shawngong/Centa/Packages/TLS-1.1.1/Sources/TLS/Config.swift": [540975144, 0]
+  "/Users/shawngong/Centa/Packages/TLS-1.1.1/Sources/TLS/Context.swift": [540975144, 0]
+  "/Users/shawngong/Centa/Packages/TLS-1.1.1/Sources/TLS/Error.swift": [540975144, 0]
+  "/Users/shawngong/Centa/Packages/TLS-1.1.1/Sources/TLS/Mode.swift": [540975144, 0]
+  "/Users/shawngong/Centa/Packages/TLS-1.1.1/Sources/TLS/Socket.swift": [540975144, 0]
+  "/Users/shawngong/Centa/Packages/TLS-1.1.1/Sources/TLS/Utilities.swift": [540975144, 0]

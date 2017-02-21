@@ -1,0 +1,19 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "be42f3c81bb6f3922b9c7f1cd6d30c75"
+build_time: [540975177, 404976000]
+inputs:
+  "/Users/shawngong/Centa/Packages/Socks-1.2.6/Sources/SocksCore/Address+C.swift": [540975146, 0]
+  "/Users/shawngong/Centa/Packages/Socks-1.2.6/Sources/SocksCore/Address.swift": [540975146, 0]
+  "/Users/shawngong/Centa/Packages/Socks-1.2.6/Sources/SocksCore/Bytes.swift": [540975146, 0]
+  "/Users/shawngong/Centa/Packages/Socks-1.2.6/Sources/SocksCore/Conversions.swift": [540975146, 0]
+  "/Users/shawngong/Centa/Packages/Socks-1.2.6/Sources/SocksCore/Error.swift": [540975146, 0]
+  "/Users/shawngong/Centa/Packages/Socks-1.2.6/Sources/SocksCore/FDSet.swift": [540975146, 0]
+  "/Users/shawngong/Centa/Packages/Socks-1.2.6/Sources/SocksCore/InternetSocket.swift": [540975146, 0]
+  "/Users/shawngong/Centa/Packages/Socks-1.2.6/Sources/SocksCore/Pipe.swift": [540975146, 0]
+  "/Users/shawngong/Centa/Packages/Socks-1.2.6/Sources/SocksCore/Select.swift": [540975146, 0]
+  "/Users/shawngong/Centa/Packages/Socks-1.2.6/Sources/SocksCore/Socket.swift": [540975146, 0]
+  "/Users/shawngong/Centa/Packages/Socks-1.2.6/Sources/SocksCore/SocketOptions+Deprecated.swift": [540975146, 0]
+  "/Users/shawngong/Centa/Packages/Socks-1.2.6/Sources/SocksCore/SocketOptions.swift": [540975146, 0]
+  "/Users/shawngong/Centa/Packages/Socks-1.2.6/Sources/SocksCore/TCPSocket.swift": [540975146, 0]
+  "/Users/shawngong/Centa/Packages/Socks-1.2.6/Sources/SocksCore/Types.swift": [540975146, 0]
+  "/Users/shawngong/Centa/Packages/Socks-1.2.6/Sources/SocksCore/UDPSocket.swift": [540975146, 0]

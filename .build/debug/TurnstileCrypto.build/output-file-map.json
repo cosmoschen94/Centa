@@ -1,0 +1,23 @@
+{
+  "": {
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/TurnstileCrypto.build/master.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/TurnstileCrypto/BCrypt.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/TurnstileCrypto.build/BCrypt.d",
+    "object": "/Users/shawngong/Centa/.build/debug/TurnstileCrypto.build/BCrypt.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/TurnstileCrypto.build/BCrypt~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/TurnstileCrypto.build/BCrypt.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/TurnstileCrypto/Random.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/TurnstileCrypto.build/Random.d",
+    "object": "/Users/shawngong/Centa/.build/debug/TurnstileCrypto.build/Random.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/TurnstileCrypto.build/Random~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/TurnstileCrypto.build/Random.swiftdeps"
+  },
+  "/Users/shawngong/Centa/Packages/Turnstile-1.0.5/Sources/TurnstileCrypto/URandom.swift": {
+    "dependencies": "/Users/shawngong/Centa/.build/debug/TurnstileCrypto.build/URandom.d",
+    "object": "/Users/shawngong/Centa/.build/debug/TurnstileCrypto.build/URandom.swift.o",
+    "swiftmodule": "/Users/shawngong/Centa/.build/debug/TurnstileCrypto.build/URandom~partial.swiftmodule",
+    "swift-dependencies": "/Users/shawngong/Centa/.build/debug/TurnstileCrypto.build/URandom.swiftdeps"
+  }
+}

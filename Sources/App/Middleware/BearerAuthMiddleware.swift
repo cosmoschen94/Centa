@@ -10,7 +10,7 @@ import Vapor
 import HTTP
 import Turnstile
 import Auth
-import VaporJWT
+import JWT
 
 class BearerAuthMiddleware: Middleware {
     func respond(to request: Request, chainingTo next: Responder) throws -> Response {
@@ -20,15 +20,11 @@ class BearerAuthMiddleware: Middleware {
             // Verify the token
             do {
                 let receivedJWT = try JWT(token: accessToken.string)
-                if try receivedJWT.verifySignatureWith(
+                try receivedJWT.verifySignature(using:
                     HS256(key: User.accessTokenSigningKey))
-                {
-                    // Valide it's time stamp
-                    if receivedJWT.verifyClaims([ExpirationTimeClaim()]) {
-                        try? request.auth.login(accessToken, persist: false)
-                    } else {
-                        throw Abort.custom(status: .unauthorized, message: "Please reauthenticate with the server.")
-                    }
+                // Valide it's time stamp
+                if receivedJWT.verifyClaims([ExpirationTimeClaim()]) {
+                    try? request.auth.login(accessToken, persist: false)
                 } else {
                     throw Abort.custom(status: .unauthorized, message: "Please reauthenticate with the server.")
                 }
