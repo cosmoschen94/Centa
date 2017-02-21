@@ -1,0 +1,290 @@
+var _user$project$Model$tripUserIdEncoder = F2(
+	function (tripId, userId) {
+		return _elm_lang$core$Json_Encode$object(
+			{
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: 'tripId',
+					_1: _elm_lang$core$Json_Encode$string(tripId)
+				},
+				_1: {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: 'userId',
+						_1: _elm_lang$core$Json_Encode$string(userId)
+					},
+					_1: {ctor: '[]'}
+				}
+			});
+	});
+var _user$project$Model$authUserEncoder = function (authUser) {
+	return _elm_lang$core$Json_Encode$object(
+		{
+			ctor: '::',
+			_0: {
+				ctor: '_Tuple2',
+				_0: 'uid',
+				_1: _elm_lang$core$Json_Encode$string(authUser.uid)
+			},
+			_1: {
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: 'name',
+					_1: _elm_lang$core$Json_Encode$string(authUser.name)
+				},
+				_1: {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: 'email',
+						_1: _elm_lang$core$Json_Encode$string(authUser.email)
+					},
+					_1: {
+						ctor: '::',
+						_0: {
+							ctor: '_Tuple2',
+							_0: 'password',
+							_1: _elm_lang$core$Json_Encode$string(authUser.password)
+						},
+						_1: {
+							ctor: '::',
+							_0: {
+								ctor: '_Tuple2',
+								_0: 'token',
+								_1: _elm_lang$core$Json_Encode$string(authUser.token)
+							},
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}
+		});
+};
+var _user$project$Model$userEncoder = function (user) {
+	return _elm_lang$core$Json_Encode$object(
+		{
+			ctor: '::',
+			_0: {
+				ctor: '_Tuple2',
+				_0: 'uid',
+				_1: _elm_lang$core$Json_Encode$string(user.uid)
+			},
+			_1: {
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: 'name',
+					_1: _elm_lang$core$Json_Encode$string(user.name)
+				},
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$Model$tripEncoder = function (trip) {
+	return _elm_lang$core$Json_Encode$object(
+		{
+			ctor: '::',
+			_0: {
+				ctor: '_Tuple2',
+				_0: 'uid',
+				_1: _elm_lang$core$Json_Encode$string(trip.uid)
+			},
+			_1: {
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: 'title',
+					_1: _elm_lang$core$Json_Encode$string(trip.title)
+				},
+				_1: {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: 'date',
+						_1: _elm_lang$core$Json_Encode$string(trip.date)
+					},
+					_1: {
+						ctor: '::',
+						_0: {
+							ctor: '_Tuple2',
+							_0: 'address',
+							_1: _elm_lang$core$Json_Encode$string(trip.address)
+						},
+						_1: {
+							ctor: '::',
+							_0: {
+								ctor: '_Tuple2',
+								_0: 'info',
+								_1: _elm_lang$core$Json_Encode$string(trip.info)
+							},
+							_1: {
+								ctor: '::',
+								_0: {
+									ctor: '_Tuple2',
+									_0: 'owningUsers',
+									_1: _elm_lang$core$Json_Encode$list(
+										A2(_elm_lang$core$List$map, _user$project$Model$userEncoder, trip.owningUsers))
+								},
+								_1: {
+									ctor: '::',
+									_0: {
+										ctor: '_Tuple2',
+										_0: 'joinedUsers',
+										_1: _elm_lang$core$Json_Encode$list(
+											A2(_elm_lang$core$List$map, _user$project$Model$userEncoder, trip.joinedUsers))
+									},
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					}
+				}
+			}
+		});
+};
+var _user$project$Model$Model = function (a) {
+	return function (b) {
+		return function (c) {
+			return function (d) {
+				return function (e) {
+					return function (f) {
+						return function (g) {
+							return function (h) {
+								return function (i) {
+									return function (j) {
+										return function (k) {
+											return function (l) {
+												return function (m) {
+													return function (n) {
+														return function (o) {
+															return function (p) {
+																return {requesting: a, errMsg: b, userUid: c, name: d, email: e, password: f, token: g, uid: h, title: i, date: j, address: k, info: l, owningUsers: m, joinedUsers: n, hasEdited: o, trips: p};
+															};
+														};
+													};
+												};
+											};
+										};
+									};
+								};
+							};
+						};
+					};
+				};
+			};
+		};
+	};
+};
+var _user$project$Model$emptyModel = _user$project$Model$Model(true)('')('')('')('')('')('')('')('')('')('')('')(
+	{ctor: '[]'})(
+	{ctor: '[]'})(false)(
+	{ctor: '[]'});
+var _user$project$Model$User = F2(
+	function (a, b) {
+		return {uid: a, name: b};
+	});
+var _user$project$Model$userDecoder = function () {
+	var _p0 = A2(
+		_elm_lang$core$Debug$log,
+		'userDecoder body: ',
+		A2(_elm_lang$core$Json_Decode$field, 'body', _elm_lang$core$Json_Decode$string));
+	return A3(
+		_elm_lang$core$Json_Decode$map2,
+		_user$project$Model$User,
+		A2(_elm_lang$core$Json_Decode$field, 'uid', _elm_lang$core$Json_Decode$string),
+		A2(_elm_lang$core$Json_Decode$field, 'name', _elm_lang$core$Json_Decode$string));
+}();
+var _user$project$Model$AuthUser = F5(
+	function (a, b, c, d, e) {
+		return {uid: a, name: b, email: c, password: d, token: e};
+	});
+var _user$project$Model$makeAuthUser = function (model) {
+	return A5(_user$project$Model$AuthUser, model.userUid, model.name, model.email, model.password, model.token);
+};
+var _user$project$Model$authUserDecoder = function () {
+	var _p1 = A2(
+		_elm_lang$core$Debug$log,
+		'authUserDecoder body: ',
+		A2(_elm_lang$core$Json_Decode$field, 'body', _elm_lang$core$Json_Decode$string));
+	return A6(
+		_elm_lang$core$Json_Decode$map5,
+		_user$project$Model$AuthUser,
+		A2(_elm_lang$core$Json_Decode$field, 'uid', _elm_lang$core$Json_Decode$string),
+		A2(_elm_lang$core$Json_Decode$field, 'name', _elm_lang$core$Json_Decode$string),
+		A2(_elm_lang$core$Json_Decode$field, 'email', _elm_lang$core$Json_Decode$string),
+		A2(_elm_lang$core$Json_Decode$field, 'password', _elm_lang$core$Json_Decode$string),
+		A2(_elm_lang$core$Json_Decode$field, 'token', _elm_lang$core$Json_Decode$string));
+}();
+var _user$project$Model$Trip = F7(
+	function (a, b, c, d, e, f, g) {
+		return {uid: a, title: b, date: c, address: d, info: e, owningUsers: f, joinedUsers: g};
+	});
+var _user$project$Model$emptyTrip = A7(
+	_user$project$Model$Trip,
+	'',
+	'',
+	'',
+	'',
+	'',
+	{ctor: '[]'},
+	{ctor: '[]'});
+var _user$project$Model$makeTrip = function (model) {
+	return A7(_user$project$Model$Trip, model.uid, model.title, model.date, model.address, model.info, model.owningUsers, model.joinedUsers);
+};
+var _user$project$Model$tripDecoder = function () {
+	var _p2 = A2(
+		_elm_lang$core$Debug$log,
+		'tripDecoder body: ',
+		A2(_elm_lang$core$Json_Decode$field, 'body', _elm_lang$core$Json_Decode$string));
+	return A8(
+		_elm_lang$core$Json_Decode$map7,
+		_user$project$Model$Trip,
+		A2(_elm_lang$core$Json_Decode$field, 'uid', _elm_lang$core$Json_Decode$string),
+		A2(_elm_lang$core$Json_Decode$field, 'title', _elm_lang$core$Json_Decode$string),
+		A2(_elm_lang$core$Json_Decode$field, 'date', _elm_lang$core$Json_Decode$string),
+		A2(_elm_lang$core$Json_Decode$field, 'address', _elm_lang$core$Json_Decode$string),
+		A2(_elm_lang$core$Json_Decode$field, 'info', _elm_lang$core$Json_Decode$string),
+		A2(
+			_elm_lang$core$Json_Decode$field,
+			'owningUsers',
+			_elm_lang$core$Json_Decode$list(_user$project$Model$userDecoder)),
+		A2(
+			_elm_lang$core$Json_Decode$field,
+			'joinedUsers',
+			_elm_lang$core$Json_Decode$list(_user$project$Model$userDecoder)));
+}();
+var _user$project$Model$tripsDecoder = function () {
+	var _p3 = A2(
+		_elm_lang$core$Debug$log,
+		'tripsDecoder body: ',
+		A2(_elm_lang$core$Json_Decode$field, 'body', _elm_lang$core$Json_Decode$string));
+	return _elm_lang$core$Json_Decode$list(_user$project$Model$tripDecoder);
+}();
+var _user$project$Model$Flags = function (a) {
+	return function (b) {
+		return function (c) {
+			return function (d) {
+				return function (e) {
+					return function (f) {
+						return function (g) {
+							return function (h) {
+								return function (i) {
+									return function (j) {
+										return function (k) {
+											return function (l) {
+												return {userUid: a, name: b, token: c, uid: d, title: e, date: f, address: g, info: h, owningUsers: i, joinedUsers: j, hasEdited: k, trips: l};
+											};
+										};
+									};
+								};
+							};
+						};
+					};
+				};
+			};
+		};
+	};
+};

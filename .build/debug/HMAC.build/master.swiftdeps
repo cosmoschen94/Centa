@@ -1,6 +1,0 @@
-version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
-options: "b2d7b47742f95f57cb808663b1f6d328"
-build_time: [535617997, 255938000]
-inputs:
-  "/Users/shawngong/Centa/Packages/Crypto-1.0.1/Sources/HMAC/HMAC.swift": [535617936, 0]
-  "/Users/shawngong/Centa/Packages/Crypto-1.0.1/Sources/HMAC/Method.swift": [535617936, 0]

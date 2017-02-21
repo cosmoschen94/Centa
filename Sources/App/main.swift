@@ -1,20 +1,63 @@
 import Vapor
 import VaporPostgreSQL
-import Sessions
 import Fluent
 import HTTP
+import Auth
+import Cookies
+import Foundation
 
-let memory = MemorySessions()
-let sessions = SessionsMiddleware(sessions: memory)
 let cors = CorsMiddleware()
+let auth = AuthMiddleware(user: User.self) { value in
+    return Cookie(
+        name: "centa-auth",
+        value: value,
+        expires: Date().addingTimeInterval(60 * 60 * 5), // 5 hours
+        secure: true,
+        httpOnly: true
+    )
+}
 
 var drop = Droplet()
-drop.middleware.append(sessions)
-drop.middleware.append(cors)
 try drop.addProvider(VaporPostgreSQL.Provider.self)
-drop.preparations.append(Trip.self)
-drop.preparations.append(User.self)
-drop.preparations.append(Pivot<Trip, User>.self)
+
+drop.middleware += cors
+drop.middleware += auth
+
+drop.preparations += Trip.self
+drop.preparations += User.self
+drop.preparations += TripUser.self
+
+// MARK: User
+
+drop.resource("trips", TripController())
+
+let userController = UserController()
+
+drop.post("register", handler: userController.register)
+drop.post("login", handler: userController.login)
+drop.post("logout", handler: userController.logout)
+
+/*
+ * Secured Endpoints
+ * Anything in here requires the Authorication header:
+ * Example: "Authorization: Bearer TOKEN"
+ */
+let protect = ProtectMiddleware(error: Abort.custom(status: .unauthorized, message: "Unauthorized"))
+drop.group(BearerAuthMiddleware(), protect) { secured in
+
+    let users = secured.grouped("users")
+    /*
+     * Validation: I use this to check on the token periodically to see
+     * if I need a new token while the user is using the app.
+     */
+    users.post("validate", handler: userController.validateAccessToken)
+
+    /*
+     * Me
+     * Get the current users info
+     */
+    users.get("me", handler: userController.me)
+}
 
 // MARK: Http
 
@@ -32,13 +75,13 @@ drop.get { req in
     }
     return try drop.view.make("trip", [
         "message": "Welcome!",
-        "trip": trip.makeNode(),
+        "trip": TripModel(trip).makeNode(),
         "isNew": isNew
         ])
 }
 
 drop.get("id", String.self) { req, uid in
-    guard let trip = try Trip.query().filter("uid", uid).first() else {
+    guard let trip = try Trip.find(uid: uid) else {
         throw Abort.notFound
     }
     redirectToTrip = trip
@@ -47,32 +90,63 @@ drop.get("id", String.self) { req, uid in
 
 // MARK: API
 
-drop.get("api", "trips") { req in
-    print("path:\(req.uri.path)")
-   
-    let trips = try Trip.query().all()
-    
-    print("trips count:\(trips.count)")
-    
-    return try trips.makeNode().converted(to: JSON.self)
-}
+// Upsert trip
+drop.post("trip/join") { req in
+    print("post path:\(req.uri.path)")
 
-drop.get("api", "trip", String.self) { req, uid in
-    print("path:\(req.uri.path)")
-    
-    guard let trip = try Trip.query().filter("uid", uid).first() else {
+    // Validate json input
+    guard let tripUserIdJson = req.json else {
+        assertionFailure("trip no json:\(req.body)")
+        throw Abort.badRequest
+    }
+    guard let tripUid = tripUserIdJson["tripId"]?.string,
+        let userUid = tripUserIdJson["userId"]?.string else
+    {
+        throw Abort.badRequest
+    }
+    print("tripId:\(tripUid)")
+    print("userId:\(userUid)")
+
+    // Check existing trip to update
+    guard let trip = try Trip.find(uid: tripUid) else {
         throw Abort.notFound
     }
-    
-    print("trip:\(trip)")
-    
-    return try trip.makeNode().converted(to: JSON.self)
+
+    try trip.upsertUser(userUid, relation: .joined)
+
+    return try TripModel(trip).makeNode().converted(to: JSON.self)
+}
+
+drop.post("trip/leave") { req in
+    print("post path:\(req.uri.path)")
+
+    // Validate json input
+    guard let tripUserIdJson = req.json else {
+        assertionFailure("trip no json:\(req.body)")
+        throw Abort.badRequest
+    }
+    guard let tripUid = tripUserIdJson["tripId"]?.string,
+        let userUid = tripUserIdJson["userId"]?.string else
+    {
+        throw Abort.badRequest
+    }
+    print("tripId:\(tripUid)")
+    print("userId:\(userUid)")
+
+    // Check existing trip to update
+    guard let trip = try Trip.find(uid: tripUid) else {
+        throw Abort.notFound
+    }
+
+    try trip.upsertUser(userUid, relation: .none)
+
+    return try TripModel(trip).makeNode().converted(to: JSON.self)
 }
 
 // Upsert trip
-drop.post("api", "trip") { req in
+drop.post("trip") { req in
     print("post path:\(req.uri.path)")
-    
+
     // Validate json input
     guard let tripJson = req.json else {
         assertionFailure("trip no json:\(req.body)")
@@ -80,42 +154,49 @@ drop.post("api", "trip") { req in
     }
     var trip = try Trip(node: tripJson)
     print("trip:\(trip)")
-    
+
     // Check existing trip to update
-    if let existingTrip = try Trip.query().filter("uid", trip.uid).first() {
+    if let existingTrip = try Trip.find(uid: trip.uid) {
         print("existing - update")
         existingTrip.merge(from: trip)
         trip = existingTrip
     }
-    
+
     try trip.save()
-    
-    return try trip.makeNode().converted(to: JSON.self)
+
+    return try TripModel(trip).makeNode().converted(to: JSON.self)
 }
 
-// MARK: Generated APIs
-
-drop.resource("trips", TripController())
-drop.resource("users", UserController())
-
-// MARK: Session examples
-
-drop.post("remember") { req in
-    guard let name = req.data["name"]?.string else {
-        throw Abort.badRequest
+// Fetch trip
+drop.get("trip", String.self) { req, uid in
+    print("path:\(req.uri.path)")
+    
+    guard let trip = try Trip.find(uid: uid) else {
+        throw Abort.notFound
     }
     
-    try req.session().data["name"] = Node.string(name)
+    print("trip:\(trip)")
     
-    return "Remebered name."
+    return try TripModel(trip).makeNode().converted(to: JSON.self)
 }
 
-drop.get("remember") { req in
-    guard let name = try req.session().data["name"]?.string else {
-        throw Abort.custom(status: .badRequest, message: "Please POST the name first.")
+
+
+// Fetch trips
+// TODO: owning + joined + watching + public
+drop.get("trips") { req in
+    print("path:\(req.uri.path)")
+
+    let trips = try Trip.query().all()
+
+    print("trips count:\(trips.count)")
+
+    var tripNodes = [Node]()
+    for trip in trips {
+        tripNodes.append(try TripModel(trip).makeNode())
     }
-    
-    return name
+    return try tripNodes.makeNode().converted(to: JSON.self)
+    //    return try trips.makeNode().converted(to: JSON.self)
 }
 
 drop.run()

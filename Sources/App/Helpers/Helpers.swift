@@ -9,14 +9,27 @@
 import Foundation
 import HTTP
 
+/*
+public func pr(
+    _ message: @autoclosure () -> String,
+    file: String = #file,
+    line: Int = #line)
+{
+//    #if DEBUG
+        let msg = message()
+        print("\(file.lastPathComponent.stringByDeletingPathExtension):\(line): \(msg)")
+//    #endif
+}
+*/
+
 // MARK: Short UID
 
 func dbContainsUid(_ uid: String) -> Bool {
     do {
-        if let _ = try Trip.query().filter("uid", uid).first() {
+        if let _ = try Trip.query().filter(Prop.uid, uid).first() {
             return true
         }
-        if let _ = try User.query().filter("uid", uid).first() {
+        if let _ = try User.query().filter(Prop.uid, uid).first() {
             return true
         }
     } catch {

@@ -1,0 +1,271 @@
+var _user$project$Centa$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$none;
+};
+var _user$project$Centa$init = function (savedModel) {
+	return {
+		ctor: '_Tuple2',
+		_0: A2(_elm_lang$core$Maybe$withDefault, _user$project$Model$emptyModel, savedModel),
+		_1: _user$project$Update$getTrips
+	};
+};
+var _user$project$Centa$setStorage = _elm_lang$core$Native_Platform.outgoingPort(
+	'setStorage',
+	function (v) {
+		return {
+			requesting: v.requesting,
+			errMsg: v.errMsg,
+			userUid: v.userUid,
+			name: v.name,
+			email: v.email,
+			password: v.password,
+			token: v.token,
+			uid: v.uid,
+			title: v.title,
+			date: v.date,
+			address: v.address,
+			info: v.info,
+			owningUsers: _elm_lang$core$Native_List.toArray(v.owningUsers).map(
+				function (v) {
+					return {uid: v.uid, name: v.name};
+				}),
+			joinedUsers: _elm_lang$core$Native_List.toArray(v.joinedUsers).map(
+				function (v) {
+					return {uid: v.uid, name: v.name};
+				}),
+			hasEdited: v.hasEdited,
+			trips: _elm_lang$core$Native_List.toArray(v.trips).map(
+				function (v) {
+					return {
+						uid: v.uid,
+						title: v.title,
+						date: v.date,
+						address: v.address,
+						info: v.info,
+						owningUsers: _elm_lang$core$Native_List.toArray(v.owningUsers).map(
+							function (v) {
+								return {uid: v.uid, name: v.name};
+							}),
+						joinedUsers: _elm_lang$core$Native_List.toArray(v.joinedUsers).map(
+							function (v) {
+								return {uid: v.uid, name: v.name};
+							})
+					};
+				})
+		};
+	});
+var _user$project$Centa$updateWithStorage = F2(
+	function (msg, model) {
+		var _p0 = A2(_user$project$Update$update, msg, model);
+		var newModel = _p0._0;
+		var cmds = _p0._1;
+		return {
+			ctor: '_Tuple2',
+			_0: newModel,
+			_1: _elm_lang$core$Platform_Cmd$batch(
+				{
+					ctor: '::',
+					_0: _user$project$Centa$setStorage(newModel),
+					_1: {
+						ctor: '::',
+						_0: cmds,
+						_1: {ctor: '[]'}
+					}
+				})
+		};
+	});
+var _user$project$Centa$main = _elm_lang$html$Html$programWithFlags(
+	{init: _user$project$Centa$init, view: _user$project$View$view, update: _user$project$Centa$updateWithStorage, subscriptions: _user$project$Centa$subscriptions})(
+	_elm_lang$core$Json_Decode$oneOf(
+		{
+			ctor: '::',
+			_0: _elm_lang$core$Json_Decode$null(_elm_lang$core$Maybe$Nothing),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$core$Json_Decode$map,
+					_elm_lang$core$Maybe$Just,
+					A2(
+						_elm_lang$core$Json_Decode$andThen,
+						function (address) {
+							return A2(
+								_elm_lang$core$Json_Decode$andThen,
+								function (date) {
+									return A2(
+										_elm_lang$core$Json_Decode$andThen,
+										function (email) {
+											return A2(
+												_elm_lang$core$Json_Decode$andThen,
+												function (errMsg) {
+													return A2(
+														_elm_lang$core$Json_Decode$andThen,
+														function (hasEdited) {
+															return A2(
+																_elm_lang$core$Json_Decode$andThen,
+																function (info) {
+																	return A2(
+																		_elm_lang$core$Json_Decode$andThen,
+																		function (joinedUsers) {
+																			return A2(
+																				_elm_lang$core$Json_Decode$andThen,
+																				function (name) {
+																					return A2(
+																						_elm_lang$core$Json_Decode$andThen,
+																						function (owningUsers) {
+																							return A2(
+																								_elm_lang$core$Json_Decode$andThen,
+																								function (password) {
+																									return A2(
+																										_elm_lang$core$Json_Decode$andThen,
+																										function (requesting) {
+																											return A2(
+																												_elm_lang$core$Json_Decode$andThen,
+																												function (title) {
+																													return A2(
+																														_elm_lang$core$Json_Decode$andThen,
+																														function (token) {
+																															return A2(
+																																_elm_lang$core$Json_Decode$andThen,
+																																function (trips) {
+																																	return A2(
+																																		_elm_lang$core$Json_Decode$andThen,
+																																		function (uid) {
+																																			return A2(
+																																				_elm_lang$core$Json_Decode$andThen,
+																																				function (userUid) {
+																																					return _elm_lang$core$Json_Decode$succeed(
+																																						{address: address, date: date, email: email, errMsg: errMsg, hasEdited: hasEdited, info: info, joinedUsers: joinedUsers, name: name, owningUsers: owningUsers, password: password, requesting: requesting, title: title, token: token, trips: trips, uid: uid, userUid: userUid});
+																																				},
+																																				A2(_elm_lang$core$Json_Decode$field, 'userUid', _elm_lang$core$Json_Decode$string));
+																																		},
+																																		A2(_elm_lang$core$Json_Decode$field, 'uid', _elm_lang$core$Json_Decode$string));
+																																},
+																																A2(
+																																	_elm_lang$core$Json_Decode$field,
+																																	'trips',
+																																	_elm_lang$core$Json_Decode$list(
+																																		A2(
+																																			_elm_lang$core$Json_Decode$andThen,
+																																			function (address) {
+																																				return A2(
+																																					_elm_lang$core$Json_Decode$andThen,
+																																					function (date) {
+																																						return A2(
+																																							_elm_lang$core$Json_Decode$andThen,
+																																							function (info) {
+																																								return A2(
+																																									_elm_lang$core$Json_Decode$andThen,
+																																									function (joinedUsers) {
+																																										return A2(
+																																											_elm_lang$core$Json_Decode$andThen,
+																																											function (owningUsers) {
+																																												return A2(
+																																													_elm_lang$core$Json_Decode$andThen,
+																																													function (title) {
+																																														return A2(
+																																															_elm_lang$core$Json_Decode$andThen,
+																																															function (uid) {
+																																																return _elm_lang$core$Json_Decode$succeed(
+																																																	{address: address, date: date, info: info, joinedUsers: joinedUsers, owningUsers: owningUsers, title: title, uid: uid});
+																																															},
+																																															A2(_elm_lang$core$Json_Decode$field, 'uid', _elm_lang$core$Json_Decode$string));
+																																													},
+																																													A2(_elm_lang$core$Json_Decode$field, 'title', _elm_lang$core$Json_Decode$string));
+																																											},
+																																											A2(
+																																												_elm_lang$core$Json_Decode$field,
+																																												'owningUsers',
+																																												_elm_lang$core$Json_Decode$list(
+																																													A2(
+																																														_elm_lang$core$Json_Decode$andThen,
+																																														function (name) {
+																																															return A2(
+																																																_elm_lang$core$Json_Decode$andThen,
+																																																function (uid) {
+																																																	return _elm_lang$core$Json_Decode$succeed(
+																																																		{name: name, uid: uid});
+																																																},
+																																																A2(_elm_lang$core$Json_Decode$field, 'uid', _elm_lang$core$Json_Decode$string));
+																																														},
+																																														A2(_elm_lang$core$Json_Decode$field, 'name', _elm_lang$core$Json_Decode$string)))));
+																																									},
+																																									A2(
+																																										_elm_lang$core$Json_Decode$field,
+																																										'joinedUsers',
+																																										_elm_lang$core$Json_Decode$list(
+																																											A2(
+																																												_elm_lang$core$Json_Decode$andThen,
+																																												function (name) {
+																																													return A2(
+																																														_elm_lang$core$Json_Decode$andThen,
+																																														function (uid) {
+																																															return _elm_lang$core$Json_Decode$succeed(
+																																																{name: name, uid: uid});
+																																														},
+																																														A2(_elm_lang$core$Json_Decode$field, 'uid', _elm_lang$core$Json_Decode$string));
+																																												},
+																																												A2(_elm_lang$core$Json_Decode$field, 'name', _elm_lang$core$Json_Decode$string)))));
+																																							},
+																																							A2(_elm_lang$core$Json_Decode$field, 'info', _elm_lang$core$Json_Decode$string));
+																																					},
+																																					A2(_elm_lang$core$Json_Decode$field, 'date', _elm_lang$core$Json_Decode$string));
+																																			},
+																																			A2(_elm_lang$core$Json_Decode$field, 'address', _elm_lang$core$Json_Decode$string)))));
+																														},
+																														A2(_elm_lang$core$Json_Decode$field, 'token', _elm_lang$core$Json_Decode$string));
+																												},
+																												A2(_elm_lang$core$Json_Decode$field, 'title', _elm_lang$core$Json_Decode$string));
+																										},
+																										A2(_elm_lang$core$Json_Decode$field, 'requesting', _elm_lang$core$Json_Decode$bool));
+																								},
+																								A2(_elm_lang$core$Json_Decode$field, 'password', _elm_lang$core$Json_Decode$string));
+																						},
+																						A2(
+																							_elm_lang$core$Json_Decode$field,
+																							'owningUsers',
+																							_elm_lang$core$Json_Decode$list(
+																								A2(
+																									_elm_lang$core$Json_Decode$andThen,
+																									function (name) {
+																										return A2(
+																											_elm_lang$core$Json_Decode$andThen,
+																											function (uid) {
+																												return _elm_lang$core$Json_Decode$succeed(
+																													{name: name, uid: uid});
+																											},
+																											A2(_elm_lang$core$Json_Decode$field, 'uid', _elm_lang$core$Json_Decode$string));
+																									},
+																									A2(_elm_lang$core$Json_Decode$field, 'name', _elm_lang$core$Json_Decode$string)))));
+																				},
+																				A2(_elm_lang$core$Json_Decode$field, 'name', _elm_lang$core$Json_Decode$string));
+																		},
+																		A2(
+																			_elm_lang$core$Json_Decode$field,
+																			'joinedUsers',
+																			_elm_lang$core$Json_Decode$list(
+																				A2(
+																					_elm_lang$core$Json_Decode$andThen,
+																					function (name) {
+																						return A2(
+																							_elm_lang$core$Json_Decode$andThen,
+																							function (uid) {
+																								return _elm_lang$core$Json_Decode$succeed(
+																									{name: name, uid: uid});
+																							},
+																							A2(_elm_lang$core$Json_Decode$field, 'uid', _elm_lang$core$Json_Decode$string));
+																					},
+																					A2(_elm_lang$core$Json_Decode$field, 'name', _elm_lang$core$Json_Decode$string)))));
+																},
+																A2(_elm_lang$core$Json_Decode$field, 'info', _elm_lang$core$Json_Decode$string));
+														},
+														A2(_elm_lang$core$Json_Decode$field, 'hasEdited', _elm_lang$core$Json_Decode$bool));
+												},
+												A2(_elm_lang$core$Json_Decode$field, 'errMsg', _elm_lang$core$Json_Decode$string));
+										},
+										A2(_elm_lang$core$Json_Decode$field, 'email', _elm_lang$core$Json_Decode$string));
+								},
+								A2(_elm_lang$core$Json_Decode$field, 'date', _elm_lang$core$Json_Decode$string));
+						},
+						A2(_elm_lang$core$Json_Decode$field, 'address', _elm_lang$core$Json_Decode$string))),
+				_1: {ctor: '[]'}
+			}
+		}));

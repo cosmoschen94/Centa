@@ -1,9 +1,0 @@
-version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
-options: "7bddb9f222bf8525439905a48994cc7d"
-build_time: [535618003, 698609000]
-inputs:
-  "/Users/shawngong/Centa/Packages/Routing-1.0.1/Sources/HTTPRouting/Request+Routing.swift": [535617970, 0]
-  "/Users/shawngong/Centa/Packages/Routing-1.0.1/Sources/HTTPRouting/RouteBuilder+HTTP.swift": [535617970, 0]
-  "/Users/shawngong/Centa/Packages/Routing-1.0.1/Sources/HTTPRouting/Router+HTTP.swift": [535617970, 0]
-  "/Users/shawngong/Centa/Packages/Routing-1.0.1/Sources/HTTPRouting/Routing+HTTP.swift": [535617970, 0]
-  "/Users/shawngong/Centa/Packages/Routing-1.0.1/Sources/HTTPRouting/Utilities.swift": [535617970, 0]

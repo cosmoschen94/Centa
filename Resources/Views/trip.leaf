@@ -7,18 +7,23 @@
 #export("body") {
 <div class="body">
     <div id="main"></div>
-    <script src="/elm/main.js"></script>
+    <script src="/main.js"></script>
     <script>
-        var node = document.getElementById('main');
-        var app = Elm.Main.embed(node, {
-                                 uid: '#(trip.uid)',
-                                 name: '#(trip.name)',
-                                 date: '#(trip.date)',
-                                 address: '#(trip.address)',
-                                 info: '#(trip.info)',
-                                 isNew: #(isNew)
-                                 });
+        const storedState = localStorage.getItem('centa-flags')
+        const flags = storedState ? JSON.parse(storedState) : null
+
+        var root = document.getElementById('main');
+        const app = Elm.Main.embed(root, flags);
+
+        app.ports.setStorage.subscribe(function(flags) {
+            localStorage.setItem('centa-flags', JSON.stringify(flags));
+        });
     </script>
 </div>
+
+<script type="text/javascript">
+
+
+</script>
 }
 

@@ -1,948 +1,271 @@
 var _user$project$Main$subscriptions = function (model) {
 	return _elm_lang$core$Platform_Sub$none;
 };
-var _user$project$Main$infoFooter = A2(
-	_elm_lang$html$Html$footer,
-	{
-		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$class('info'),
-		_1: {ctor: '[]'}
-	},
-	{
-		ctor: '::',
-		_0: A2(
-			_elm_lang$html$Html$p,
-			{ctor: '[]'},
-			{
-				ctor: '::',
-				_0: _elm_lang$html$Html$text('Making it happen'),
-				_1: {ctor: '[]'}
-			}),
-		_1: {
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$p,
-				{ctor: '[]'},
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html$text('By hyouuu & Jackson'),
-					_1: {ctor: '[]'}
+var _user$project$Main$init = function (savedModel) {
+	return {
+		ctor: '_Tuple2',
+		_0: A2(_elm_lang$core$Maybe$withDefault, _user$project$Model$emptyModel, savedModel),
+		_1: _user$project$Flow$getTrips
+	};
+};
+var _user$project$Main$setStorage = _elm_lang$core$Native_Platform.outgoingPort(
+	'setStorage',
+	function (v) {
+		return {
+			requesting: v.requesting,
+			errMsg: v.errMsg,
+			userUid: v.userUid,
+			name: v.name,
+			email: v.email,
+			password: v.password,
+			token: v.token,
+			uid: v.uid,
+			title: v.title,
+			date: v.date,
+			address: v.address,
+			info: v.info,
+			owningUsers: _elm_lang$core$Native_List.toArray(v.owningUsers).map(
+				function (v) {
+					return {uid: v.uid, name: v.name};
 				}),
-			_1: {ctor: '[]'}
-		}
+			joinedUsers: _elm_lang$core$Native_List.toArray(v.joinedUsers).map(
+				function (v) {
+					return {uid: v.uid, name: v.name};
+				}),
+			hasEdited: v.hasEdited,
+			trips: _elm_lang$core$Native_List.toArray(v.trips).map(
+				function (v) {
+					return {
+						uid: v.uid,
+						title: v.title,
+						date: v.date,
+						address: v.address,
+						info: v.info,
+						owningUsers: _elm_lang$core$Native_List.toArray(v.owningUsers).map(
+							function (v) {
+								return {uid: v.uid, name: v.name};
+							}),
+						joinedUsers: _elm_lang$core$Native_List.toArray(v.joinedUsers).map(
+							function (v) {
+								return {uid: v.uid, name: v.name};
+							})
+					};
+				})
+		};
 	});
-var _user$project$Main$apiTrip = '/api/trip';
-var _user$project$Main$apiTrips = '/api/trips';
-var _user$project$Main$tripEncoder = function (trip) {
-	return _elm_lang$core$Json_Encode$object(
-		{
-			ctor: '::',
-			_0: {
-				ctor: '_Tuple2',
-				_0: 'uid',
-				_1: _elm_lang$core$Json_Encode$string(trip.uid)
-			},
-			_1: {
-				ctor: '::',
-				_0: {
-					ctor: '_Tuple2',
-					_0: 'name',
-					_1: _elm_lang$core$Json_Encode$string(trip.name)
-				},
-				_1: {
-					ctor: '::',
-					_0: {
-						ctor: '_Tuple2',
-						_0: 'date',
-						_1: _elm_lang$core$Json_Encode$string(trip.date)
-					},
-					_1: {
-						ctor: '::',
-						_0: {
-							ctor: '_Tuple2',
-							_0: 'address',
-							_1: _elm_lang$core$Json_Encode$string(trip.address)
-						},
-						_1: {
-							ctor: '::',
-							_0: {
-								ctor: '_Tuple2',
-								_0: 'info',
-								_1: _elm_lang$core$Json_Encode$string(trip.info)
-							},
-							_1: {ctor: '[]'}
-						}
-					}
-				}
-			}
-		});
-};
-var _user$project$Main$newTrip = F5(
-	function (uid, name, date, address, info) {
-		return {uid: uid, name: name, date: date, address: address, info: info};
-	});
-var _user$project$Main$Flags = F6(
-	function (a, b, c, d, e, f) {
-		return {uid: a, name: b, date: c, address: d, info: e, isNew: f};
-	});
-var _user$project$Main$Model = F9(
-	function (a, b, c, d, e, f, g, h, i) {
-		return {uid: a, name: b, date: c, address: d, info: e, datePicker: f, isNew: g, hasEdited: h, trips: i};
-	});
-var _user$project$Main$Trip = F5(
-	function (a, b, c, d, e) {
-		return {uid: a, name: b, date: c, address: d, info: e};
-	});
-var _user$project$Main$tripDecoder = function () {
-	var _p0 = A2(
-		_elm_lang$core$Debug$log,
-		'tripDecoder fields',
-		A2(_elm_lang$core$Json_Decode$field, 'body', _elm_lang$core$Json_Decode$string));
-	return A6(
-		_elm_lang$core$Json_Decode$map5,
-		_user$project$Main$Trip,
-		A2(_elm_lang$core$Json_Decode$field, 'uid', _elm_lang$core$Json_Decode$string),
-		A2(_elm_lang$core$Json_Decode$field, 'name', _elm_lang$core$Json_Decode$string),
-		A2(_elm_lang$core$Json_Decode$field, 'date', _elm_lang$core$Json_Decode$string),
-		A2(_elm_lang$core$Json_Decode$field, 'address', _elm_lang$core$Json_Decode$string),
-		A2(_elm_lang$core$Json_Decode$field, 'info', _elm_lang$core$Json_Decode$string));
-}();
-var _user$project$Main$tripsDecoder = function () {
-	var _p1 = A2(
-		_elm_lang$core$Debug$log,
-		'tripsDecoder fields',
-		A2(_elm_lang$core$Json_Decode$field, 'body', _elm_lang$core$Json_Decode$string));
-	return _elm_lang$core$Json_Decode$list(_user$project$Main$tripDecoder);
-}();
-var _user$project$Main$ToDatePicker = function (a) {
-	return {ctor: 'ToDatePicker', _0: a};
-};
-var _user$project$Main$UpdateDatePicker = {ctor: 'UpdateDatePicker'};
-var _user$project$Main$NewUid = function (a) {
-	return {ctor: 'NewUid', _0: a};
-};
-var _user$project$Main$UpsertTrip = function (a) {
-	return {ctor: 'UpsertTrip', _0: a};
-};
-var _user$project$Main$upsertTrip = function (trip) {
-	var request = A3(
-		_elm_lang$http$Http$post,
-		_user$project$Main$apiTrip,
-		_elm_lang$http$Http$jsonBody(
-			_user$project$Main$tripEncoder(trip)),
-		_user$project$Main$tripDecoder);
-	var _p2 = A2(_elm_lang$core$Debug$log, 'upsertTrip uid:', trip.uid);
-	return A2(_elm_lang$http$Http$send, _user$project$Main$UpsertTrip, request);
-};
-var _user$project$Main$FetchTrip = function (a) {
-	return {ctor: 'FetchTrip', _0: a};
-};
-var _user$project$Main$fetchTrip = function (uid) {
-	var request = A2(
-		_elm_lang$http$Http$get,
-		A2(
-			_elm_lang$core$Basics_ops['++'],
-			_user$project$Main$apiTrip,
-			A2(_elm_lang$core$Basics_ops['++'], '/', uid)),
-		_user$project$Main$tripDecoder);
-	var _p3 = A2(_elm_lang$core$Debug$log, 'fetchTrip uid:', _user$project$Main$NewUid);
-	return A2(_elm_lang$http$Http$send, _user$project$Main$FetchTrip, request);
-};
-var _user$project$Main$AddCurTripIfNeeded = {ctor: 'AddCurTripIfNeeded'};
-var _user$project$Main$update = F2(
+var _user$project$Main$updateWithStorage = F2(
 	function (msg, model) {
-		update:
-		while (true) {
-			var _p4 = msg;
-			switch (_p4.ctor) {
-				case 'NoOp':
-					return A2(
-						_elm_lang$core$Platform_Cmd_ops['!'],
-						model,
-						{ctor: '[]'});
-				case 'Add':
-					return A2(
-						_elm_lang$core$Platform_Cmd_ops['!'],
-						_elm_lang$core$Native_Utils.update(
-							model,
-							{uid: '', name: '', date: '', address: '', info: '', isNew: true, hasEdited: false, trips: model.trips}),
-						{
-							ctor: '::',
-							_0: A2(
-								_elm_lang$core$Random$generate,
-								_user$project$Main$NewUid,
-								A2(_elm_community$random_extra$Random_String$string, 6, _elm_community$random_extra$Random_Char$english)),
-							_1: {ctor: '[]'}
-						});
-				case 'Delete':
-					return A2(
-						_elm_lang$core$Platform_Cmd_ops['!'],
-						_elm_lang$core$Native_Utils.update(
-							model,
-							{
-								trips: A2(
-									_elm_lang$core$List$filter,
-									function (t) {
-										return !_elm_lang$core$Native_Utils.eq(t.uid, _p4._0);
-									},
-									model.trips)
-							}),
-						{ctor: '[]'});
-				case 'Edit':
-					var _p5 = _p4._0;
-					var t = A2(
-						_elm_lang$core$Maybe$withDefault,
-						{uid: '', name: '', date: '', address: '', info: ''},
-						_elm_lang$core$List$head(
-							A2(
-								_elm_lang$core$List$filter,
-								function (t) {
-									return _elm_lang$core$Native_Utils.eq(t.uid, _p5);
-								},
-								model.trips)));
-					var _v1 = _user$project$Main$UpdateDatePicker,
-						_v2 = _elm_lang$core$Native_Utils.update(
-						model,
-						{
-							uid: _p5,
-							name: t.name,
-							date: t.date,
-							address: t.address,
-							info: t.info,
-							isNew: _elm_lang$core$String$isEmpty(t.name),
-							hasEdited: false
-						});
-					msg = _v1;
-					model = _v2;
-					continue update;
-				case 'Name':
-					return A2(
-						_elm_lang$core$Platform_Cmd_ops['!'],
-						_elm_lang$core$Native_Utils.update(
-							model,
-							{name: _p4._0, hasEdited: true}),
-						{ctor: '[]'});
-				case 'Address':
-					return A2(
-						_elm_lang$core$Platform_Cmd_ops['!'],
-						_elm_lang$core$Native_Utils.update(
-							model,
-							{address: _p4._0, hasEdited: true}),
-						{ctor: '[]'});
-				case 'Info':
-					return A2(
-						_elm_lang$core$Platform_Cmd_ops['!'],
-						_elm_lang$core$Native_Utils.update(
-							model,
-							{info: _p4._0, hasEdited: true}),
-						{ctor: '[]'});
-				case 'Reset':
-					return {
-						ctor: '_Tuple2',
-						_0: model,
-						_1: _user$project$Main$fetchTrip(model.uid)
-					};
-				case 'Save':
-					return {
-						ctor: '_Tuple2',
-						_0: model,
-						_1: _user$project$Main$upsertTrip(
-							A5(_user$project$Main$Trip, model.uid, model.name, model.date, model.address, model.info))
-					};
-				case 'FetchTrips':
-					if (_p4._0.ctor === 'Ok') {
-						var _p7 = _p4._0._0;
-						var _p6 = A2(_elm_lang$core$Debug$log, 'FetchTrips ok', _p7);
-						var _v3 = _user$project$Main$AddCurTripIfNeeded,
-							_v4 = _elm_lang$core$Native_Utils.update(
-							model,
-							{trips: _p7});
-						msg = _v3;
-						model = _v4;
-						continue update;
-					} else {
-						var _p8 = A2(_elm_lang$core$Debug$log, 'FetchTrips err', _p4._0._0);
-						return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-					}
-				case 'AddCurTripIfNeeded':
-					return A2(
-						_elm_lang$core$Platform_Cmd_ops['!'],
-						_elm_lang$core$Native_Utils.update(
-							model,
-							{
-								trips: function () {
-									var _p9 = _elm_lang$core$List$head(
-										A2(
-											_elm_lang$core$List$filter,
-											function (t) {
-												return _elm_lang$core$Native_Utils.eq(t.uid, model.uid);
-											},
-											model.trips));
-									if (_p9.ctor === 'Nothing') {
-										return A2(
-											_elm_lang$core$Basics_ops['++'],
-											{
-												ctor: '::',
-												_0: A5(_user$project$Main$newTrip, model.uid, model.name, model.date, model.address, model.info),
-												_1: {ctor: '[]'}
-											},
-											model.trips);
-									} else {
-										return model.trips;
-									}
-								}()
-							}),
-						{ctor: '[]'});
-				case 'FetchTrip':
-					if (_p4._0.ctor === 'Ok') {
-						var _p11 = _p4._0._0;
-						var _p10 = A2(_elm_lang$core$Debug$log, 'FetchTrip ok', _p11);
-						var _v6 = _user$project$Main$UpdateDatePicker,
-							_v7 = _elm_lang$core$Native_Utils.update(
-							model,
-							{uid: _p11.uid, name: _p11.name, date: _p11.date, address: _p11.address, info: _p11.info, isNew: false, hasEdited: false});
-						msg = _v6;
-						model = _v7;
-						continue update;
-					} else {
-						var _p12 = A2(_elm_lang$core$Debug$log, 'FetchTrip err', _p4._0._0);
-						return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-					}
-				case 'UpsertTrip':
-					if (_p4._0.ctor === 'Ok') {
-						var _p14 = _p4._0._0;
-						var updateTrip = function (t) {
-							return _elm_lang$core$Native_Utils.eq(t.uid, _p14.uid) ? _elm_lang$core$Native_Utils.update(
-								t,
-								{name: _p14.name, date: _p14.date, address: _p14.address, info: _p14.info}) : t;
-						};
-						var _p13 = A2(_elm_lang$core$Debug$log, 'UpsertTrip ok', _p14);
-						return A2(
-							_elm_lang$core$Platform_Cmd_ops['!'],
-							_elm_lang$core$Native_Utils.update(
-								model,
-								{
-									isNew: false,
-									hasEdited: false,
-									trips: A2(_elm_lang$core$List$map, updateTrip, model.trips)
-								}),
-							{ctor: '[]'});
-					} else {
-						var _p15 = A2(_elm_lang$core$Debug$log, 'UpsertTrip err', _p4._0._0);
-						return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-					}
-				case 'NewUid':
-					var _p16 = _p4._0;
-					return A2(
-						_elm_lang$core$Platform_Cmd_ops['!'],
-						_elm_lang$core$Native_Utils.update(
-							model,
-							{
-								uid: _p16,
-								trips: A2(
-									_elm_lang$core$Basics_ops['++'],
-									{
-										ctor: '::',
-										_0: A5(_user$project$Main$newTrip, _p16, model.name, model.date, model.address, model.info),
-										_1: {ctor: '[]'}
-									},
-									model.trips)
-							}),
-						{ctor: '[]'});
-				case 'UpdateDatePicker':
-					var pickedDate = _justinmimbs$elm_date_extra$Date_Extra$fromIsoString(model.date);
-					var _p17 = _Bogdanp$elm_datepicker$DatePicker$init(
-						_elm_lang$core$Native_Utils.update(
-							_Bogdanp$elm_datepicker$DatePicker$defaultSettings,
-							{placeholder: 'Pick a date...', pickedDate: pickedDate}));
-					var datePicker = _p17._0;
-					var datePickerFx = _p17._1;
-					var _p18 = _elm_lang$core$Debug$log('UpdateDatePicker');
-					return {
-						ctor: '_Tuple2',
-						_0: _elm_lang$core$Native_Utils.update(
-							model,
-							{datePicker: datePicker}),
-						_1: A2(_elm_lang$core$Platform_Cmd$map, _user$project$Main$ToDatePicker, datePickerFx)
-					};
-				default:
-					var _p19 = A2(_Bogdanp$elm_datepicker$DatePicker$update, _p4._0, model.datePicker);
-					var newDatePicker = _p19._0;
-					var datePickerFx = _p19._1;
-					var maybeDate = _p19._2;
-					var _p20 = A2(_elm_lang$core$Debug$log, 'ToDatePicker maybeDate:', maybeDate);
-					var _p21 = A2(_elm_lang$core$Debug$log, 'ToDatePicker datePickerFx:', datePickerFx);
-					var dateStr = function () {
-						var _p22 = maybeDate;
-						if (_p22.ctor === 'Nothing') {
-							return model.date;
-						} else {
-							return A2(_justinmimbs$elm_date_extra$Date_Extra$toFormattedString, 'yyyy-MM-dd', _p22._0);
-						}
-					}();
-					var hasEdited = function () {
-						var _p23 = maybeDate;
-						if (_p23.ctor === 'Nothing') {
-							return model.hasEdited;
-						} else {
-							return true;
-						}
-					}();
-					return A2(
-						_elm_lang$core$Platform_Cmd_ops['!'],
-						_elm_lang$core$Native_Utils.update(
-							model,
-							{date: dateStr, datePicker: newDatePicker, hasEdited: hasEdited}),
-						{
-							ctor: '::',
-							_0: A2(_elm_lang$core$Platform_Cmd$map, _user$project$Main$ToDatePicker, datePickerFx),
-							_1: {ctor: '[]'}
-						});
-			}
-		}
-	});
-var _user$project$Main$FetchTrips = function (a) {
-	return {ctor: 'FetchTrips', _0: a};
-};
-var _user$project$Main$fetchTrips = function () {
-	var request = A2(_elm_lang$http$Http$get, _user$project$Main$apiTrips, _user$project$Main$tripsDecoder);
-	var _p24 = _elm_lang$core$Debug$log('fetchTrips');
-	return A2(_elm_lang$http$Http$send, _user$project$Main$FetchTrips, request);
-}();
-var _user$project$Main$init = function (flags) {
-	var pickedDate = _justinmimbs$elm_date_extra$Date_Extra$fromIsoString(flags.date);
-	var _p25 = _Bogdanp$elm_datepicker$DatePicker$init(
-		_elm_lang$core$Native_Utils.update(
-			_Bogdanp$elm_datepicker$DatePicker$defaultSettings,
-			{placeholder: 'Pick a date...', pickedDate: pickedDate}));
-	var datePicker = _p25._0;
-	var datePickerFx = _p25._1;
-	var model = A9(
-		_user$project$Main$Model,
-		flags.uid,
-		flags.name,
-		flags.info,
-		flags.date,
-		flags.address,
-		datePicker,
-		flags.isNew,
-		false,
-		{ctor: '[]'});
-	return {
-		ctor: '_Tuple2',
-		_0: model,
-		_1: _elm_lang$core$Platform_Cmd$batch(
-			{
-				ctor: '::',
-				_0: _user$project$Main$fetchTrips,
-				_1: {
-					ctor: '::',
-					_0: A2(_elm_lang$core$Platform_Cmd$map, _user$project$Main$ToDatePicker, datePickerFx),
-					_1: {ctor: '[]'}
-				}
-			})
-	};
-};
-var _user$project$Main$Save = {ctor: 'Save'};
-var _user$project$Main$Reset = {ctor: 'Reset'};
-var _user$project$Main$Info = function (a) {
-	return {ctor: 'Info', _0: a};
-};
-var _user$project$Main$Address = function (a) {
-	return {ctor: 'Address', _0: a};
-};
-var _user$project$Main$Name = function (a) {
-	return {ctor: 'Name', _0: a};
-};
-var _user$project$Main$viewTrip = function (model) {
-	return A2(
-		_elm_lang$html$Html$section,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('trip-content'),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$input,
+		var _p0 = A2(_user$project$Flow$update, msg, model);
+		var newModel = _p0._0;
+		var cmds = _p0._1;
+		return {
+			ctor: '_Tuple2',
+			_0: newModel,
+			_1: _elm_lang$core$Platform_Cmd$batch(
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$placeholder('Enter Name...'),
+					_0: _user$project$Main$setStorage(newModel),
 					_1: {
 						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$value(model.name),
-						_1: {
-							ctor: '::',
-							_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$Name),
-							_1: {
-								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$class('trip-name'),
-								_1: {ctor: '[]'}
-							}
-						}
-					}
-				},
-				{ctor: '[]'}),
-			_1: {
-				ctor: '::',
-				_0: A2(
-					_elm_lang$html$Html$br,
-					{ctor: '[]'},
-					{ctor: '[]'}),
-				_1: {
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$br,
-						{ctor: '[]'},
-						{ctor: '[]'}),
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_elm_lang$html$Html$div,
-							{
-								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$class('form-group'),
-								_1: {ctor: '[]'}
-							},
-							{
-								ctor: '::',
-								_0: A2(
-									_elm_lang$html$Html$map,
-									_user$project$Main$ToDatePicker,
-									_Bogdanp$elm_datepicker$DatePicker$view(model.datePicker)),
-								_1: {ctor: '[]'}
-							}),
-						_1: {
-							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$div,
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$class('group'),
-									_1: {ctor: '[]'}
-								},
-								{
-									ctor: '::',
-									_0: A2(
-										_elm_lang$html$Html$a,
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html_Attributes$href(
-												A2(_elm_lang$core$Basics_ops['++'], 'http://baidu.com/s?wd=', model.address)),
-											_1: {
-												ctor: '::',
-												_0: _elm_lang$html$Html_Attributes$target('_blank'),
-												_1: {
-													ctor: '::',
-													_0: _elm_lang$html$Html_Attributes$hidden(
-														_elm_lang$core$String$isEmpty(model.address)),
-													_1: {
-														ctor: '::',
-														_0: _elm_lang$html$Html_Attributes$class('mr-1'),
-														_1: {ctor: '[]'}
-													}
-												}
-											}
-										},
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html$text('Map'),
-											_1: {ctor: '[]'}
-										}),
-									_1: {
-										ctor: '::',
-										_0: A2(
-											_elm_lang$html$Html$input,
-											{
-												ctor: '::',
-												_0: _elm_lang$html$Html_Attributes$placeholder('Enter Address...'),
-												_1: {
-													ctor: '::',
-													_0: _elm_lang$html$Html_Attributes$value(model.address),
-													_1: {
-														ctor: '::',
-														_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$Address),
-														_1: {
-															ctor: '::',
-															_0: _elm_lang$html$Html_Attributes$class('trip-address'),
-															_1: {ctor: '[]'}
-														}
-													}
-												}
-											},
-											{ctor: '[]'}),
-										_1: {ctor: '[]'}
-									}
-								}),
-							_1: {
-								ctor: '::',
-								_0: A2(
-									_elm_lang$html$Html$br,
-									{ctor: '[]'},
-									{ctor: '[]'}),
-								_1: {
-									ctor: '::',
-									_0: A2(
-										_elm_lang$html$Html$br,
-										{ctor: '[]'},
-										{ctor: '[]'}),
-									_1: {
-										ctor: '::',
-										_0: A2(
-											_elm_lang$html$Html$textarea,
-											{
-												ctor: '::',
-												_0: _elm_lang$html$Html_Attributes$cols(40),
-												_1: {
-													ctor: '::',
-													_0: _elm_lang$html$Html_Attributes$rows(16),
-													_1: {
-														ctor: '::',
-														_0: _elm_lang$html$Html_Attributes$placeholder('Info...'),
-														_1: {
-															ctor: '::',
-															_0: _elm_lang$html$Html_Attributes$value(model.info),
-															_1: {
-																ctor: '::',
-																_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$Info),
-																_1: {
-																	ctor: '::',
-																	_0: _elm_lang$html$Html_Attributes$class('trip-info'),
-																	_1: {ctor: '[]'}
-																}
-															}
-														}
-													}
-												}
-											},
-											{ctor: '[]'}),
-										_1: {
-											ctor: '::',
-											_0: A2(
-												_elm_lang$html$Html$div,
-												{
-													ctor: '::',
-													_0: _elm_lang$html$Html_Attributes$class('btn-group'),
-													_1: {ctor: '[]'}
-												},
-												{
-													ctor: '::',
-													_0: A2(
-														_elm_lang$html$Html$button,
-														{
-															ctor: '::',
-															_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Reset),
-															_1: {
-																ctor: '::',
-																_0: _elm_lang$html$Html_Attributes$class('btn btn-secondary mr-1'),
-																_1: {
-																	ctor: '::',
-																	_0: _elm_lang$html$Html_Attributes$disabled(model.isNew || (!model.hasEdited)),
-																	_1: {ctor: '[]'}
-																}
-															}
-														},
-														{
-															ctor: '::',
-															_0: _elm_lang$html$Html$text('Reset'),
-															_1: {ctor: '[]'}
-														}),
-													_1: {
-														ctor: '::',
-														_0: A2(
-															_elm_lang$html$Html$button,
-															{
-																ctor: '::',
-																_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Save),
-																_1: {
-																	ctor: '::',
-																	_0: _elm_lang$html$Html_Attributes$class('btn btn-primary ml-1 mr-3'),
-																	_1: {
-																		ctor: '::',
-																		_0: _elm_lang$html$Html_Attributes$disabled(
-																			_elm_lang$core$String$isEmpty(model.name) || (!model.hasEdited)),
-																		_1: {ctor: '[]'}
-																	}
-																}
-															},
-															{
-																ctor: '::',
-																_0: _elm_lang$html$Html$text('Save'),
-																_1: {ctor: '[]'}
-															}),
-														_1: {ctor: '[]'}
-													}
-												}),
-											_1: {ctor: '[]'}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		});
-};
-var _user$project$Main$Edit = function (a) {
-	return {ctor: 'Edit', _0: a};
-};
-var _user$project$Main$viewTripEntry = function (trip) {
-	var nameEmpty = _elm_lang$core$String$isEmpty(trip.name);
-	var title = nameEmpty ? 'Unsaved New Trip' : trip.name;
-	return A2(
-		_elm_lang$html$Html$button,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Events$onClick(
-				_user$project$Main$Edit(trip.uid)),
-			_1: {
-				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$classList(
-					{
-						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: 'btn-block', _1: true},
-						_1: {
-							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'btn btn-outline-danger', _1: nameEmpty},
-							_1: {
-								ctor: '::',
-								_0: {ctor: '_Tuple2', _0: 'btn btn-outline-info', _1: !nameEmpty},
-								_1: {ctor: '[]'}
-							}
-						}
-					}),
-				_1: {
-					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$style(
-						{
-							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'font-size', _1: '1.3vw'},
-							_1: {ctor: '[]'}
-						}),
-					_1: {ctor: '[]'}
-				}
-			}
-		},
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html$text(title),
-			_1: {ctor: '[]'}
-		});
-};
-var _user$project$Main$viewKeyedTripEntry = function (trip) {
-	return {
-		ctor: '_Tuple2',
-		_0: trip.uid,
-		_1: A2(_elm_lang$html$Html_Lazy$lazy, _user$project$Main$viewTripEntry, trip)
-	};
-};
-var _user$project$Main$viewTripEntries = function (trips) {
-	var _p26 = A2(_elm_lang$core$Debug$log, 'ViewTrips ', trips);
-	return A2(
-		_elm_lang$html$Html$section,
-		{ctor: '[]'},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html_Keyed$ol,
-				{ctor: '[]'},
-				A2(_elm_lang$core$List$map, _user$project$Main$viewKeyedTripEntry, trips)),
-			_1: {ctor: '[]'}
-		});
-};
-var _user$project$Main$Delete = function (a) {
-	return {ctor: 'Delete', _0: a};
-};
-var _user$project$Main$Add = {ctor: 'Add'};
-var _user$project$Main$viewTrips = function (model) {
-	return A2(
-		_elm_lang$html$Html$section,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('trip-entries'),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$label,
-				{ctor: '[]'},
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html$text('Upcoming Trips'),
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: A2(
-					_elm_lang$html$Html$br,
-					{ctor: '[]'},
-					{ctor: '[]'}),
-				_1: {
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$button,
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Add),
-							_1: {
-								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$class('btn-block btn btn-success'),
-								_1: {
-									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$disabled(model.isNew),
-									_1: {ctor: '[]'}
-								}
-							}
-						},
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html$text('Add New'),
-							_1: {ctor: '[]'}
-						}),
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_elm_lang$html$Html$br,
-							{ctor: '[]'},
-							{ctor: '[]'}),
-						_1: {
-							ctor: '::',
-							_0: A2(_elm_lang$html$Html_Lazy$lazy, _user$project$Main$viewTripEntries, model.trips),
-							_1: {ctor: '[]'}
-						}
-					}
-				}
-			}
-		});
-};
-var _user$project$Main$view = function (model) {
-	return A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('m-x-auto'),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$div,
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('row'),
-					_1: {ctor: '[]'}
-				},
-				{
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$div,
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$class('col-sm-8'),
-							_1: {ctor: '[]'}
-						},
-						{
-							ctor: '::',
-							_0: A2(_elm_lang$html$Html_Lazy$lazy, _user$project$Main$viewTrip, model),
-							_1: {ctor: '[]'}
-						}),
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_elm_lang$html$Html$div,
-							{
-								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$class('col-sm-4'),
-								_1: {ctor: '[]'}
-							},
-							{
-								ctor: '::',
-								_0: A2(_elm_lang$html$Html_Lazy$lazy, _user$project$Main$viewTrips, model),
-								_1: {ctor: '[]'}
-							}),
+						_0: cmds,
 						_1: {ctor: '[]'}
 					}
-				}),
+				})
+		};
+	});
+var _user$project$Main$main = _elm_lang$html$Html$programWithFlags(
+	{init: _user$project$Main$init, view: _user$project$View$view, update: _user$project$Main$updateWithStorage, subscriptions: _user$project$Main$subscriptions})(
+	_elm_lang$core$Json_Decode$oneOf(
+		{
+			ctor: '::',
+			_0: _elm_lang$core$Json_Decode$null(_elm_lang$core$Maybe$Nothing),
 			_1: {
 				ctor: '::',
-				_0: _user$project$Main$infoFooter,
-				_1: {
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$section,
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$class('debug-info'),
-							_1: {ctor: '[]'}
-						},
-						{
-							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$label,
-								{ctor: '[]'},
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html$text(
-										A2(
-											_elm_lang$core$Basics_ops['++'],
-											'Debug Info:  •••  Share URL: /id/',
-											A2(
-												_elm_lang$core$Basics_ops['++'],
-												model.uid,
-												A2(
-													_elm_lang$core$Basics_ops['++'],
-													'  •••  isNew: ',
-													A2(
-														_elm_lang$core$Basics_ops['++'],
-														model.isNew ? 'True' : 'False',
-														A2(
-															_elm_lang$core$Basics_ops['++'],
-															'  •••  hasEdited: ',
-															model.hasEdited ? 'True' : 'False')))))),
-									_1: {ctor: '[]'}
-								}),
-							_1: {ctor: '[]'}
-						}),
-					_1: {ctor: '[]'}
-				}
-			}
-		});
-};
-var _user$project$Main$main = _elm_lang$html$Html$programWithFlags(
-	{init: _user$project$Main$init, view: _user$project$Main$view, update: _user$project$Main$update, subscriptions: _user$project$Main$subscriptions})(
-	A2(
-		_elm_lang$core$Json_Decode$andThen,
-		function (address) {
-			return A2(
-				_elm_lang$core$Json_Decode$andThen,
-				function (date) {
-					return A2(
+				_0: A2(
+					_elm_lang$core$Json_Decode$map,
+					_elm_lang$core$Maybe$Just,
+					A2(
 						_elm_lang$core$Json_Decode$andThen,
-						function (info) {
+						function (address) {
 							return A2(
 								_elm_lang$core$Json_Decode$andThen,
-								function (isNew) {
+								function (date) {
 									return A2(
 										_elm_lang$core$Json_Decode$andThen,
-										function (name) {
+										function (email) {
 											return A2(
 												_elm_lang$core$Json_Decode$andThen,
-												function (uid) {
-													return _elm_lang$core$Json_Decode$succeed(
-														{address: address, date: date, info: info, isNew: isNew, name: name, uid: uid});
+												function (errMsg) {
+													return A2(
+														_elm_lang$core$Json_Decode$andThen,
+														function (hasEdited) {
+															return A2(
+																_elm_lang$core$Json_Decode$andThen,
+																function (info) {
+																	return A2(
+																		_elm_lang$core$Json_Decode$andThen,
+																		function (joinedUsers) {
+																			return A2(
+																				_elm_lang$core$Json_Decode$andThen,
+																				function (name) {
+																					return A2(
+																						_elm_lang$core$Json_Decode$andThen,
+																						function (owningUsers) {
+																							return A2(
+																								_elm_lang$core$Json_Decode$andThen,
+																								function (password) {
+																									return A2(
+																										_elm_lang$core$Json_Decode$andThen,
+																										function (requesting) {
+																											return A2(
+																												_elm_lang$core$Json_Decode$andThen,
+																												function (title) {
+																													return A2(
+																														_elm_lang$core$Json_Decode$andThen,
+																														function (token) {
+																															return A2(
+																																_elm_lang$core$Json_Decode$andThen,
+																																function (trips) {
+																																	return A2(
+																																		_elm_lang$core$Json_Decode$andThen,
+																																		function (uid) {
+																																			return A2(
+																																				_elm_lang$core$Json_Decode$andThen,
+																																				function (userUid) {
+																																					return _elm_lang$core$Json_Decode$succeed(
+																																						{address: address, date: date, email: email, errMsg: errMsg, hasEdited: hasEdited, info: info, joinedUsers: joinedUsers, name: name, owningUsers: owningUsers, password: password, requesting: requesting, title: title, token: token, trips: trips, uid: uid, userUid: userUid});
+																																				},
+																																				A2(_elm_lang$core$Json_Decode$field, 'userUid', _elm_lang$core$Json_Decode$string));
+																																		},
+																																		A2(_elm_lang$core$Json_Decode$field, 'uid', _elm_lang$core$Json_Decode$string));
+																																},
+																																A2(
+																																	_elm_lang$core$Json_Decode$field,
+																																	'trips',
+																																	_elm_lang$core$Json_Decode$list(
+																																		A2(
+																																			_elm_lang$core$Json_Decode$andThen,
+																																			function (address) {
+																																				return A2(
+																																					_elm_lang$core$Json_Decode$andThen,
+																																					function (date) {
+																																						return A2(
+																																							_elm_lang$core$Json_Decode$andThen,
+																																							function (info) {
+																																								return A2(
+																																									_elm_lang$core$Json_Decode$andThen,
+																																									function (joinedUsers) {
+																																										return A2(
+																																											_elm_lang$core$Json_Decode$andThen,
+																																											function (owningUsers) {
+																																												return A2(
+																																													_elm_lang$core$Json_Decode$andThen,
+																																													function (title) {
+																																														return A2(
+																																															_elm_lang$core$Json_Decode$andThen,
+																																															function (uid) {
+																																																return _elm_lang$core$Json_Decode$succeed(
+																																																	{address: address, date: date, info: info, joinedUsers: joinedUsers, owningUsers: owningUsers, title: title, uid: uid});
+																																															},
+																																															A2(_elm_lang$core$Json_Decode$field, 'uid', _elm_lang$core$Json_Decode$string));
+																																													},
+																																													A2(_elm_lang$core$Json_Decode$field, 'title', _elm_lang$core$Json_Decode$string));
+																																											},
+																																											A2(
+																																												_elm_lang$core$Json_Decode$field,
+																																												'owningUsers',
+																																												_elm_lang$core$Json_Decode$list(
+																																													A2(
+																																														_elm_lang$core$Json_Decode$andThen,
+																																														function (name) {
+																																															return A2(
+																																																_elm_lang$core$Json_Decode$andThen,
+																																																function (uid) {
+																																																	return _elm_lang$core$Json_Decode$succeed(
+																																																		{name: name, uid: uid});
+																																																},
+																																																A2(_elm_lang$core$Json_Decode$field, 'uid', _elm_lang$core$Json_Decode$string));
+																																														},
+																																														A2(_elm_lang$core$Json_Decode$field, 'name', _elm_lang$core$Json_Decode$string)))));
+																																									},
+																																									A2(
+																																										_elm_lang$core$Json_Decode$field,
+																																										'joinedUsers',
+																																										_elm_lang$core$Json_Decode$list(
+																																											A2(
+																																												_elm_lang$core$Json_Decode$andThen,
+																																												function (name) {
+																																													return A2(
+																																														_elm_lang$core$Json_Decode$andThen,
+																																														function (uid) {
+																																															return _elm_lang$core$Json_Decode$succeed(
+																																																{name: name, uid: uid});
+																																														},
+																																														A2(_elm_lang$core$Json_Decode$field, 'uid', _elm_lang$core$Json_Decode$string));
+																																												},
+																																												A2(_elm_lang$core$Json_Decode$field, 'name', _elm_lang$core$Json_Decode$string)))));
+																																							},
+																																							A2(_elm_lang$core$Json_Decode$field, 'info', _elm_lang$core$Json_Decode$string));
+																																					},
+																																					A2(_elm_lang$core$Json_Decode$field, 'date', _elm_lang$core$Json_Decode$string));
+																																			},
+																																			A2(_elm_lang$core$Json_Decode$field, 'address', _elm_lang$core$Json_Decode$string)))));
+																														},
+																														A2(_elm_lang$core$Json_Decode$field, 'token', _elm_lang$core$Json_Decode$string));
+																												},
+																												A2(_elm_lang$core$Json_Decode$field, 'title', _elm_lang$core$Json_Decode$string));
+																										},
+																										A2(_elm_lang$core$Json_Decode$field, 'requesting', _elm_lang$core$Json_Decode$bool));
+																								},
+																								A2(_elm_lang$core$Json_Decode$field, 'password', _elm_lang$core$Json_Decode$string));
+																						},
+																						A2(
+																							_elm_lang$core$Json_Decode$field,
+																							'owningUsers',
+																							_elm_lang$core$Json_Decode$list(
+																								A2(
+																									_elm_lang$core$Json_Decode$andThen,
+																									function (name) {
+																										return A2(
+																											_elm_lang$core$Json_Decode$andThen,
+																											function (uid) {
+																												return _elm_lang$core$Json_Decode$succeed(
+																													{name: name, uid: uid});
+																											},
+																											A2(_elm_lang$core$Json_Decode$field, 'uid', _elm_lang$core$Json_Decode$string));
+																									},
+																									A2(_elm_lang$core$Json_Decode$field, 'name', _elm_lang$core$Json_Decode$string)))));
+																				},
+																				A2(_elm_lang$core$Json_Decode$field, 'name', _elm_lang$core$Json_Decode$string));
+																		},
+																		A2(
+																			_elm_lang$core$Json_Decode$field,
+																			'joinedUsers',
+																			_elm_lang$core$Json_Decode$list(
+																				A2(
+																					_elm_lang$core$Json_Decode$andThen,
+																					function (name) {
+																						return A2(
+																							_elm_lang$core$Json_Decode$andThen,
+																							function (uid) {
+																								return _elm_lang$core$Json_Decode$succeed(
+																									{name: name, uid: uid});
+																							},
+																							A2(_elm_lang$core$Json_Decode$field, 'uid', _elm_lang$core$Json_Decode$string));
+																					},
+																					A2(_elm_lang$core$Json_Decode$field, 'name', _elm_lang$core$Json_Decode$string)))));
+																},
+																A2(_elm_lang$core$Json_Decode$field, 'info', _elm_lang$core$Json_Decode$string));
+														},
+														A2(_elm_lang$core$Json_Decode$field, 'hasEdited', _elm_lang$core$Json_Decode$bool));
 												},
-												A2(_elm_lang$core$Json_Decode$field, 'uid', _elm_lang$core$Json_Decode$string));
+												A2(_elm_lang$core$Json_Decode$field, 'errMsg', _elm_lang$core$Json_Decode$string));
 										},
-										A2(_elm_lang$core$Json_Decode$field, 'name', _elm_lang$core$Json_Decode$string));
+										A2(_elm_lang$core$Json_Decode$field, 'email', _elm_lang$core$Json_Decode$string));
 								},
-								A2(_elm_lang$core$Json_Decode$field, 'isNew', _elm_lang$core$Json_Decode$bool));
+								A2(_elm_lang$core$Json_Decode$field, 'date', _elm_lang$core$Json_Decode$string));
 						},
-						A2(_elm_lang$core$Json_Decode$field, 'info', _elm_lang$core$Json_Decode$string));
-				},
-				A2(_elm_lang$core$Json_Decode$field, 'date', _elm_lang$core$Json_Decode$string));
-		},
-		A2(_elm_lang$core$Json_Decode$field, 'address', _elm_lang$core$Json_Decode$string)));
-var _user$project$Main$NoOp = {ctor: 'NoOp'};
+						A2(_elm_lang$core$Json_Decode$field, 'address', _elm_lang$core$Json_Decode$string))),
+				_1: {ctor: '[]'}
+			}
+		}));

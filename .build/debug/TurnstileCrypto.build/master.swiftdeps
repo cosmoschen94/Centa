@@ -1,7 +1,0 @@
-version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
-options: "864190873a75c7bbd2bbbf7491f6a405"
-build_time: [535617985, 998051000]
-inputs:
-  "/Users/shawngong/Centa/Packages/Turnstile-1.0.3/Sources/TurnstileCrypto/BCrypt.swift": [535617966, 0]
-  "/Users/shawngong/Centa/Packages/Turnstile-1.0.3/Sources/TurnstileCrypto/Random.swift": [535617966, 0]
-  "/Users/shawngong/Centa/Packages/Turnstile-1.0.3/Sources/TurnstileCrypto/URandom.swift": [535617966, 0]

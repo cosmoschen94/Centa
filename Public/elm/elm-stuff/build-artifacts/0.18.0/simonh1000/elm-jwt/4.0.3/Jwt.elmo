@@ -1,0 +1,227 @@
+var _simonh1000$elm_jwt$Jwt$createRequest = F5(
+	function (method, token, url, body, dec) {
+		return _elm_lang$http$Http$request(
+			{
+				method: method,
+				headers: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$http$Http$header,
+						'Authorization',
+						A2(_elm_lang$core$Basics_ops['++'], 'Bearer ', token)),
+					_1: {ctor: '[]'}
+				},
+				url: url,
+				body: body,
+				expect: _elm_lang$http$Http$expectJson(dec),
+				timeout: _elm_lang$core$Maybe$Nothing,
+				withCredentials: false
+			});
+	});
+var _simonh1000$elm_jwt$Jwt$get = F3(
+	function (token, url, dec) {
+		return A5(_simonh1000$elm_jwt$Jwt$createRequest, 'GET', token, url, _elm_lang$http$Http$emptyBody, dec);
+	});
+var _simonh1000$elm_jwt$Jwt$post = _simonh1000$elm_jwt$Jwt$createRequest('POST');
+var _simonh1000$elm_jwt$Jwt$put = _simonh1000$elm_jwt$Jwt$createRequest('PUT');
+var _simonh1000$elm_jwt$Jwt$delete = F3(
+	function (token, url, dec) {
+		return A5(_simonh1000$elm_jwt$Jwt$createRequest, 'DELETE', token, url, _elm_lang$http$Http$emptyBody, dec);
+	});
+var _simonh1000$elm_jwt$Jwt$authenticate = F3(
+	function (url, dec, credentials) {
+		return A3(
+			_elm_lang$http$Http$post,
+			url,
+			_elm_lang$http$Http$jsonBody(credentials),
+			dec);
+	});
+var _simonh1000$elm_jwt$Jwt$unurl = function () {
+	var fix = function (c) {
+		var _p0 = c;
+		switch (_p0.valueOf()) {
+			case '-':
+				return _elm_lang$core$Native_Utils.chr('+');
+			case '_':
+				return _elm_lang$core$Native_Utils.chr('/');
+			default:
+				return _p0;
+		}
+	};
+	return _elm_lang$core$String$map(fix);
+}();
+var _simonh1000$elm_jwt$Jwt$TokenDecodeError = function (a) {
+	return {ctor: 'TokenDecodeError', _0: a};
+};
+var _simonh1000$elm_jwt$Jwt$TokenProcessingError = function (a) {
+	return {ctor: 'TokenProcessingError', _0: a};
+};
+var _simonh1000$elm_jwt$Jwt$fixlength = function (s) {
+	var _p1 = A2(
+		_elm_lang$core$Basics_ops['%'],
+		_elm_lang$core$String$length(s),
+		4);
+	switch (_p1) {
+		case 0:
+			return _elm_lang$core$Result$Ok(s);
+		case 2:
+			return _elm_lang$core$Result$Ok(
+				_elm_lang$core$String$concat(
+					{
+						ctor: '::',
+						_0: s,
+						_1: {
+							ctor: '::',
+							_0: '==',
+							_1: {ctor: '[]'}
+						}
+					}));
+		case 3:
+			return _elm_lang$core$Result$Ok(
+				_elm_lang$core$String$concat(
+					{
+						ctor: '::',
+						_0: s,
+						_1: {
+							ctor: '::',
+							_0: '=',
+							_1: {ctor: '[]'}
+						}
+					}));
+		default:
+			return _elm_lang$core$Result$Err(
+				_simonh1000$elm_jwt$Jwt$TokenProcessingError('Wrong length'));
+	}
+};
+var _simonh1000$elm_jwt$Jwt$decodeToken = F2(
+	function (dec, token) {
+		var f1 = A2(
+			_elm_lang$core$String$split,
+			'.',
+			_simonh1000$elm_jwt$Jwt$unurl(token));
+		var f2 = A2(_elm_lang$core$List$map, _simonh1000$elm_jwt$Jwt$fixlength, f1);
+		var _p2 = f2;
+		_v2_2:
+		do {
+			if ((_p2.ctor === '::') && (_p2._1.ctor === '::')) {
+				if (_p2._1._0.ctor === 'Err') {
+					if ((_p2._1._1.ctor === '::') && (_p2._1._1._1.ctor === '[]')) {
+						return _elm_lang$core$Result$Err(_p2._1._0._0);
+					} else {
+						break _v2_2;
+					}
+				} else {
+					if ((_p2._1._1.ctor === '::') && (_p2._1._1._1.ctor === '[]')) {
+						var _p3 = _truqu$elm_base64$Base64$decode(_p2._1._0._0);
+						if (_p3.ctor === 'Ok') {
+							var _p4 = A2(_elm_lang$core$Json_Decode$decodeString, dec, _p3._0);
+							if (_p4.ctor === 'Ok') {
+								return _elm_lang$core$Result$Ok(_p4._0);
+							} else {
+								return _elm_lang$core$Result$Err(
+									_simonh1000$elm_jwt$Jwt$TokenDecodeError(_p4._0));
+							}
+						} else {
+							return _elm_lang$core$Result$Err(
+								_simonh1000$elm_jwt$Jwt$TokenProcessingError(_p3._0));
+						}
+					} else {
+						break _v2_2;
+					}
+				}
+			} else {
+				break _v2_2;
+			}
+		} while(false);
+		return _elm_lang$core$Result$Err(
+			_simonh1000$elm_jwt$Jwt$TokenProcessingError('Token has invalid shape'));
+	});
+var _simonh1000$elm_jwt$Jwt$isExpired = F2(
+	function (now, token) {
+		return A2(
+			_elm_lang$core$Result$map,
+			function (exp) {
+				return _elm_lang$core$Native_Utils.cmp(now, exp * 1000) > 0;
+			},
+			A2(
+				_simonh1000$elm_jwt$Jwt$decodeToken,
+				A2(_elm_lang$core$Json_Decode$field, 'exp', _elm_lang$core$Json_Decode$float),
+				token));
+	});
+var _simonh1000$elm_jwt$Jwt$TokenNotExpired = {ctor: 'TokenNotExpired'};
+var _simonh1000$elm_jwt$Jwt$TokenExpired = {ctor: 'TokenExpired'};
+var _simonh1000$elm_jwt$Jwt$checkUnacceptedToken = F2(
+	function (token, now) {
+		var _p5 = A2(_simonh1000$elm_jwt$Jwt$isExpired, now, token);
+		if (_p5.ctor === 'Ok') {
+			if (_p5._0 === true) {
+				return _simonh1000$elm_jwt$Jwt$TokenExpired;
+			} else {
+				return _simonh1000$elm_jwt$Jwt$TokenNotExpired;
+			}
+		} else {
+			return _p5._0;
+		}
+	});
+var _simonh1000$elm_jwt$Jwt$checkTokenExpirey = function (token) {
+	return A2(
+		_elm_lang$core$Task$andThen,
+		function (_p6) {
+			return _elm_lang$core$Task$succeed(
+				A2(_simonh1000$elm_jwt$Jwt$checkUnacceptedToken, token, _p6));
+		},
+		_elm_lang$core$Time$now);
+};
+var _simonh1000$elm_jwt$Jwt$Unauthorized = {ctor: 'Unauthorized'};
+var _simonh1000$elm_jwt$Jwt$HttpError = function (a) {
+	return {ctor: 'HttpError', _0: a};
+};
+var _simonh1000$elm_jwt$Jwt$promote401 = function (err) {
+	var _p7 = err;
+	if (_p7.ctor === 'BadStatus') {
+		return _elm_lang$core$Native_Utils.eq(_p7._0.status.code, 401) ? _simonh1000$elm_jwt$Jwt$Unauthorized : _simonh1000$elm_jwt$Jwt$HttpError(err);
+	} else {
+		return _simonh1000$elm_jwt$Jwt$HttpError(err);
+	}
+};
+var _simonh1000$elm_jwt$Jwt$conv = function (fn) {
+	return function (_p8) {
+		return fn(
+			A2(_elm_lang$core$Result$mapError, _simonh1000$elm_jwt$Jwt$promote401, _p8));
+	};
+};
+var _simonh1000$elm_jwt$Jwt$send = F2(
+	function (msgCreator, req) {
+		return A2(
+			_elm_lang$http$Http$send,
+			_simonh1000$elm_jwt$Jwt$conv(msgCreator),
+			req);
+	});
+var _simonh1000$elm_jwt$Jwt$handleError = F2(
+	function (token, err) {
+		var _p9 = _simonh1000$elm_jwt$Jwt$promote401(err);
+		if (_p9.ctor === 'Unauthorized') {
+			return _simonh1000$elm_jwt$Jwt$checkTokenExpirey(token);
+		} else {
+			return _elm_lang$core$Task$succeed(
+				_simonh1000$elm_jwt$Jwt$HttpError(err));
+		}
+	});
+var _simonh1000$elm_jwt$Jwt$sendCheckExpired = F3(
+	function (token, msgCreator, request) {
+		return A2(
+			_elm_lang$core$Task$perform,
+			msgCreator,
+			A2(
+				_elm_lang$core$Task$onError,
+				function (_p10) {
+					return A2(
+						_elm_lang$core$Task$map,
+						_elm_lang$core$Result$Err,
+						A2(_simonh1000$elm_jwt$Jwt$handleError, token, _p10));
+				},
+				A2(
+					_elm_lang$core$Task$map,
+					_elm_lang$core$Result$Ok,
+					_elm_lang$http$Http$toTask(request))));
+	});

@@ -1,7 +1,0 @@
-version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
-options: "5ea470dd2ccc1b0266b8f90256573ad2"
-build_time: [535618003, 950125000]
-inputs:
-  "/Users/shawngong/Centa/Packages/Routing-1.0.1/Sources/TypeSafeRouting/Generated.swift": [535617970, 0]
-  "/Users/shawngong/Centa/Packages/Routing-1.0.1/Sources/TypeSafeRouting/StringInitializable.swift": [535617970, 0]
-  "/Users/shawngong/Centa/Packages/Routing-1.0.1/Sources/TypeSafeRouting/TypeSafeRoutingError.swift": [535617970, 0]

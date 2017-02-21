@@ -1,0 +1,46 @@
+var _user$project$Func$canSave = function (model) {
+	return (!model.requesting) && ((!_elm_lang$core$String$isEmpty(model.title)) && (_elm_lang$core$String$isEmpty(model.uid) || model.hasEdited));
+};
+var _user$project$Func$canRestore = function (model) {
+	return (!model.requesting) && ((!_elm_lang$core$String$isEmpty(model.uid)) && model.hasEdited);
+};
+var _user$project$Func$canClear = function (model) {
+	return (!model.requesting) && (_elm_lang$core$String$isEmpty(model.uid) && (!(_elm_lang$core$String$isEmpty(model.title) && _elm_lang$core$String$isEmpty(model.info))));
+};
+var _user$project$Func$canAdd = function (model) {
+	var _p0 = A2(_elm_lang$core$Debug$log, 'canAdd model.uid ', model.uid);
+	var _p1 = A2(_elm_lang$core$Debug$log, 'canAdd requesting? ', model.requesting);
+	var hasUnsavedTrip = function () {
+		var _p2 = _elm_lang$core$List$head(
+			A2(
+				_elm_lang$core$List$filter,
+				function (t) {
+					return _elm_lang$core$String$isEmpty(t.uid);
+				},
+				model.trips));
+		if (_p2.ctor === 'Nothing') {
+			return false;
+		} else {
+			return true;
+		}
+	}();
+	var _p3 = A2(_elm_lang$core$Debug$log, 'canAdd hasUnsavedTrip? ', hasUnsavedTrip);
+	return (!model.requesting) && ((!_elm_lang$core$String$isEmpty(model.uid)) && (!hasUnsavedTrip));
+};
+var _user$project$Func$canRegister = function (model) {
+	return !(_elm_lang$core$String$isEmpty(model.name) || (_elm_lang$core$String$isEmpty(model.email) || _elm_lang$core$String$isEmpty(model.password)));
+};
+var _user$project$Func$canLogin = function (model) {
+	return !(_elm_lang$core$String$isEmpty(model.email) || _elm_lang$core$String$isEmpty(model.password));
+};
+var _user$project$Func$hasLoggedIn = function (model) {
+	return !_elm_lang$core$String$isEmpty(model.token);
+};
+var _user$project$Func$log = F2(
+	function (str, a) {
+		var _p4 = A2(
+			_elm_lang$core$Debug$log,
+			A2(_elm_lang$core$Basics_ops['++'], str, ' '),
+			a);
+		return {ctor: '_Tuple0'};
+	});

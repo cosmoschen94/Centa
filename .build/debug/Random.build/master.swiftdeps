@@ -1,7 +1,0 @@
-version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
-options: "79afdc8a77637ca9c1d024cfa9f50de5"
-build_time: [535617995, 112495000]
-inputs:
-  "/Users/shawngong/Centa/Packages/Crypto-1.0.1/Sources/Random/CryptoRandom.swift": [535617936, 0]
-  "/Users/shawngong/Centa/Packages/Crypto-1.0.1/Sources/Random/Random.swift": [535617936, 0]
-  "/Users/shawngong/Centa/Packages/Crypto-1.0.1/Sources/Random/URandom.swift": [535617936, 0]

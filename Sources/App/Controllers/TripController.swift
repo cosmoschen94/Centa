@@ -30,7 +30,7 @@ final class TripController: ResourceRepresentable {
         let new = try request.trip()
         var trip = trip
         trip.uid = new.uid
-        trip.name = new.name
+        trip.title = new.title
         trip.info = new.info
         try trip.save()
         return trip

@@ -10,62 +10,103 @@ import Foundation
 
 import Vapor
 import HTTP
+import Auth
+import Turnstile
 
-final class UserController: ResourceRepresentable {
-    func index(request: Request) throws -> ResponseRepresentable {
-        return try User.all().makeNode().converted(to: JSON.self)
+final class UserController {
+
+    func register(_ request: Request) throws -> ResponseRepresentable {
+        guard let email = request.data[Prop.email]?.string,
+            let password = request.data[Prop.password]?.string else
+        {
+            throw Abort.custom(status: Status.badRequest, message: "Missing email or password")
+        }
+
+        let credentials = UsernamePassword(username: email,
+                                           password: password)
+
+        // Try to register the user
+        do {
+            let user = try User.register(credentials: credentials) as? User
+            if var user = user,
+                let name = request.data[Prop.name]?.string
+            {
+                user.name = name
+                try user.save()
+            }
+            try request.auth.login(credentials)
+
+            return try JSON(node: AuthUserModel(request.user()).makeNode())
+
+        } catch let e as TurnstileError {
+            throw Abort.custom(status: Status.badRequest, message: e.description)
+        }
     }
-    
-    func create(request: Request) throws -> ResponseRepresentable {
+
+    func login(_ request: Request)throws -> ResponseRepresentable {
+        guard let email = request.data[Prop.email]?.string,
+            let password = request.data[Prop.password]?.string else
+        {
+                throw Abort.custom(status: Status.badRequest, message: "Missing email or password")
+        }
+
+        let credentials = UsernamePassword(username: email,
+                                           password: password)
+
+        do {
+            try request.auth.login(credentials)
+            return try JSON(node: AuthUserModel(request.user()).makeNode())
+
+        } catch let e {
+            throw Abort.custom(status: Status.badRequest, message: e.localizedDescription)
+//            throw Abort.custom(status: Status.badRequest, message: "Invalid username or password")
+        }
+    }
+
+    func logout(request: Request) throws -> ResponseRepresentable {
+        // Invalidate the current access token
         var user = try request.user()
+        user.token = ""
         try user.save()
-        return user
+
+        // Clear the session
+        request.subject.logout()
+        return Response()
     }
-    
-    func show(request: Request, user: User) throws -> ResponseRepresentable {
-        return user
+
+    func validateAccessToken(request: Request) throws -> ResponseRepresentable {
+        var user = try request.user()
+        guard !user.token.isEmpty else {
+            throw Abort.badRequest
+        }
+
+        // ???
+        // Check if the token is expired, or invalid and generate a new one
+        if try user.validateToken() {
+            try user.save()
+        }
+
+        return Response()
     }
-    
-    func delete(request: Request, user: User) throws -> ResponseRepresentable {
-        try user.delete()
-        return JSON([:])
-    }
-    
-    func clear(request: Request) throws -> ResponseRepresentable {
-        try User.query().delete()
-        return JSON([])
-    }
-    
-    func update(request: Request, user: User) throws -> ResponseRepresentable {
-        let new = try request.user()
-        var user = user
-        user.uid = new.uid
-        user.name = new.name
-        try user.save()
-        return user
-    }
-    
-    func replace(request: Request, user: User) throws -> ResponseRepresentable {
-        try user.delete()
-        return try create(request: request)
-    }
-    
-    func makeResource() -> Resource<User> {
-        return Resource(
-            index: index,
-            store: create,
-            show: show,
-            replace: replace,
-            modify: update,
-            destroy: delete,
-            clear: clear
-        )
+
+    // MARK: Custom Endpoints
+
+    func me(request: Request) throws -> ResponseRepresentable {
+        return try JSON(node: request.user().makeNode())
     }
 }
 
 extension Request {
-    func user() throws -> User {
-        guard let json = json else { throw Abort.badRequest }
-        return try User(node: json)
+
+    // ???
+    // Base URL returns the hostname, scheme, and port in a URL string form.
+    var baseURL: String {
+        return uri.scheme + "://" + uri.host + (uri.port == nil ? "" : ":\(uri.port!)")
+    }
+
+    // ???
+    // Exposes the Turnstile subject, as Vapor has a facade on it.
+    var subject: Subject {
+        return storage["subject"] as! Subject
     }
 }

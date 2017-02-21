@@ -1,0 +1,35 @@
+var _user$project$State$canSave = function (model) {
+	return (!model.requesting) && ((!_elm_lang$core$String$isEmpty(model.title)) && (_elm_lang$core$String$isEmpty(model.uid) || model.hasEdited));
+};
+var _user$project$State$canRestore = function (model) {
+	return (!model.requesting) && ((!_elm_lang$core$String$isEmpty(model.uid)) && model.hasEdited);
+};
+var _user$project$State$canClear = function (model) {
+	return (!model.requesting) && (_elm_lang$core$String$isEmpty(model.uid) && (!(_elm_lang$core$String$isEmpty(model.title) && _elm_lang$core$String$isEmpty(model.info))));
+};
+var _user$project$State$canAdd = function (model) {
+	var hasUnsavedTrip = function () {
+		var _p0 = _elm_lang$core$List$head(
+			A2(
+				_elm_lang$core$List$filter,
+				function (t) {
+					return _elm_lang$core$String$isEmpty(t.uid);
+				},
+				model.trips));
+		if (_p0.ctor === 'Nothing') {
+			return false;
+		} else {
+			return true;
+		}
+	}();
+	return (!model.requesting) && ((!_elm_lang$core$String$isEmpty(model.uid)) && (!hasUnsavedTrip));
+};
+var _user$project$State$canRegister = function (model) {
+	return !(_elm_lang$core$String$isEmpty(model.name) || (_elm_lang$core$String$isEmpty(model.email) || _elm_lang$core$String$isEmpty(model.password)));
+};
+var _user$project$State$canLogin = function (model) {
+	return !(_elm_lang$core$String$isEmpty(model.email) || _elm_lang$core$String$isEmpty(model.password));
+};
+var _user$project$State$hasLoggedIn = function (model) {
+	return !_elm_lang$core$String$isEmpty(model.token);
+};

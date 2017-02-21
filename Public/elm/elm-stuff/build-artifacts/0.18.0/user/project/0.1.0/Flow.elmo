@@ -1,0 +1,538 @@
+var _user$project$Flow$PostTrip = function (a) {
+	return {ctor: 'PostTrip', _0: a};
+};
+var _user$project$Flow$postTrip = function (trip) {
+	var request = A3(
+		_elm_lang$http$Http$post,
+		'/trip',
+		_elm_lang$http$Http$jsonBody(
+			_user$project$Model$tripEncoder(trip)),
+		_user$project$Model$tripDecoder);
+	var _p0 = A2(_user$project$Func$log, 'postTrip uid:', trip.uid);
+	return A2(_elm_lang$http$Http$send, _user$project$Flow$PostTrip, request);
+};
+var _user$project$Flow$postTripJoin = F2(
+	function (tripId, userId) {
+		var request = A3(
+			_elm_lang$http$Http$post,
+			'/trip/join',
+			_elm_lang$http$Http$jsonBody(
+				A2(_user$project$Model$tripUserIdEncoder, tripId, userId)),
+			_user$project$Model$tripDecoder);
+		var _p1 = A2(
+			_user$project$Func$log,
+			'postTripJoin uid:',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				tripId,
+				A2(_elm_lang$core$Basics_ops['++'], ' userId:', userId)));
+		return A2(_elm_lang$http$Http$send, _user$project$Flow$PostTrip, request);
+	});
+var _user$project$Flow$postTripLeave = F2(
+	function (tripId, userId) {
+		var request = A3(
+			_elm_lang$http$Http$post,
+			'/trip/leave',
+			_elm_lang$http$Http$jsonBody(
+				A2(_user$project$Model$tripUserIdEncoder, tripId, userId)),
+			_user$project$Model$tripDecoder);
+		var _p2 = A2(
+			_user$project$Func$log,
+			'postTripLeave uid:',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				tripId,
+				A2(_elm_lang$core$Basics_ops['++'], ' userId:', userId)));
+		return A2(_elm_lang$http$Http$send, _user$project$Flow$PostTrip, request);
+	});
+var _user$project$Flow$GetTrip = function (a) {
+	return {ctor: 'GetTrip', _0: a};
+};
+var _user$project$Flow$getTrip = function (uid) {
+	var request = A2(
+		_elm_lang$http$Http$get,
+		A2(_elm_lang$core$Basics_ops['++'], '/trip/', uid),
+		_user$project$Model$tripDecoder);
+	var _p3 = A2(_user$project$Func$log, 'getTrip uid:', uid);
+	return A2(_elm_lang$http$Http$send, _user$project$Flow$GetTrip, request);
+};
+var _user$project$Flow$AddTripIfNeeded = {ctor: 'AddTripIfNeeded'};
+var _user$project$Flow$GetTrips = function (a) {
+	return {ctor: 'GetTrips', _0: a};
+};
+var _user$project$Flow$getTrips = function () {
+	var request = A2(_elm_lang$http$Http$get, '/trips', _user$project$Model$tripsDecoder);
+	var _p4 = _user$project$Func$log('getTrips');
+	return A2(_elm_lang$http$Http$send, _user$project$Flow$GetTrips, request);
+}();
+var _user$project$Flow$PostLogin = function (a) {
+	return {ctor: 'PostLogin', _0: a};
+};
+var _user$project$Flow$login = function (authUser) {
+	var _p5 = A2(_user$project$Func$log, 'login email:', authUser.email);
+	return A2(
+		_elm_lang$http$Http$send,
+		_user$project$Flow$PostLogin,
+		A3(
+			_simonh1000$elm_jwt$Jwt$authenticate,
+			'/login',
+			_user$project$Model$authUserDecoder,
+			_user$project$Model$authUserEncoder(authUser)));
+};
+var _user$project$Flow$PostRegister = function (a) {
+	return {ctor: 'PostRegister', _0: a};
+};
+var _user$project$Flow$register = function (authUser) {
+	var _p6 = A2(_user$project$Func$log, 'register email:', authUser.email);
+	return A2(
+		_elm_lang$http$Http$send,
+		_user$project$Flow$PostRegister,
+		A3(
+			_elm_lang$http$Http$post,
+			'/register',
+			_elm_lang$http$Http$jsonBody(
+				_user$project$Model$authUserEncoder(authUser)),
+			_user$project$Model$authUserDecoder));
+};
+var _user$project$Flow$update = F2(
+	function (msg, model) {
+		update:
+		while (true) {
+			var _p7 = msg;
+			switch (_p7.ctor) {
+				case 'NoOp':
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						model,
+						{ctor: '[]'});
+				case 'Name':
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_elm_lang$core$Native_Utils.update(
+							model,
+							{name: _p7._0}),
+						{ctor: '[]'});
+				case 'Email':
+					var _p8 = A2(
+						_user$project$Func$log,
+						'Cred email',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							model.email,
+							A2(_elm_lang$core$Basics_ops['++'], ' pw: ', model.password)));
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_elm_lang$core$Native_Utils.update(
+							model,
+							{email: _p7._0}),
+						{ctor: '[]'});
+				case 'Password':
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_elm_lang$core$Native_Utils.update(
+							model,
+							{password: _p7._0}),
+						{ctor: '[]'});
+				case 'Register':
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{requesting: true}),
+						_1: _user$project$Flow$register(
+							_user$project$Model$makeAuthUser(model))
+					};
+				case 'Login':
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{requesting: true}),
+						_1: _user$project$Flow$login(
+							_user$project$Model$makeAuthUser(model))
+					};
+				case 'Logout':
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_elm_lang$core$Native_Utils.update(
+							model,
+							{token: ''}),
+						{ctor: '[]'});
+				case 'PostRegister':
+					if (_p7._0.ctor === 'Ok') {
+						var _p10 = _p7._0._0;
+						var _p9 = A2(
+							_user$project$Func$log,
+							'PostRegister ok',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								' email:',
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									_p10.email,
+									A2(_elm_lang$core$Basics_ops['++'], ' token:', _p10.token))));
+						return A2(
+							_elm_lang$core$Platform_Cmd_ops['!'],
+							_elm_lang$core$Native_Utils.update(
+								model,
+								{requesting: false, userUid: _p10.uid, name: _p10.name, email: _p10.email, password: _p10.password, token: _p10.token}),
+							{ctor: '[]'});
+					} else {
+						var _p11 = A2(_user$project$Func$log, 'PostRegister err', _p7._0._0);
+						return A2(
+							_elm_lang$core$Platform_Cmd_ops['!'],
+							_elm_lang$core$Native_Utils.update(
+								model,
+								{requesting: false, token: ''}),
+							{ctor: '[]'});
+					}
+				case 'PostLogin':
+					if (_p7._0.ctor === 'Ok') {
+						var _p13 = _p7._0._0;
+						var _p12 = A2(
+							_user$project$Func$log,
+							'PostLogin ok',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								' email:',
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									_p13.email,
+									A2(_elm_lang$core$Basics_ops['++'], ' token:', _p13.token))));
+						return A2(
+							_elm_lang$core$Platform_Cmd_ops['!'],
+							_elm_lang$core$Native_Utils.update(
+								model,
+								{requesting: false, userUid: _p13.uid, name: _p13.name, email: _p13.email, password: _p13.password, token: _p13.token}),
+							{ctor: '[]'});
+					} else {
+						var _p14 = A2(_user$project$Func$log, 'PostLogin err', _p7._0._0);
+						return A2(
+							_elm_lang$core$Platform_Cmd_ops['!'],
+							_elm_lang$core$Native_Utils.update(
+								model,
+								{requesting: false, token: ''}),
+							{ctor: '[]'});
+					}
+				case 'Add':
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_elm_lang$core$Native_Utils.update(
+							model,
+							{
+								uid: '',
+								title: '',
+								date: '',
+								address: '',
+								info: '',
+								hasEdited: false,
+								trips: A2(
+									_elm_lang$core$Basics_ops['++'],
+									{
+										ctor: '::',
+										_0: _user$project$Model$emptyTrip,
+										_1: {ctor: '[]'}
+									},
+									model.trips)
+							}),
+						{ctor: '[]'});
+				case 'Delete':
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_elm_lang$core$Native_Utils.update(
+							model,
+							{
+								trips: A2(
+									_elm_lang$core$List$filter,
+									function (t) {
+										return !_elm_lang$core$Native_Utils.eq(t.uid, _p7._0);
+									},
+									model.trips)
+							}),
+						{ctor: '[]'});
+				case 'Edit':
+					var _p16 = _p7._0;
+					var trip = A2(
+						_elm_lang$core$Maybe$withDefault,
+						{
+							uid: '',
+							title: '',
+							date: '',
+							address: '',
+							info: '',
+							owningUsers: {ctor: '[]'},
+							joinedUsers: {ctor: '[]'}
+						},
+						_elm_lang$core$List$head(
+							A2(
+								_elm_lang$core$List$filter,
+								function (trip) {
+									return _elm_lang$core$Native_Utils.eq(trip.uid, _p16);
+								},
+								model.trips)));
+					var _p15 = A2(_user$project$Func$log, 'Edit uid:', _p16);
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_elm_lang$core$Native_Utils.update(
+							model,
+							{uid: _p16, title: trip.title, date: trip.date, address: trip.address, info: trip.info, owningUsers: trip.owningUsers, joinedUsers: trip.joinedUsers, hasEdited: false}),
+						{ctor: '[]'});
+				case 'Title':
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_elm_lang$core$Native_Utils.update(
+							model,
+							{title: _p7._0, hasEdited: true}),
+						{ctor: '[]'});
+				case 'Address':
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_elm_lang$core$Native_Utils.update(
+							model,
+							{address: _p7._0, hasEdited: true}),
+						{ctor: '[]'});
+				case 'Info':
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_elm_lang$core$Native_Utils.update(
+							model,
+							{info: _p7._0, hasEdited: true}),
+						{ctor: '[]'});
+				case 'JoinTrip':
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{requesting: true}),
+						_1: A2(_user$project$Flow$postTripJoin, model.uid, model.userUid)
+					};
+				case 'LeaveTrip':
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{requesting: true}),
+						_1: A2(_user$project$Flow$postTripLeave, model.uid, model.userUid)
+					};
+				case 'Reset':
+					var _p17 = _elm_lang$core$String$isEmpty(model.uid);
+					if (_p17 === true) {
+						return A2(
+							_elm_lang$core$Platform_Cmd_ops['!'],
+							_elm_lang$core$Native_Utils.update(
+								model,
+								{title: '', date: '', address: '', info: '', hasEdited: false}),
+							{ctor: '[]'});
+					} else {
+						return {
+							ctor: '_Tuple2',
+							_0: _elm_lang$core$Native_Utils.update(
+								model,
+								{requesting: true}),
+							_1: _user$project$Flow$getTrip(model.uid)
+						};
+					}
+				case 'Save':
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{requesting: true}),
+						_1: _user$project$Flow$postTrip(
+							_user$project$Model$makeTrip(model))
+					};
+				case 'GetTrips':
+					if (_p7._0.ctor === 'Ok') {
+						var _p20 = _p7._0._0;
+						var containsCurTrip = function () {
+							var _p18 = _elm_lang$core$List$head(
+								A2(
+									_elm_lang$core$List$filter,
+									function (t) {
+										return _elm_lang$core$Native_Utils.eq(t.uid, model.uid);
+									},
+									_p20));
+							if (_p18.ctor === 'Nothing') {
+								return false;
+							} else {
+								return true;
+							}
+						}();
+						var _p19 = A2(
+							_user$project$Func$log,
+							'GetTrips ok count:',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(
+									_elm_lang$core$List$length(_p20)),
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									' trips: ',
+									_elm_lang$core$Basics$toString(_p20))));
+						var _v3 = _user$project$Flow$AddTripIfNeeded,
+							_v4 = _elm_lang$core$Native_Utils.update(
+							model,
+							{
+								requesting: false,
+								uid: containsCurTrip ? model.uid : '',
+								trips: _p20
+							});
+						msg = _v3;
+						model = _v4;
+						continue update;
+					} else {
+						var _p21 = A2(_user$project$Func$log, 'GetTrips err', _p7._0._0);
+						return A2(
+							_elm_lang$core$Platform_Cmd_ops['!'],
+							_elm_lang$core$Native_Utils.update(
+								model,
+								{requesting: false}),
+							{ctor: '[]'});
+					}
+				case 'AddTripIfNeeded':
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_elm_lang$core$Native_Utils.update(
+							model,
+							{
+								trips: function () {
+									var _p22 = _elm_lang$core$List$head(
+										A2(
+											_elm_lang$core$List$filter,
+											function (t) {
+												return _elm_lang$core$Native_Utils.eq(t.uid, model.uid);
+											},
+											model.trips));
+									if (_p22.ctor === 'Nothing') {
+										var _p23 = A2(_user$project$Func$log, 'AddTripIfNeeded adding', model.uid);
+										return A2(
+											_elm_lang$core$Basics_ops['++'],
+											{
+												ctor: '::',
+												_0: _user$project$Model$makeTrip(model),
+												_1: {ctor: '[]'}
+											},
+											model.trips);
+									} else {
+										return model.trips;
+									}
+								}()
+							}),
+						{ctor: '[]'});
+				case 'GetTrip':
+					if (_p7._0.ctor === 'Ok') {
+						var _p25 = _p7._0._0;
+						var _p24 = A2(_user$project$Func$log, 'GetTrip ok', _p25);
+						return A2(
+							_elm_lang$core$Platform_Cmd_ops['!'],
+							_elm_lang$core$Native_Utils.update(
+								model,
+								{requesting: false, uid: _p25.uid, title: _p25.title, date: _p25.date, address: _p25.address, info: _p25.info, owningUsers: _p25.owningUsers, joinedUsers: _p25.joinedUsers, hasEdited: false}),
+							{ctor: '[]'});
+					} else {
+						var _p26 = A2(_user$project$Func$log, 'GetTrip err', _p7._0._0);
+						return A2(
+							_elm_lang$core$Platform_Cmd_ops['!'],
+							_elm_lang$core$Native_Utils.update(
+								model,
+								{requesting: false}),
+							{ctor: '[]'});
+					}
+				default:
+					if (_p7._0.ctor === 'Ok') {
+						var _p32 = _p7._0._0;
+						var updateTrip = function (t) {
+							return _elm_lang$core$Native_Utils.eq(t.uid, _p32.uid) ? _elm_lang$core$Native_Utils.update(
+								t,
+								{title: _p32.title, date: _p32.date, address: _p32.address, info: _p32.info, owningUsers: _p32.owningUsers, joinedUsers: _p32.joinedUsers}) : t;
+						};
+						var upsertedTrips = function () {
+							var _p27 = _elm_lang$core$List$head(
+								A2(
+									_elm_lang$core$List$filter,
+									function (t) {
+										return _elm_lang$core$Native_Utils.eq(t.uid, _p32.uid);
+									},
+									model.trips));
+							if (_p27.ctor === 'Nothing') {
+								var _p28 = A2(_user$project$Func$log, 'upsertedTrips didn\'t find', _p32.uid);
+								return A2(
+									_elm_lang$core$Basics_ops['++'],
+									{
+										ctor: '::',
+										_0: _p32,
+										_1: {ctor: '[]'}
+									},
+									A2(
+										_elm_lang$core$List$filter,
+										function (t) {
+											return !_elm_lang$core$Native_Utils.eq(t.uid, '');
+										},
+										model.trips));
+							} else {
+								var _p29 = A2(_user$project$Func$log, 'upsertedTrips did find', _p32.uid);
+								return A2(_elm_lang$core$List$map, updateTrip, model.trips);
+							}
+						}();
+						var _p30 = A2(_user$project$Func$log, 'model uid', model.uid);
+						var _p31 = A2(_user$project$Func$log, 'PostTrip ok', _p32);
+						return (_elm_lang$core$String$isEmpty(model.uid) || _elm_lang$core$Native_Utils.eq(model.uid, _p32.uid)) ? A2(
+							_elm_lang$core$Platform_Cmd_ops['!'],
+							_elm_lang$core$Native_Utils.update(
+								model,
+								{requesting: false, uid: _p32.uid, title: _p32.title, date: _p32.date, address: _p32.address, info: _p32.info, owningUsers: _p32.owningUsers, joinedUsers: _p32.joinedUsers, hasEdited: false, trips: upsertedTrips}),
+							{ctor: '[]'}) : A2(
+							_elm_lang$core$Platform_Cmd_ops['!'],
+							_elm_lang$core$Native_Utils.update(
+								model,
+								{
+									requesting: false,
+									hasEdited: false,
+									trips: A2(_elm_lang$core$List$map, updateTrip, model.trips)
+								}),
+							{ctor: '[]'});
+					} else {
+						var _p33 = A2(_user$project$Func$log, 'PostTrip err', _p7._0._0);
+						return A2(
+							_elm_lang$core$Platform_Cmd_ops['!'],
+							_elm_lang$core$Native_Utils.update(
+								model,
+								{requesting: false}),
+							{ctor: '[]'});
+					}
+			}
+		}
+	});
+var _user$project$Flow$Save = {ctor: 'Save'};
+var _user$project$Flow$Reset = {ctor: 'Reset'};
+var _user$project$Flow$LeaveTrip = {ctor: 'LeaveTrip'};
+var _user$project$Flow$JoinTrip = {ctor: 'JoinTrip'};
+var _user$project$Flow$Info = function (a) {
+	return {ctor: 'Info', _0: a};
+};
+var _user$project$Flow$Address = function (a) {
+	return {ctor: 'Address', _0: a};
+};
+var _user$project$Flow$Title = function (a) {
+	return {ctor: 'Title', _0: a};
+};
+var _user$project$Flow$Edit = function (a) {
+	return {ctor: 'Edit', _0: a};
+};
+var _user$project$Flow$Delete = function (a) {
+	return {ctor: 'Delete', _0: a};
+};
+var _user$project$Flow$Add = {ctor: 'Add'};
+var _user$project$Flow$Logout = {ctor: 'Logout'};
+var _user$project$Flow$Login = {ctor: 'Login'};
+var _user$project$Flow$Register = {ctor: 'Register'};
+var _user$project$Flow$Password = function (a) {
+	return {ctor: 'Password', _0: a};
+};
+var _user$project$Flow$Email = function (a) {
+	return {ctor: 'Email', _0: a};
+};
+var _user$project$Flow$Name = function (a) {
+	return {ctor: 'Name', _0: a};
+};
+var _user$project$Flow$NoOp = {ctor: 'NoOp'};

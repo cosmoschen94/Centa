@@ -8,8 +8,10 @@
 
 import Foundation
 import HTTP
+import Auth
+import Vapor
 
-extension HTTP.Request {
+extension Request {
     func idFromReferer() -> String? {
         guard let referer = headers["Referer"] else { return nil }
         let comps = referer.components(separatedBy: "/")
