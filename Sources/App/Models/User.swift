@@ -5,7 +5,7 @@ import Auth
 import Turnstile
 import BCrypt
 import HTTP
-import VaporJWT
+import JWT
 
 // MARK: Client Schema - don't remove fields after production
 
