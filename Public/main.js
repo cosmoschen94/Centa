@@ -13678,14 +13678,14 @@ var _user$project$View$viewTrips = function (model) {
 var _user$project$View$viewUser = function (user) {
 	return A2(
 		_elm_lang$html$Html$label,
-		{ctor: '[]'},
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html$text(
-				A2(
-					_elm_lang$core$Basics_ops['++'],
-					'  ',
-					A2(_elm_lang$core$Basics_ops['++'], user.name, '...'))),
+			_0: _elm_lang$html$Html_Attributes$class('trip-member'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text(user.name),
 			_1: {ctor: '[]'}
 		});
 };
@@ -13699,16 +13699,9 @@ var _user$project$View$viewKeyedUser = function (user) {
 var _user$project$View$viewUsers = function (users) {
 	var _p1 = A2(_elm_lang$core$Debug$log, 'viewUsers ', users);
 	return A2(
-		_elm_lang$html$Html$section,
+		_elm_lang$html$Html_Keyed$ol,
 		{ctor: '[]'},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html_Keyed$ol,
-				{ctor: '[]'},
-				A2(_elm_lang$core$List$map, _user$project$View$viewKeyedUser, users)),
-			_1: {ctor: '[]'}
-		});
+		A2(_elm_lang$core$List$map, _user$project$View$viewKeyedUser, users));
 };
 var _user$project$View$viewTrip = function (model) {
 	return A2(
@@ -13733,7 +13726,7 @@ var _user$project$View$viewTrip = function (model) {
 							_0: _elm_lang$html$Html_Events$onInput(_user$project$Flow$Title),
 							_1: {
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$class('trip-address'),
+								_0: _elm_lang$html$Html_Attributes$class('trip-title'),
 								_1: {ctor: '[]'}
 							}
 						}
@@ -13966,130 +13959,130 @@ var _user$project$View$viewTrip = function (model) {
 														_1: {
 															ctor: '::',
 															_0: A2(
-																_elm_lang$html$Html$label,
-																{ctor: '[]'},
+																_elm_lang$html$Html$div,
 																{
 																	ctor: '::',
-																	_0: _elm_lang$html$Html$text('Trip Members:'),
+																	_0: _elm_lang$html$Html_Attributes$class('group'),
 																	_1: {ctor: '[]'}
+																},
+																{
+																	ctor: '::',
+																	_0: A2(
+																		_elm_lang$html$Html$label,
+																		{ctor: '[]'},
+																		{
+																			ctor: '::',
+																			_0: _elm_lang$html$Html$text('Trip Members:'),
+																			_1: {ctor: '[]'}
+																		}),
+																	_1: {
+																		ctor: '::',
+																		_0: A2(_elm_lang$html$Html_Lazy$lazy, _user$project$View$viewUsers, model.joinedUsers),
+																		_1: {ctor: '[]'}
+																	}
 																}),
 															_1: {
 																ctor: '::',
 																_0: A2(
-																	_elm_lang$html$Html$div,
+																	_elm_lang$html$Html$textarea,
 																	{
 																		ctor: '::',
-																		_0: _elm_lang$html$Html_Attributes$class('group'),
-																		_1: {ctor: '[]'}
-																	},
-																	{
-																		ctor: '::',
-																		_0: A2(_elm_lang$html$Html_Lazy$lazy, _user$project$View$viewUsers, model.joinedUsers),
-																		_1: {ctor: '[]'}
-																	}),
-																_1: {
-																	ctor: '::',
-																	_0: A2(
-																		_elm_lang$html$Html$textarea,
-																		{
+																		_0: _elm_lang$html$Html_Attributes$cols(40),
+																		_1: {
 																			ctor: '::',
-																			_0: _elm_lang$html$Html_Attributes$cols(40),
+																			_0: _elm_lang$html$Html_Attributes$rows(16),
 																			_1: {
 																				ctor: '::',
-																				_0: _elm_lang$html$Html_Attributes$rows(16),
+																				_0: _elm_lang$html$Html_Attributes$placeholder('Info...'),
 																				_1: {
 																					ctor: '::',
-																					_0: _elm_lang$html$Html_Attributes$placeholder('Info...'),
+																					_0: _elm_lang$html$Html_Attributes$value(model.info),
 																					_1: {
 																						ctor: '::',
-																						_0: _elm_lang$html$Html_Attributes$value(model.info),
+																						_0: _elm_lang$html$Html_Events$onInput(_user$project$Flow$Info),
 																						_1: {
 																							ctor: '::',
-																							_0: _elm_lang$html$Html_Events$onInput(_user$project$Flow$Info),
-																							_1: {
-																								ctor: '::',
-																								_0: _elm_lang$html$Html_Attributes$class('trip-info'),
-																								_1: {ctor: '[]'}
-																							}
+																							_0: _elm_lang$html$Html_Attributes$class('trip-info'),
+																							_1: {ctor: '[]'}
 																						}
 																					}
 																				}
 																			}
+																		}
+																	},
+																	{ctor: '[]'}),
+																_1: {
+																	ctor: '::',
+																	_0: A2(
+																		_elm_lang$html$Html$div,
+																		{
+																			ctor: '::',
+																			_0: _elm_lang$html$Html_Attributes$class('btn-group'),
+																			_1: {ctor: '[]'}
 																		},
-																		{ctor: '[]'}),
-																	_1: {
-																		ctor: '::',
-																		_0: A2(
-																			_elm_lang$html$Html$div,
-																			{
-																				ctor: '::',
-																				_0: _elm_lang$html$Html_Attributes$class('btn-group'),
-																				_1: {ctor: '[]'}
-																			},
-																			{
+																		{
+																			ctor: '::',
+																			_0: A2(
+																				_elm_lang$html$Html$button,
+																				{
+																					ctor: '::',
+																					_0: _elm_lang$html$Html_Events$onClick(_user$project$Flow$Reset),
+																					_1: {
+																						ctor: '::',
+																						_0: _elm_lang$html$Html_Attributes$class('btn btn-secondary mr-1'),
+																						_1: {
+																							ctor: '::',
+																							_0: _elm_lang$html$Html_Attributes$disabled(
+																								!(_user$project$Func$canClear(model) || _user$project$Func$canRestore(model))),
+																							_1: {ctor: '[]'}
+																						}
+																					}
+																				},
+																				{
+																					ctor: '::',
+																					_0: _elm_lang$html$Html$text(
+																						_user$project$Func$canClear(model) ? 'Clear' : 'Restore'),
+																					_1: {ctor: '[]'}
+																				}),
+																			_1: {
 																				ctor: '::',
 																				_0: A2(
 																					_elm_lang$html$Html$button,
 																					{
 																						ctor: '::',
-																						_0: _elm_lang$html$Html_Events$onClick(_user$project$Flow$Reset),
+																						_0: _elm_lang$html$Html_Events$onClick(_user$project$Flow$Save),
 																						_1: {
 																							ctor: '::',
-																							_0: _elm_lang$html$Html_Attributes$class('btn btn-secondary mr-1'),
+																							_0: _elm_lang$html$Html_Attributes$class('btn btn-primary ml-1 mr-3'),
 																							_1: {
 																								ctor: '::',
 																								_0: _elm_lang$html$Html_Attributes$disabled(
-																									!(_user$project$Func$canClear(model) || _user$project$Func$canRestore(model))),
+																									!_user$project$Func$canSave(model)),
 																								_1: {ctor: '[]'}
 																							}
 																						}
 																					},
 																					{
 																						ctor: '::',
-																						_0: _elm_lang$html$Html$text(
-																							_user$project$Func$canClear(model) ? 'Clear' : 'Restore'),
+																						_0: _elm_lang$html$Html$text('Save'),
 																						_1: {ctor: '[]'}
 																					}),
-																				_1: {
-																					ctor: '::',
-																					_0: A2(
-																						_elm_lang$html$Html$button,
-																						{
-																							ctor: '::',
-																							_0: _elm_lang$html$Html_Events$onClick(_user$project$Flow$Save),
-																							_1: {
-																								ctor: '::',
-																								_0: _elm_lang$html$Html_Attributes$class('btn btn-primary ml-1 mr-3'),
-																								_1: {
-																									ctor: '::',
-																									_0: _elm_lang$html$Html_Attributes$disabled(
-																										!_user$project$Func$canSave(model)),
-																									_1: {ctor: '[]'}
-																								}
-																							}
-																						},
-																						{
-																							ctor: '::',
-																							_0: _elm_lang$html$Html$text('Save'),
-																							_1: {ctor: '[]'}
-																						}),
-																					_1: {ctor: '[]'}
-																				}
-																			}),
+																				_1: {ctor: '[]'}
+																			}
+																		}),
+																	_1: {
+																		ctor: '::',
+																		_0: A2(
+																			_elm_lang$html$Html$br,
+																			{ctor: '[]'},
+																			{ctor: '[]'}),
 																		_1: {
 																			ctor: '::',
 																			_0: A2(
 																				_elm_lang$html$Html$br,
 																				{ctor: '[]'},
 																				{ctor: '[]'}),
-																			_1: {
-																				ctor: '::',
-																				_0: A2(
-																					_elm_lang$html$Html$br,
-																					{ctor: '[]'},
-																					{ctor: '[]'}),
-																				_1: {ctor: '[]'}
-																			}
+																			_1: {ctor: '[]'}
 																		}
 																	}
 																}
@@ -14188,7 +14181,7 @@ var _user$project$View$viewAuthUser = function (model) {
 					_1: {
 						ctor: '::',
 						_0: A2(
-							_elm_lang$html$Html$br,
+							_elm_lang$html$Html$span,
 							{ctor: '[]'},
 							{ctor: '[]'}),
 						_1: {
@@ -14200,7 +14193,7 @@ var _user$project$View$viewAuthUser = function (model) {
 									_0: _elm_lang$html$Html_Events$onClick(_user$project$Flow$Logout),
 									_1: {
 										ctor: '::',
-										_0: _elm_lang$html$Html_Attributes$class('btn btn-primary'),
+										_0: _elm_lang$html$Html_Attributes$class('btn btn-secondary'),
 										_1: {
 											ctor: '::',
 											_0: _elm_lang$html$Html_Attributes$disabled(model.requesting),

@@ -39,10 +39,10 @@ viewAuthUser model =
             [ label [] [ text "My Info" ]
             , br [] []
             , label [] [ text ("Hello " ++ model.name ++ "!!") ]
-            , br [] []
+            , span [] []
             , button
                 [ onClick Logout
-                , class "btn btn-primary"
+                , class "btn btn-secondary"
                 , disabled model.requesting
                 ]
                 [ text "Logout" ]
@@ -104,7 +104,7 @@ viewTrip model =
             [ placeholder "Enter Title..."
             , value (model.title)
             , onInput Title
-            , class "trip-address"
+            , class "trip-title"
             ]
             []
         , br [] []
@@ -169,9 +169,10 @@ viewTrip model =
         , div [ class "group" ]
             [ lazy viewUsers model.owningUsers ]
 
-        , label [] [ text "Trip Members:" ]
         , div [ class "group" ]
-            [ lazy viewUsers model.joinedUsers ]
+            [ label [] [ text "Trip Members:" ]
+            , lazy viewUsers model.joinedUsers 
+            ]
 
         -- Info
         , textarea
@@ -206,8 +207,7 @@ viewUsers : List User -> Html Msg
 viewUsers users =
     let _ = Debug.log "viewUsers " users
     in
-        section []
-            [ Keyed.ol [] <| List.map viewKeyedUser users ]
+        Keyed.ol [] <| List.map viewKeyedUser users 
 
 viewKeyedUser : User -> ( String, Html Msg )
 viewKeyedUser user =
@@ -215,7 +215,7 @@ viewKeyedUser user =
 
 viewUser : User -> Html Msg
 viewUser user =
-    label [] [ text ("  " ++ user.name ++ "...") ]
+    label [ class "trip-member" ] [ text (user.name) ]
 
 -- View Trip Entries
 
